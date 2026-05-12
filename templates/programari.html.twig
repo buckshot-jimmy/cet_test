@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+{% block title %}MIND RESET - Programari{% endblock %}
+{% block tableTitle %}Programari pacienti<b>{{ medicLogat }}</b>{% endblock %}
+{% set class = 'add_programare' %}
+{% block classAddBtn %}{{ class }}{% endblock %}
+{% block addBtnText %}Adauga{% endblock %}
+{% block table %}
+    <table class="table table-bordered rounded dataTable display nowrap" id="programari" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;"></table>
+{% endblock %}
+{% block addModal %}
+    {% include 'modals/add_edit_programare_modal.html.twig' %}
+    {% include 'modals/deschide_cons_inv_modal.html.twig' %}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/programari.js') }}"></script>
+    <script src="{{ asset('assets/js/pacienti.js') }}"></script>
+{% endblock %}

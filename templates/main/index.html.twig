@@ -1,0 +1,209 @@
+{% extends 'base.html.twig' %}
+{% block title %}MIND RESET - Administrare{% endblock %}
+{% block classAddBtn %}{{ 'no_show' }}{% endblock %}
+{% block classHeader %}{{ 'no_show' }}{% endblock %}
+{% block cards %}
+    {% set user = app.user %}
+    {% set rolUtilizator = app.user.role %}
+    {% set rolMedic = 'ROLE_Medic' %}
+    {% set rolPsiholog = 'ROLE_Psiholog' %}
+    {% if rolUtilizator == rolMedic or rolUtilizator == rolPsiholog %}
+        <input type="hidden" id="show_chart_medic" value="1" />
+        <div class="row">
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Numar total pacienti </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><b>{{ valoriCabinet.nrTotalPacienti }}</b></div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-wheelchair fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Numar total servicii medicale </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ valoriCabinet.nrTotalPrestatii }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-h-square fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Numar pacienti consultati - {{ user.nume ~ " " ~ user.prenume }}</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ consultatiiPacientiMedic.nrPacientiMedic }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-wheelchair fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-danger shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Numar servicii medicale - {{ user.nume ~ " " ~ user.prenume }}</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ consultatiiPacientiMedic.nrServiciiMedic }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-h-square fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
+        <input type="hidden" id="show_chart_medic" value="0" />
+        <div class="row">
+            <div class="col-xl-6 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Numar total pacienti </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800"><b>{{ valoriCabinet.nrTotalPacienti }}</b></div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-wheelchair fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Numar total servicii medicale </div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ valoriCabinet.nrTotalPrestatii }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-h-square fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+    <div class="row">
+        <div class="col-xl-12 col-lg-7">
+            <div class="card shadow mb-4">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h6 class="m-0 font-weight-bold text-primary">Graficul numarului de pacienti</h6>
+                </div>
+                <div class="card-body">
+                    <div class="chart-area"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                        <canvas id="incasariPeLuni" width="1037" height="320" class="chartjs-render-monitor" style="display: block; width: 1037px; height: 320px;"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if rolUtilizator == rolMedic or rolUtilizator == rolPsiholog %}
+        <div class="row">
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-primary shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Valoare servicii - <b>{{ user.nume ~ " " ~ user.prenume }}</b> (RON)</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ valoriMedic.total[0].valoare }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-euro-sign fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-success shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Incasari - <b>{{ user.nume ~ " " ~ user.prenume }}</b> (RON)</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ valoriMedic.total[0].comision|number_format(2) }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-euro-sign fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-warning shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Valoare servicii - <b>{{ luna }} - {{ user.nume ~ " " ~ user.prenume }}</b>  (RON)</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ valoriMedic.luna[0].valoare }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-euro-sign fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-3 col-md-6 mb-4">
+                <div class="card border-left-danger shadow h-100 py-2">
+                    <div class="card-body">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col mr-2">
+                                <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">Incasari - <b>{{ luna }} - {{ user.nume ~ " " ~ user.prenume }}</b>  (RON)</div>
+                                <div class="h5 mb-0 font-weight-bold text-gray-800">{{ valoriMedic.luna[0].comision|number_format(2) }}</div>
+                            </div>
+                            <div class="col-auto">
+                                <i class="fas fa-euro-sign fa-2x text-gray-300"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12 col-lg-7">
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                        <h6 class="m-0 font-weight-bold text-primary">Grafic incasari - {{ user.nume ~ " " ~ user.prenume }}</h6>
+                    </div>
+                    <div class="card-body">
+                        <div class="chart-area"><div class="chartjs-size-monitor"><div class="chartjs-size-monitor-expand"><div class=""></div></div><div class="chartjs-size-monitor-shrink"><div class=""></div></div></div>
+                            <canvas id="incasariMediciPeLuni" width="1037" height="320" class="chartjs-render-monitor" style="display: block; width: 1037px; height: 320px;"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+{% block addModal %}
+    {% include 'modals/change_password_modal.html.twig' %}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/app_js/charts_min.js') }}"></script>
+    <script src="{{ asset('assets/js/app_js/charts.js') }}"></script>
+{% endblock %}

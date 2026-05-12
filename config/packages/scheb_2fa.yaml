@@ -1,0 +1,12 @@
+scheb_two_factor:
+    email:
+        enabled: true
+        sender_email: noreply@mindreset.ro
+        sender_name: MIND RESET
+        digits: 6
+        template: security/2fa_form.html.twig
+        mailer: App\Services\AuthService
+    security_tokens:
+        - Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken
+        - Symfony\Component\Security\Http\Authenticator\Token\PostAuthenticationToken
+        - Scheb\TwoFactorBundle\Security\Authentication\Token\TwoFactorToken

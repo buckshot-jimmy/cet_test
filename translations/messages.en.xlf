@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="ro" target-language="en" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="vyZsA__" resname="Failed operation">
+        <source>Failed operation</source>
+        <target>__Failed operation</target>
+      </trans-unit>
+      <trans-unit id="rTFEF91" resname="Successful operation">
+        <source>Successful operation</source>
+        <target>__Successful operation</target>
+      </trans-unit>
+      <trans-unit id="9xoApz3" resname="An error occured">
+        <source>An error occured</source>
+        <target>__An error occured</target>
+      </trans-unit>
+      <trans-unit id="r6xCcbn" resname="Invoice attached">
+        <source>Invoice attached</source>
+        <target>__Invoice attached</target>
+      </trans-unit>
+      <trans-unit id="Zmc7KUF" resname="Invoice already credited">
+        <source>Invoice already credited</source>
+        <target>__Invoice already credited</target>
+      </trans-unit>
+      <trans-unit id="x14Tpve" resname="Owner has open consultations">
+        <source>Owner has open consultations</source>
+        <target>__Owner has open consultations</target>
+      </trans-unit>
+      <trans-unit id="miS6rdT" resname="Patient has consultations or appointments.">
+        <source>Patient has consultations or appointments.</source>
+        <target>__Patient has consultations or appointments.</target>
+      </trans-unit>
+      <trans-unit id=".v2LpaA" resname="Exists">
+        <source>Exists</source>
+        <target>__Exists</target>
+      </trans-unit>
+      <trans-unit id="CG7_p2Q" resname="Invalid token">
+        <source>Invalid token</source>
+        <target>__Invalid token</target>
+      </trans-unit>
+      <trans-unit id=".oxgJFa" resname="Appointment cancelled">
+        <source>Appointment cancelled</source>
+        <target>__Appointment cancelled</target>
+      </trans-unit>
+      <trans-unit id="Oi_fWMC" resname="Unavailable time for doctor">
+        <source>Unavailable time for doctor</source>
+        <target>__Unavailable time for doctor</target>
+      </trans-unit>
+      <trans-unit id="VW_r7lx" resname="Consultation appointment">
+        <source>Consultation appointment</source>
+        <target>__Consultation appointment</target>
+      </trans-unit>
+      <trans-unit id="z9cih2K" resname="It can be paid">
+        <source>It can be paid</source>
+        <target>__It can be paid</target>
+      </trans-unit>
+      <trans-unit id="Y97D4YF" resname="There is a report for the selected data">
+        <source>There is a report for the selected data</source>
+        <target>__There is a report for the selected data</target>
+      </trans-unit>
+      <trans-unit id="Sahia_i" resname="No amounts to pay">
+        <source>No amounts to pay</source>
+        <target>__No amounts to pay</target>
+      </trans-unit>
+      <trans-unit id="X7vnC_p" resname="Data collection success">
+        <source>Data collection success</source>
+        <target>__Data collection success</target>
+      </trans-unit>
+      <trans-unit id="NXVyXNw" resname="Password changed">
+        <source>Password changed</source>
+        <target>__Password changed</target>
+      </trans-unit>
+      <trans-unit id="SheT6ZA" resname="User not found">
+        <source>User not found</source>
+        <target>__User not found</target>
+      </trans-unit>
+      <trans-unit id="PyRyfxB" resname="You have already requested a password reset">
+        <source>You have already requested a password reset</source>
+        <target>__You have already requested a password reset</target>
+      </trans-unit>
+      <trans-unit id="4O3_s6c" resname="Reset password">
+        <source>Reset password</source>
+        <target>__Reset password</target>
+      </trans-unit>
+      <trans-unit id="f3zWe89" resname="Invalid reset link">
+        <source>Invalid reset link</source>
+        <target>__Invalid reset link</target>
+      </trans-unit>
+      <trans-unit id="JJz.ItQ" resname="Passwords are not equal">
+        <source>Passwords are not equal</source>
+        <target>__Passwords are not equal</target>
+      </trans-unit>
+      <trans-unit id="ewipSWx" resname="Invalid 2FA request">
+        <source>Invalid 2FA request</source>
+        <target>__Invalid 2FA request</target>
+      </trans-unit>
+      <trans-unit id=".z.Hh8L" resname="2FA code is invalid. Please login again or request a new code.">
+        <source>2FA code is invalid. Please login again or request a new code.</source>
+        <target>__2FA code is invalid. Please login again or request a new code.</target>
+      </trans-unit>
+      <trans-unit id="vYH6_YT" resname="Could not send a new 2FA token. Please try again">
+        <source>Could not send a new 2FA token. Please try again</source>
+        <target>__Could not send a new 2FA token. Please try again</target>
+      </trans-unit>
+      <trans-unit id="_6Y84Bn" resname="A new 2FA token was sent to your email">
+        <source>A new 2FA token was sent to your email</source>
+        <target>__A new 2FA token was sent to your email</target>
+      </trans-unit>
+      <trans-unit id="zBHUFdk" resname="Access denied">
+        <source>Access denied</source>
+        <target>__Access denied</target>
+      </trans-unit>
+      <trans-unit id="oTSwi5F" resname="Failed sending email">
+        <source>Failed sending email</source>
+        <target>__Failed sending email</target>
+      </trans-unit>
+      <trans-unit id="peFKWNc" resname="Email sent">
+        <source>Email sent</source>
+        <target>__Email sent</target>
+      </trans-unit>
+      <trans-unit id="button.add">
+        <source>button.add</source>
+        <target>Add</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        div.dotted_div {
+            border-bottom: 2px dotted #000;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+<table style="width: 100%;">
+    <tr>
+        <td style="width: 400px; border-bottom: none; border-top: none; border-right: none; border-left: none;">
+            <br />
+            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{ data.owner.denumire }}</b></div>
+            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>CUI: {{ data.owner.cui }}</b></div>
+            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Dr. {{ data.medic.nume ~ " " ~ data.medic.prenume }}</b></div>
+            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contract/conventie nr. ...............................</div>
+            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CAS ............................................................</div>
+            <br />
+        </td>
+        <td style="border-bottom: none; border-top: none; border-right: none; border-left: none;">
+            <img style="margin-left:140px; width: 250px; height: 120px;" src="{{ asset('assets/sigla_pdf.png') }}" alt="MIND RESET">
+        </td>
+    </tr>
+</table>
+<div style="text-align: center; font-family: Arial,sans-serif; margin-bottom: 20px; margin-top: 20px;">
+    <h2><b>REFERAT MEDICAL</b></h2>
+</div>
+<div style="font-family: Arial,sans-serif">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Privind pe dl/dna <b>{{ data.pacient.nume ~ " " ~ data.pacient.prenume }}</b>, nascut la data de {{ data.pacient.dataNasterii }}, CNP <b>{{ data.pacient.cnp }}</b>,
+    cu domiciuliul in {{ data.pacient.adresa }}, localitatea {{ data.pacient.localitate }}, judetul/sectorul {{ data.pacient.judet }}, a fost evaluat in
+    serviciul nostru la data de <b>{{ data.dataConsultatie }}</b>, nr. registru de consultatii <b>{{ data.nrInreg }}</b>
+</div>
+<div class="dotted_div" style="font-family: Arial,sans-serif; margin-top: 10px;">
+    <b>Diagnostic clinic:</b><br>
+
+    {% for line in data.diagnostic %}
+        {{ line }}<br/>
+    {% endfor %}
+</div>
+<div class="dotted_div">&nbsp;</div>
+<div class="dotted_div">&nbsp;</div>
+<div class="dotted_div" style="font-family: Arial,sans-serif; margin-top: 10px;">
+    <b>Anamneza *):</b><br>
+    <span style="font-style: italic;">AHC:</span><br/>
+    {% for line in data.ahc %}
+        &nbsp;&nbsp;&nbsp;{{ line }}<br/>
+    {% endfor %}
+    <span style="font-style: italic;">APP:</span><br />
+    {% for line in data.app %}
+        &nbsp;&nbsp;&nbsp;{{ line }}<br/>
+    {% endfor %}
+</div>
+<div class="dotted_div">&nbsp;</div>
+<div class="dotted_div">&nbsp;</div>
+<div style="font-family: Arial,sans-serif; margin-top: 10px;">
+    <b>Examen obiectiv detaliat *):</b> Î=________ cm, G=________ kg, TA=________ mmHg, AV=________ b/min
+    {% for line in data.consultatie %}
+        {{ line }}<br/>
+    {% endfor %}
+</div>
+<div class="dotted_div">&nbsp;</div>
+<div class="dotted_div">&nbsp;</div>
+<div class="dotted_div" style="font-family: Arial,sans-serif; margin-top: 10px;">
+    <b>Investigatii clinice, paraclinice *):</b><br>
+    {% for line in data.investigatiiUrmate %}
+        {{ line }}<br/>
+    {% endfor %}
+</div>
+<div class="dotted_div">&nbsp;</div>
+<div class="dotted_div">&nbsp;</div>
+<div class="dotted_div" style="font-family: Arial,sans-serif; margin-top: 10px;">
+    <b>Tratamente urmate *):</b><br>
+    {% for line in data.tratamenteUrmate %}
+        {{ line }}<br/>
+    {% endfor %}
+</div>
+<div class="dotted_div">&nbsp;</div>
+<div class="dotted_div">&nbsp;</div>
+<div>
+    <div class="dotted_div" style="font-family: Arial,sans-serif; margin-top: 10px;">
+        <b>Observatii:</b><br>
+        {% for line in data.observatii %}
+            {{ line }}<br/>
+        {% endfor %}
+    </div>
+    <div class="dotted_div">&nbsp;</div>
+    <div class="dotted_div">&nbsp;</div>
+    <table style="width: 100%; font-size: 16px; margin-top: 40px;">
+        <tr>
+            <td style="width: 400px; border-bottom: none; border-top: none; border-right: none; border-left: none;">
+                <b>Data {{ data.dataConsultatie }}</b><br/><br/><br/><br/><br/><br/>
+            </td>
+            <td style="border-bottom: none; border-top: none; border-right: none; border-left: none; text-align: center;">
+                <b>Semnatura si parafa medicului,</b><br>
+                Dr. {{ data.medic.nume ~ " " ~ data.medic.prenume }}<br>
+                {{ data.medic.denumireTitulatura ~ " " ~ data.medic.denumireSpecialitate}}<br>
+                {{ data.medic.codParafa }}
+            </td>
+        </tr>
+    </table>
+    <div style="margin-top: 140px; color: grey; font-size: 10px; font-family: Arial,sans-serif;">
+        *) Datele înscrise trebuie sa sustina diagnosticul clinic, stadiul evolutiv al afectiunilor prezentate.
+        Pentru bolnavi netransportabili, referatul medical trebuie sa contina date care sa justifice, din punct de vedere
+        medical, imposibilitatea deplasarii.</div><hr style="margin-top: 5px;">
+</div>
+</body>
+</html>

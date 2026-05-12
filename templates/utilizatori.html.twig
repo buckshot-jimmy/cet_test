@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+{% block title %}MIND RESET - Utilizatori{% endblock %}
+{% block tableTitle %}Utilizatori{% endblock %}
+{% if app.user.getRole() != 'ROLE_Administrator' %}
+    {% set class = 'no_show' %}
+{% else %}
+    {% set class = 'add_user' %}
+{% endif %}
+{% block classAddBtn %}{{ class }}{% endblock %}
+{% block table %}
+    <table class="table table-bordered rounded dataTable display nowrap" id="utilizatori" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;"></table>
+{% endblock %}
+{% block addModal %}
+    {% include 'modals/add_edit_user_modal.html.twig' %}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/utilizatori.js') }}"></script>
+{% endblock %}

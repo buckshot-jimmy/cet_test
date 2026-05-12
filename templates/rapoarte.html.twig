@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+{% block tableTitle %}Rapoarte plati medici colaboratori{% endblock %}
+{% block table %}
+    <table class="table table-bordered rounded dataTable display nowrap" id="rapoarte_colaboratori" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;"></table>
+{% endblock %}
+{% if app.user.getRole() != 'ROLE_Administrator' %}
+    {% set class = 'no_show' %}
+{% else %}
+    {% set class = 'add_raport_colaboratori' %}
+{% endif %}
+{% block classAddBtn %}{{ class }}{% endblock %}
+{% block addBtnText %}Genereaza{% endblock %}
+{% block addModal %}
+    {% include 'modals/add_raport_colaboratori_modal.html.twig' %}
+    {% include 'modals/plateste_colaborator_modal.html.twig' %}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/rapoarte.js') }}"></script>
+{% endblock %}

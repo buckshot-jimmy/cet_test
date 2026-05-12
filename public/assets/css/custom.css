@@ -1,0 +1,285 @@
+.btn-inside {
+    text-align: right;
+}
+.table-scroll-margin {
+    margin-bottom: 20px !important;
+}
+.add_user_modal {
+    display: none; !important
+}
+input, label {
+    display:inline-block;
+}
+.modal_stergere, .modal_inchide_deschide {
+    display: none; !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+.dataTables_filter {
+    float: right !important;
+}
+table.table-bordered.dataTable {
+    border-right-width: 1px !important;
+}
+.add_serviciu {
+    margin-right: 15px !important;
+    margin-left: 15px !important;
+}
+.no_show {
+    display: none;
+}
+.modal_consultatie_content, .modal_investigatie_content, .modal_eval_psiho_content, .view_modal_consultatie_content,
+.view_modal_investigatie_content, .view_modal_eval_psiho_content {
+    width: 1365px;
+    top:auto;
+    right:87%;
+    left:auto;
+    bottom:10%;
+}
+.modal_raport_colaboratori_content {
+    width: 1000px;
+    right: 45%;
+    left:auto;
+}
+.sigla_mare {
+    margin-top: 20px;
+    margin-bottom: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 180px;
+    height: 100px;
+    box-shadow: 0 0 38px 4px white;
+}
+.sigla_mica {
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+    width: 80px;
+    height: 35px;
+    box-shadow: 0 0 10px 1px white;
+}
+.sigla_login {
+    width: 100%;
+    height: auto;
+}
+.istoric_btn {
+    margin-bottom: 10px;
+}
+.istoric_a {
+    color: white !important;
+    pointer-events: none;
+    cursor: not-allowed;
+}
+.has-danger {
+    color: red;
+}
+.modal_pacient_content {
+    width: 800px;
+    right:30%;
+    left:auto;
+}
+.pret_content {
+    width: 800px;
+    right:30%;
+    left:auto;
+}
+.cons_inv_content {
+    width: 1365px;
+    right: 85%;
+    left:auto;
+    height: 700px;
+}
+.servicii_documente_content, .consultatii_nefacturate_content {
+    width: 1200px;
+    right: 60%;
+    left:auto;
+    height: 500px;
+}
+.modal-dialog {
+    overflow-y: initial
+}
+.modal-body {
+    overflow-y: auto;
+}
+.preturi_checkboxes {
+    margin-top: 20px;
+}
+.preturi_title {
+    margin-top: 20px;
+    text-align: center;
+}
+.incasare_content {
+    width: 1000px;
+    right: 45%;
+    left:auto;
+}
+.select2-container--default .select2-selection--single {
+    height: 38px !important;
+    border: 1px solid #d1d3e2 !important;
+    border-radius: .35rem !important;
+    color: #858796 !important;
+}
+.select2-selection__rendered {
+    color: #858796 !important;
+}
+input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+.no_padding_link {
+    padding: 5px !important;
+    margin-left: 15px;
+}
+.tooltip-inner {
+    text-align: left!important;
+    background-color: dodgerblue;
+}
+.tooltip .arrow::before {
+    display: none;
+}
+.dropdown_consultatii_cons, .dropdown_investigatii_cons, .dropdown_toate_cons,
+.dropdown_consultatii_inv, .dropdown_investigatii_inv, .dropdown_toate_inv {
+    height: 100px;
+    overflow-y: auto;
+    position: absolute; will-change: transform; top: 0; left: 0; transform: translate3d(83px, 31px, 0px) !important;
+}
+.rezultat_operatiune_success {
+    font-weight: bold;
+    background: lightgreen;
+    color: darkgreen;
+    border-radius: 40px;
+}
+.rezultat_operatiune_fail {
+    font-weight: bold;
+    background: lightpink;
+    color: red;
+    border-radius: 40px;
+}
+.rezultat_operatiune_info {
+    font-weight: bold;
+    background: lightskyblue;
+    color: darkblue;
+    border-radius: 40px;
+}
+#div_servicii_documente, #div_consultatii_nefacturate {
+    border: 1px solid black;
+    width: 100%;
+    margin-top: 20px;
+    padding-left: 15px;
+    padding-top: 15px;
+}
+
+#_remember_me {
+    display: none;
+}
+.checkmark-style {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    padding: 12px;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+}
+
+.checkmark-style:hover {
+    background: #f8fafc;
+}
+
+.checkmark-style .check-box {
+    position: relative;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #d1d5db;
+    border-radius: 6px;
+    margin-right: 12px;
+    transition: all 0.3s ease;
+}
+
+.checkmark-style .check-box::after {
+    content: '';
+    position: absolute;
+    left: 7px;
+    top: 2px;
+    width: 5px;
+    height: 11px;
+    border: solid white;
+    border-width: 0 2.5px 2.5px 0;
+    transform: rotate(45deg) scale(0);
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+input[type="checkbox"]:checked + .checkmark-style .check-box {
+    background: #4e73df;
+    border-color: #4e73df;
+}
+
+input[type="checkbox"]:checked + .checkmark-style .check-box::after {
+    transform: rotate(45deg) scale(1);
+}
+
+#programare_pacient + .select2-container .select2-selection__arrow {
+    display: none;
+}
+#factura_pacient + .select2-container .select2-selection__arrow {
+    display: none;
+}
+#factura_pj + .select2-container .select2-selection__arrow {
+    display: none;
+}
+
+#programare_pacient + .select2-container .select2-selection--single {
+    height: 38px;
+    display: flex;
+    align-items: center;
+}
+#factura_pacient + .select2-container .select2-selection--single {
+    height: 38px;
+    display: flex;
+    align-items: center;
+}
+#factura_pj + .select2-container .select2-selection--single {
+    height: 38px;
+    display: flex;
+    align-items: center;
+}
+
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    color: #555;
+}
+
+.marquee span {
+    display: inline-block;
+    padding-left: 100%;
+    animation: scroll-left 10s linear infinite;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+.dual-wrapper {
+    position: relative;
+}
+
+.left-label {
+    position: absolute;
+    left: 10%;
+    top: -20px;
+}
+
+.right-label {
+    position: absolute;
+    right: 10%;
+    top: -20px;
+}
+.confirma_preia_cons, .confirma_preia_inv, .confirma_preia_eval {
+    margin-top: 55px;
+}

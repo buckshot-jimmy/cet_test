@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Factura</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #000;
+        }
+        h1 {
+            text-align: center;
+        }
+        .row {
+            margin-bottom: 30px;
+        }
+        .box {
+            float:left;
+            width:33%;
+            font-size: 14px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        table, th, td {
+            border: 1px solid #000;
+        }
+        th, td {
+            padding: 10px;
+            font-size: 14px;
+            text-align: center;
+        }
+        .right {
+            text-align: right;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 14px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+        .invoice-info {
+            border: 1px solid #000;
+            margin-top: 30px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        .footer-table {
+            width: 100%;
+        }
+        .footer-table > td {
+            padding: 5px;
+        }
+        .footer {
+            position: fixed;
+            bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="box">
+            <div style="height: 50px;"></div>
+            <strong>Furnizor:</strong><br>
+            {{ data.furnizor.denumire }}<br>
+            Nr. Reg. Com: {{ data.furnizor.regCom }}<br>
+            Cap. social: {{ data.furnizor.capitalSocial }}<br>
+            CUI: {{ data.furnizor.cui }}<br>
+            Sediul: {{ data.furnizor.adresa }}<br>
+            IBAN: {{ data.furnizor.contBancar }}<br>
+            Banca: {{ data.furnizor.banca }}
+        </div>
+        <div class="box">
+            <img style="width: 300px; height: 200px; margin-bottom: 30px;" src="{{ asset('assets/sigla_pdf.png') }}" alt="MIND RESET">
+            <h1>Factura</h1>
+            <div class="invoice-info">
+                Nr. factura: {{ data.nrFactura }}<br>
+                Data: {{ data.dataFactura }}
+            </div>
+        </div>
+        <div class="box right">
+            <div style="height: 50px;"></div>
+            <strong>Cumparator:</strong><br>
+            {{ data.cumparator.nume is defined ? data.cumparator.nume ~ ' ' ~ data.cumparator.prenume : data.cumparator.denumire }} <br>
+            {{ data.cumparator.adresa }} <br>
+            {{ data.cumparator.cnp is defined ? 'CNP ' ~ data.cumparator.cnp : 'CUI ' ~ data.cumparator.cui }}
+        </div>
+    </div>
+    <p style="font-size: small; margin-bottom: 0;">Cota TVA: „Scutit de TVA conform art. 292 Cod Fiscal”</p>
+    <table>
+        <tr>
+            <th>Nr. crt.</th>
+            <th>Denumirea serviciilor</th>
+            <th>U.M.</th>
+            <th>Cantitate</th>
+            <th>Pret unitar - lei</th>
+            <th>Valoare - lei</th>
+        </tr>
+        {% for crt, serviciu in data.consultatii %}
+            <tr>
+                <td>{{ crt + 1 }}</td>
+                <td>{{ serviciu.pret.serviciu.denumire ~ ' / ' ~ serviciu.dataConsultatie | date("d-m-Y") }}</td>
+                <td>BUC</td>
+                <td>1</td>
+                <td>{{ serviciu.tarif }}</td>
+                <td>{{ serviciu.tarif }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% if data.stornata %}
+        <p class="row">Storno la factura {{ data.stornata }}</p>
+    {% endif %}
+</div>
+<div class="footer">
+    <table class="footer-table">
+        <tr>
+            <td rowspan="2" style="width: 20%; vertical-align: top; text-align: left;">
+                <strong>Semnatura si stampila furnizorului</strong><br><br>
+            </td>
+            <td rowspan="2" style="width: 40%; vertical-align: top; text-align: left;">
+                <strong>Date privind expeditia</strong><br><br>
+                Numele delegatului: {{ data.consultatii[0].pacient.nume ~ ' ' ~  data.consultatii[0].pacient.prenume}}<br>
+                Buletin/C.I.: {{ data.consultatii[0].pacient.ci }}, eliberata de: {{ data.consultatii[0].pacient.ciEliberat }}<br>
+                Mijlocul de transport: <br>
+                Data si ora expedierii: {{ "now" | date_modify('+3 hours') | date("d-m-Y H:i") }}<br>
+                Semnaturile: <br>&nbsp;<br>&nbsp;<br>
+            </td>
+            <td rowspan="2" style="width: 15%; vertical-align: top;">
+                <strong>Semnatura de primire:</strong><br>
+            </td>
+            <td style="width: 25%; vertical-align: top;">
+                <strong>Total de plata - lei:</strong>
+                <br>&nbsp;<br><br>
+                <h2><strong>{{ data.total }}</strong></h2>
+            </td>
+        </tr>
+        <tr>
+            <td style="height: 60px;">
+                <strong>Termen de plata:</strong><br>&nbsp;<br>
+                <p>{{ data.scadenta|date("d-m-Y") }}</p>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

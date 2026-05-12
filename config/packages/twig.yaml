@@ -1,0 +1,10 @@
+twig:
+    debug: '%kernel.debug%'
+    strict_variables: true
+    globals:
+        fos_csrf_provider: "@security.csrf.token_manager"
+    paths:
+        '%kernel.project_dir%/templates': templates
+        '%kernel.project_dir%/templates/main': main
+        '%kernel.project_dir%/templates/security': security
+        '%kernel.project_dir%/templates/bundles/TwigBundle/Exception': exception

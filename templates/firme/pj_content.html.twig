@@ -1,0 +1,34 @@
+<div class="modal-header">
+    <h5 class="modal-title titlu_modal_pj">Adauga client persoana juridica</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span>&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form id="add_edit_pj_form">
+        <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <label for="denumire">Denumire *</label>
+                <input type="text" class="form-control" id="denumire" name="denumire" placeholder="Denumire" value="{{ data.denumire ?? '' }}">
+            </div>
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <label for="cui">CUI *</label>
+                <input type="text" class="form-control" id="cui" name="cui" placeholder="CUI" value="{{ data.cui ?? '' }}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <label for="adresa">Adresa *</label>
+                <input type="text" class="form-control" id="adresa" name="adresa" placeholder="Adresa" value="{{ data.adresa ?? '' }}">
+            </div>
+        </div>
+        <input type="hidden" id="pj_id" name="pj_id" value="{{ data.id ?? '' }}"/>
+    </form>
+</div>
+<div class="modal-footer">
+    <p class="modal-body rezultat_operatiune" style="display: none; margin-top: 10px; margin-bottom: 10px; font-weight: bold;"></p>
+    <button type="button" class="btn btn-primary confirma_pj">Confirma
+        <span class="spinner-border spinner-border-sm spinner" style="display: none;"></span>
+    </button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuleaza</button>
+</div>

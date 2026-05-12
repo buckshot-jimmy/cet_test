@@ -1,0 +1,47 @@
+<?php
+
+namespace App\EventSubscriber;
+
+use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\HttpFoundation\RequestStack;
+use Symfony\Component\HttpKernel\Event\RequestEvent;
+use Symfony\Component\HttpKernel\KernelEvents;
+use Symfony\Component\Security\Http\Util\TargetPathTrait;
+
+class RequestSubscriber implements EventSubscriberInterface
+{
+    use TargetPathTrait;
+
+    private $session;
+
+    public function __construct(RequestStack $requestStack)
+    {
+        $this->session = $requestStack->getCurrentRequest()->hasSession() ? $requestStack->getSession() : null;
+    }
+
+    public function onKernelRequest(RequestEvent $event): void
+    {
+        $request = $event->getRequest();
+
+        if (
+            !$event->isMainRequest()
+            || $request->isXmlHttpRequest()
+            || 'app_login' === $request->attributes->get('_route')
+        ) {
+            return;
+        }
+
+        if (!$this->session) {
+            return;
+        }
+
+        $this->saveTargetPath($this->session, 'main', $request->getUri());
+    }
+
+    public static function getSubscribedEvents()
+    {
+        return [
+            KernelEvents::REQUEST => ['onKernelRequest']
+        ];
+    }
+}

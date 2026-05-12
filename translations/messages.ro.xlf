@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="ro" target-language="ro" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="zBHUFdk" resname="Access denied">
+        <source>Access denied</source>
+        <target>Nu aveti acces la aceasta operatiune!</target>
+      </trans-unit>
+      <trans-unit id="jxnKAck" resname="There is currently no session available.">
+        <source>There is currently no session available.</source>
+        <target>Nu exista o sesiune curenta.</target>
+      </trans-unit>
+      <trans-unit id="ABnfxLM" resname="Not Found">
+        <source>Not Found</source>
+        <target>Negasit.</target>
+      </trans-unit>
+      <trans-unit id="5BZW6yu" resname="Internal Server Error">
+        <source>Internal Server Error</source>
+        <target>Eroare.</target>
+      </trans-unit>
+      <trans-unit id="fEG4mMX" resname="Bad Request">
+        <source>Bad Request</source>
+        <target>Eroare.</target>
+      </trans-unit>
+      <trans-unit id="0InIqfw" resname="Unauthorized">
+        <source>Unauthorized</source>
+        <target>Nu aveti acces la aceasta operatiune!</target>
+      </trans-unit>
+      <trans-unit id="eDQqCQW" resname="Forbidden">
+        <source>Forbidden</source>
+        <target>Acces interzis!</target>
+      </trans-unit>
+      <trans-unit id="9xoApz3" resname="An error occured">
+        <source>An error occured</source>
+        <target>A aparut o eroare.</target>
+      </trans-unit>
+      <trans-unit id="rTFEF91" resname="Successful operation">
+        <source>Successful operation</source>
+        <target>Operatiune reusita.</target>
+      </trans-unit>
+      <trans-unit id="vyZsA__" resname="Failed operation">
+        <source>Failed operation</source>
+        <target>Operatiune esuata.</target>
+      </trans-unit>
+      <trans-unit id="T7EnK1a" resname="Dr-Owner tariff in DB">
+        <source>Dr-Owner tariff in DB</source>
+        <target>Tariful pentru combinatia medic-serviciu-owner exista in baza de date.</target>
+      </trans-unit>
+      <trans-unit id="I8oYNva" resname="Negative tariff">
+        <source>Negative tariff</source>
+        <target>Tariful sau procentajul nu pot fi mai mici ca zero.</target>
+      </trans-unit>
+      <trans-unit id="Y1_BTB8" resname="Data not found">
+        <source>Data not found</source>
+        <target>Nu s-au gasit date.</target>
+      </trans-unit>
+      <trans-unit id="lhAtTKP" resname="Data collection error">
+        <source>Data collection error</source>
+        <target>Eroare la preluarea datelor.</target>
+      </trans-unit>
+      <trans-unit id="01zN8XH" resname="Template not found">
+        <source>Template not found</source>
+        <target>Nu exista formular.</target>
+      </trans-unit>
+      <trans-unit id="X7vnC_p" resname="Data collection success">
+        <source>Data collection success</source>
+        <target>Succes la preluarea datelor.</target>
+      </trans-unit>
+      <trans-unit id=".v2LpaA" resname="Exists">
+        <source>Exists</source>
+        <target>Exista.</target>
+      </trans-unit>
+      <trans-unit id="8E.z0Pv" resname="There is no tarif for this service">
+        <source>There is no tarif for this service</source>
+        <target>Nu exista tariful pentru acest serviciu.</target>
+      </trans-unit>
+      <trans-unit id="Y97D4YF" resname="There is a report for the selected data">
+        <source>There is a report for the selected data</source>
+        <target>Exista un raport generat pentru datele selectate.</target>
+      </trans-unit>
+      <trans-unit id="z9cih2K" resname="It can be paid">
+        <source>It can be paid</source>
+        <target>Se poate plati.</target>
+      </trans-unit>
+      <trans-unit id="Sahia_i" resname="No amounts to pay">
+        <source>No amounts to pay</source>
+        <target>Nu exista sume de platit pentru datele selectate.</target>
+      </trans-unit>
+      <trans-unit id="jGttURt" resname="Successful operation but failed to publish notification">
+        <source>Successful operation but failed to publish notification</source>
+        <target>Operatiune reusita dar nu s-a putut trimite notificare catre medic.</target>
+      </trans-unit>
+      <trans-unit id="NXVyXNw" resname="Password changed">
+        <source>Password changed</source>
+        <target>Parola a fost schimbata.</target>
+      </trans-unit>
+      <trans-unit id="JJz.ItQ" resname="Passwords are not equal">
+        <source>Passwords are not equal</source>
+        <target>Parolele nu se potrivesc.</target>
+      </trans-unit>
+      <trans-unit id="jWzl_Xn" resname="No tarrif">
+        <source>No tarrif</source>
+        <target>Nu exista tarif.</target>
+      </trans-unit>
+      <trans-unit id="atAOCtg" resname="Missing ID">
+        <source>Missing ID</source>
+        <target>ID lipsa.</target>
+      </trans-unit>
+      <trans-unit id="_s7fJXg" resname="You are not allowed to change your role">
+        <source>You are not allowed to change your role</source>
+        <target>Nu aveti permisiunea de a va schimba rolul.</target>
+      </trans-unit>
+      <trans-unit id="lsJJVzK" resname="Password cannot be the same as your current password">
+        <source>Password cannot be the same as your current password</source>
+        <target>Parola nu poate fi aceeasi cu parola curenta.</target>
+      </trans-unit>
+      <trans-unit id="DBOBP1t" resname="You are not allowed to change another user's password">
+        <source>You are not allowed to change another user's password</source>
+        <target>Nu aveti permisiunea de a modifica parola altui utilizator.</target>
+      </trans-unit>
+      <trans-unit id="JNdkZO8" resname="You are not allowed to change another administrator's password">
+        <source>You are not allowed to change another administrator's password</source>
+        <target>Nu aveti permisiunea de a modifica parola altui administrator.</target>
+      </trans-unit>
+      <trans-unit id="pNpICL_" resname="Test error">
+        <source>Test error</source>
+        <target>Eroare test.</target>
+      </trans-unit>
+      <trans-unit id="xXN2EWk" resname="Password is too weak. You should use one capital letter, one letter, one digit and one special character. It should be at least 6 characters long.">
+        <source>Password is too weak. You should use one capital letter, one letter, one digit and one special character. It should be at least 6 characters long.</source>
+        <target>Parola este prea slaba. Trebuie sa folosesti o litera mare, o litera mica, un numar si un caracter special. Trebuie sa fie cel putin 6 caractere.</target>
+      </trans-unit>
+      <trans-unit id="oTSwi5F" resname="Failed sending email">
+        <source>Failed sending email</source>
+        <target>Email-ul nu a putut fi trimis.</target>
+      </trans-unit>
+      <trans-unit id="peFKWNc" resname="Email sent">
+        <source>Email sent</source>
+        <target>Email-ul a fost trimis.</target>
+      </trans-unit>
+      <trans-unit id="f3zWe89" resname="Invalid reset link">
+        <source>Invalid reset link</source>
+        <target>Link-ul pentru resetare este invalid. Solicitati un nou link de resetare.</target>
+      </trans-unit>
+      <trans-unit id="wg.7ovU" resname="Enter a valid email address">
+        <source>Enter a valid email address</source>
+        <target>Introduceti o adresa de email valida.</target>
+      </trans-unit>
+      <trans-unit id="SheT6ZA" resname="User not found">
+        <source>User not found</source>
+        <target>Utilizatorul nu a fost gasit.</target>
+      </trans-unit>
+      <trans-unit id="F5ggQi4" resname="Please enter an email">
+        <source>Please enter an email</source>
+        <target>Introduceti o adresa de email.</target>
+      </trans-unit>
+      <trans-unit id="PyRyfxB" resname="You have already requested a password reset">
+        <source>You have already requested a password reset</source>
+        <target>Ai solicitat deja resetarea parolei.</target>
+      </trans-unit>
+      <trans-unit id="ewipSWx" resname="Invalid 2FA request">
+        <source>Invalid 2FA request</source>
+        <target>Cod de autentificare invalid.</target>
+      </trans-unit>
+      <trans-unit id=".z.Hh8L" resname="2FA code is invalid. Please login again or request a new code.">
+        <source>2FA code is invalid. Please login again or request a new code.</source>
+        <target>Codul de autentificare este invalid. Mergeti la pagina de login sau solicitati un nou cod.</target>
+      </trans-unit>
+      <trans-unit id="_6Y84Bn" resname="A new 2FA token was sent to your email">
+        <source>A new 2FA token was sent to your email</source>
+        <target>Un nou cod de autentificare a fost trimis la adresa de email.</target>
+      </trans-unit>
+      <trans-unit id="vYH6_YT" resname="Could not send a new 2FA token. Please try again">
+        <source>Could not send a new 2FA token. Please try again</source>
+        <target>Nu s-a putut trimite un nou cod de autentificare. Solicitati un nou cod.</target>
+      </trans-unit>
+      <trans-unit id="Oi_fWMC" resname="Unavailable time for doctor">
+        <source>Unavailable time for doctor</source>
+        <target>Ora indisponibila pentru medicul selectat.</target>
+      </trans-unit>
+      <trans-unit id="4O3_s6c" resname="Reset password">
+        <source>Reset password</source>
+        <target>Resetare parola</target>
+      </trans-unit>
+      <trans-unit id="VW_r7lx" resname="Consultation appointment">
+        <source>Consultation appointment</source>
+        <target>Programarea consultatie</target>
+      </trans-unit>
+      <trans-unit id="CG7_p2Q" resname="Invalid token">
+        <source>Invalid token</source>
+        <target>Token de anulare invalid.</target>
+      </trans-unit>
+      <trans-unit id=".oxgJFa" resname="Appointment cancelled">
+        <source>Appointment cancelled</source>
+        <target>Programarea a fost anulata.</target>
+      </trans-unit>
+      <trans-unit id="miS6rdT" resname="Patient has consultations or appointments.">
+        <source>Patient has consultations or appointments.</source>
+        <target>Pacientul are programari sau consultatii.</target>
+      </trans-unit>
+      <trans-unit id="_v.2Zqy" resname="Username already exists">
+        <source>Username already exists</source>
+        <target>Numele de utilizator exista deja.</target>
+      </trans-unit>
+      <trans-unit id="gcNAi7R" resname="Email already exists">
+        <source>Email already exists</source>
+        <target>Adresa de email exista deja.</target>
+      </trans-unit>
+      <trans-unit id="x14Tpve" resname="Owner has open consultations">
+        <source>Owner has open consultations</source>
+        <target>Owner-ul are consultatii deschise.</target>
+      </trans-unit>
+      <trans-unit id="r6xCcbn" resname="Invoice attached">
+        <source>Invoice attached</source>
+        <target>Factura atasata</target>
+      </trans-unit>
+      <trans-unit id="Zmc7KUF" resname="Invoice already credited">
+        <source>Invoice already credited</source>
+        <target>Factura este deja stornata.</target>
+      </trans-unit>
+      <trans-unit id="button.add">
+        <source>button.add</source>
+        <target>Adaugă</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

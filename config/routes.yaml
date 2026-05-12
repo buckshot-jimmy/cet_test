@@ -1,0 +1,359 @@
+login:
+  path: /
+  controller: App\Controller\SecurityController::login
+  methods: GET|POST
+
+get_token:
+  path: /get_token
+  methods: GET
+
+utilizatori_list:
+  path: /user/list
+  controller: App\Controller\UserController::list
+  methods: GET
+
+utilizatori_sterge:
+  path: /user/sterge
+  controller: App\Controller\UserController::sterge
+  methods: POST
+
+pacienti_list:
+  path: /pacienti/list
+  controller: App\Controller\PacientiController::list
+  methods: GET
+pacienti_cu_consultatii_list:
+  path: /pacienti/list_pacienti_cu_consultatii
+  controller: App\Controller\PacientiController::listPacientiCuConsultatii
+  methods: GET
+
+owners_list:
+  path: /owners/list
+  controller: App\Controller\OwnersController::list
+  methods: GET
+
+owner_sterge:
+  path: /owners/sterge_owner
+  controller: App\Controller\OwnersController::sterge
+  methods: POST
+
+pacienti_in_cabinet_list:
+  path: /pacienti/list_pacienti_in_cabinet
+  controller: App\Controller\PacientiController::listPacientiInCabinet
+  methods: GET
+
+get_user:
+  path: /user/get_user
+  controller: App\Controller\UserController::getUtilizator
+  methods: GET
+
+pacienti_sterge:
+  path: /pacienti/sterge_pacient
+  controller: App\Controller\PacientiController::sterge
+  methods: POST
+
+add_edit_pacient:
+  path: /pacienti/add_edit_pacient
+  controller: App\Controller\PacientiController::salveazaPacient
+  methods: POST
+
+add_edit_user:
+  path: /user/add_edit_user
+  controller: App\Controller\UserController::salveazaUtilizator
+  methods: POST
+
+get_pacient:
+  path: /pacienti/get_pacient
+  controller: App\Controller\PacientiController::getPacient
+  methods: GET
+
+get_pacienti_by_cnp:
+  path: /pacienti/get_pacienti_by_cnp
+  controller: App\Controller\PacientiController::getPacientiByCnp
+  methods: GET
+
+add_serviciu:
+  path: /servicii_preturi/add_serviciu
+  controller: App\Controller\ServiciiPreturiController::salveazaServiciu
+  methods: POST
+
+servicii_list:
+  path: /servicii_preturi/list
+  controller: App\Controller\ServiciiPreturiController::list
+  methods: GET
+
+add_edit_pret:
+  path: /servicii_preturi/add_edit_pret
+  controller: App\Controller\ServiciiPreturiController::salveazaPret
+  methods: POST
+
+sterge_pret:
+  path: /servicii_preturi/sterge_pret
+  controller: App\Controller\ServiciiPreturiController::stergePret
+  methods: POST
+
+get_pret:
+  path: /servicii_preturi/get_pret
+  controller: App\Controller\ServiciiPreturiController::getPret
+  methods: GET
+
+get_preturi_medic:
+  path: /servicii_preturi/get_preturi_medic
+  controller: App\Controller\ServiciiPreturiController::getPreturiForMedic
+  methods: GET
+
+list_consultatii_curente_cabinet:
+  path: /consultatii/list_consultatii_curente_cabinet
+  controller: App\Controller\ConsultatiiController::listConsultatiiCurenteCabinet
+  methods: GET
+
+sterge_consultatie:
+  path: /consultatii/sterge_consultatie
+  controller: App\Controller\ConsultatiiController::stergeConsultatie
+  methods: POST
+
+get_consultatie_investigatie_eval:
+  path: /consultatii/get_consultatie_investigatie_eval
+  controller: App\Controller\ConsultatiiController::getConsultatieInvestigatieEvaluare
+  methods: GET
+
+edit_consultatie:
+  path: /consultatii/edit_consultatie
+  controller: App\Controller\ConsultatiiController::salveazaConsultatie
+  methods: POST
+
+edit_investigatie:
+  path: /consultatii/edit_investigatie
+  controller: App\Controller\ConsultatiiController::salveazaInvestigatie
+  methods: POST
+
+edit_eval_psiho:
+  path: /consultatii/edit_eval_psiho
+  controller: App\Controller\ConsultatiiController::salveazaEvaluarePsihologica
+  methods: POST
+
+get_istoric_pacient:
+  path: /consultatii/get_istoric_pacient
+  controller: App\Controller\ConsultatiiController::getIstoricPacient
+  methods: GET
+
+add_edit_owner:
+  path: /owners/add_edit_owner
+  controller: App\Controller\OwnersController::salveazaOwner
+  methods: POST
+
+get_owner:
+  path: /owners/get_owner
+  controller: App\Controller\OwnersController::getOwner
+  methods: GET
+
+get_preturi:
+  path: /pacienti/get_preturi
+  controller: App\Controller\PacientiController::getPreturi
+  methods: GET
+
+deschide_sterge_consultatii:
+  path: /pacienti/deschide_sterge_consultatii
+  controller: App\Controller\PacientiController::deschideStergeConsultatii
+  methods: POST
+
+get_servicii_pacient:
+  path: /pacienti/get_servicii_pacient
+  controller: App\Controller\PacientiController::getServiciiPacient
+  methods: GET
+
+incaseaza_consultatii:
+  path: /pacienti/incaseaza_consultatii
+  controller: App\Controller\PacientiController::incaseazaConsultatii
+  methods: POST
+
+rapoarte_colaboratori_list:
+  path: /rapoarte/list_rapoarte_colaboratori
+  controller: App\Controller\RapoarteController::listRapoarteColaboratori
+  methods: GET
+
+rapoarte_colaboratori_save:
+  path: /rapoarte/add_raport_colaboratori
+  controller: App\Controller\RapoarteController::saveRapoarteColaboratori
+  methods: POST
+
+calculeaza_plata_colaborator:
+  path: /rapoarte/calculeaza_plata_colaborator
+  controller: App\Controller\RapoarteController::calculeazaPlataColaborator
+  methods: GET
+
+plateste_colaborator:
+  path: /rapoarte/plateste_colaborator
+  controller: App\Controller\RapoarteController::platesteColaborator
+  methods: POST
+
+pdf_plata_colaborator:
+  path: /rapoarte/pdf_plata_colaborator
+  controller: App\Controller\RapoarteController::pdf
+  methods: POST
+
+plata_colaborator:
+  path: /rapoarte/plata_colaborator
+  controller: App\Controller\RapoarteController::plataColaborator
+  methods: POST
+
+pdf_servicii_formulare:
+  path: /consultatii/pdf_servicii_formulare
+  controller: App\Controller\ConsultatiiController::pdfServiciiFormulare
+  methods: POST
+
+inchide_deschide:
+  path: /consultatii/inchide_deschide
+  controller: App\Controller\ConsultatiiController::inchideDeschide
+  methods: POST
+
+get_consultatii_luni:
+  path: /consultatii/get_consultatii_luni
+  controller: App\Controller\ConsultatiiController::getConsultatiiPeLuni
+  methods: GET
+
+get_incasari_medici_luni:
+  path: /consultatii/get_incasari_medici_luni
+  controller: App\Controller\ConsultatiiController::getIncasariMedicPeLuni
+  methods: GET
+
+salveaza_informare:
+  path: /security/salveaza_informare
+  controller: App\Controller\SecurityController::salveazaInformare
+  methods: POST
+
+get_informare:
+  path: /security/get_informare
+  controller: App\Controller\SecurityController::getInformare
+  methods: GET
+
+get_colaboratori_owner:
+  path: /rapoarte/get_colaboratori_owner
+  controller: App\Controller\RapoarteController::getColaboratoriOwner
+  methods: GET
+
+inchide_toate:
+  path: /pacienti/inchide_toate
+  controller: App\Controller\PacientiController::inchideToateConsInvPacient
+  methods: POST
+
+salveaza_noua_parola:
+  path: /security/salveaza_noua_parola
+  controller: App\Controller\SecurityController::salveazaNouaParola
+  methods: POST
+
+verifica_unicitate_cnp:
+  path: /pacienti/verifica_unicitate_cnp
+  controller: App\Controller\PacientiController::verificaUnicitateCnp
+  methods: POST
+
+reset_password:
+  path: /security/forgot_password_reset
+  controller: App\Controller\SecurityController::forgotPasswordReset
+  methods: [GET, POST]
+
+forgot_password_email:
+  path: /security/forgot_password_email
+  controller: App\Controller\SecurityController::forgotPasswordEmail
+  methods: [GET, POST]
+
+programari:
+  path: /programari
+  controller: App\Controller\ProgramariController::programari
+  methods: GET
+
+programari_list:
+  path: /programari/list_programari
+  controller: App\Controller\ProgramariController::list
+  methods: GET
+
+add_edit_programare:
+  path: /programari/add_edit_programare
+  controller: App\Controller\ProgramariController::adaugaProgramare
+  methods: POST
+
+get_programare:
+  path: /programari/get_programare
+  controller: App\Controller\ProgramariController::getProgramare
+  methods: GET
+
+anuleaza_programare:
+  path: /programari/anuleaza_programare
+  controller: App\Controller\ProgramariController::anuleazaProgramare
+  methods: POST
+
+check_availability:
+  path: /programari/check_availability
+  controller: App\Controller\ProgramariController::verificaDisponibilitate
+  methods: GET
+
+trimite_email_programare:
+  path: /programari/trimite_email_programare
+  controller: App\Controller\ProgramariController::trimiteEmailProgramare
+  methods: POST
+
+pacient_anuleaza_programare:
+  path: /programari/pacient_anuleaza_programare
+  controller: App\Controller\ProgramariController::pacientAnuleazaProgramare
+  methods: [GET, POST]
+
+clienti_pj:
+  path: /clienti_pj
+  controller: App\Controller\ClientiPjController::clientiPj
+  methods: GET
+clienti_pj_list:
+  path: /clienti_pj/list
+  controller: App\Controller\ClientiPjController::list
+  methods: GET
+add_edit_client_pj:
+  path: /add_edit_pj
+  controller: App\Controller\ClientiPjController::salveazaClientPj
+  methods: POST
+get_client_pj:
+  path: /get_client_pj
+  controller: App\Controller\ClientiPjController::getClientPj
+  methods: GET
+sterge_client_pj:
+  path: /sterge_client_pj
+  controller: App\Controller\ClientiPjController::sterge
+  methods: POST
+get_clienti_by_cui:
+  path: /get_clienti_pj_by_cui
+  controller: App\Controller\ClientiPjController::getClientiByCui
+  methods: GET
+
+facturi:
+  path: /facturi
+  controller: App\Controller\FacturiController::facturi
+  methods: GET
+facturi_list:
+  path: /facturi/list
+  controller: App\Controller\FacturiController::list
+  methods: GET
+salveaza_factura:
+  path: /facturi/salveaza_factura
+  controller: App\Controller\FacturiController::salveazaFactura
+  methods: POST
+pdf_factura:
+  path: /facturi/pdf_factura
+  controller: App\Controller\FacturiController::pdf
+  methods: POST
+email_factura:
+  path: /facturi/trimite_email_factura
+  controller: App\Controller\FacturiController::email
+  methods: POST
+storneaza_factura:
+  path: /facturi/storneaza_factura
+  controller: App\Controller\FacturiController::storneaza
+  methods: POST
+consultatii_nefacturate:
+  path: /facturi/consultatii_nefacturate
+  controller: App\Controller\FacturiController::consultatiiNefacturate
+  methods: GET
+consultatii_nefacturate_list:
+  path: /facturi/consultatii_nefacturate_list
+  controller: App\Controller\FacturiController::consultatiiNefacturateList
+  methods: GET
+consultatii_nefacturate_pacient:
+  path: /facturi/consultatii_nefacturate_pacient
+  controller: App\Controller\FacturiController::consultatiiNefacturatePacient
+  methods: GET

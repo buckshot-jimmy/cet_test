@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+{% set user = app.user %}
+{% set ROL_ADMIN = 'ROLE_Administrator' %}
+{% block title %}MIND RESET - Servicii si tarife{% endblock %}
+{% block tableTitle %}Servicii si tarife{% endblock %}
+{% block addBtnText %}Adauga tarif{% endblock %}
+{% block serviciiBtn %}
+    {% if user.role == ROL_ADMIN %}
+        <a href="#" class="btn btn-primary btn-icon-split btn-sm add_serviciu">
+            <span class="icon text-white-50">
+                <i class="fas fa-plus"></i>
+            </span><span class="text">Adauga serviciu</span>
+        </a>
+    {% endif %}
+{% endblock %}
+{% if user.role != ROL_ADMIN %}
+    {% set class = 'no_show' %}
+{% else %}
+    {% set class = 'add_pret' %}
+{% endif %}
+{% block classAddBtn %}{{ class }}{% endblock %}
+{% block table %}
+    <table class="table rounded table-bordered dataTable display nowrap" id="servicii_preturi" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;"></table>
+{% endblock %}
+{% block addModal %}
+    {% include 'modals/add_serviciu_modal.html.twig' %}
+    {% include 'modals/add_edit_pret_modal.html.twig' %}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/servicii_preturi.js') }}"></script>
+{% endblock %}

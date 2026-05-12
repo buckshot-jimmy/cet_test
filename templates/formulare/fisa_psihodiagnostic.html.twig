@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            border:1px solid black;
+            width: 300px;
+            font-family: Arial,sans-serif;
+        }
+        div, b {
+            font-family: Arial,sans-serif;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+<table style="width: 100%;">
+    <tr>
+        <td style="width: 400px; border-bottom: none; border-top: none; border-right: none; border-left: none;">
+            <br />
+            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{ data.owner.denumire }}</b></div>
+            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>CUI: {{ data.owner.cui }}</b></div>
+            <br /><br /><br /><br /><br /><br />
+        </td>
+        <td style="border-bottom: none; border-top: none; border-right: none; border-left: none;">
+            <img style="margin-left:140px; width: 250px; height: 120px;" src="{{ asset('assets/sigla_pdf.png') }}" alt="MIND RESET">
+        </td>
+    </tr>
+</table>
+<div style="width: 100%; text-align: center; font-weight: bold; font-size: 22px; color: #0f6674; margin-top: 40px; margin-bottom: 40px; font-family: Arial,sans-serif;">
+    RAPORT DE PSIHODIAGNOSTIC ȘI EVALUARE CLINICĂ
+</div>
+<div>
+    <b>I. Informaţii despre pacient:</b><br><br />
+    <table style="font-size: 26px;">
+        <tr>
+            <td><b>Nume:</b></td>
+            <td>{{ data.pacient.nume }}</td>
+            <td><b>Prenume:</b></td>
+            <td>{{ data.pacient.prenume }}</td>
+        </tr>
+        <tr>
+            <td><b>Varsta:</b></td>
+            <td>{{ data.pacient.varsta }}</td>
+            <td><b>Sex:</b></td>
+            <td>{{ data.pacient.sex }}</td>
+        </tr>
+        <tr>
+            <td><b>CNP:</b></td>
+            <td>{{ data.pacient.cnp }}</td>
+            <td><b>Judet:</b></td>
+            <td>{{ data.pacient.judet }}</td>
+        </tr>
+        <tr>
+            <td><b>Localitate:</b></td>
+            <td>{{ data.pacient.localitate }}</td>
+            <td><b>Adresa:</b></td>
+            <td>{{ data.pacient.adresa }}</td>
+        </tr>
+        <tr>
+            <td><b>Nr. inregistrare:</b></td>
+            <td>{{ data.nrInreg }}</td>
+            <td><b>Data examinarii:</b></td>
+            <td>{{ data.dataConsultatie }}</td>
+        </tr>
+    </table>
+</div>
+<br>
+<div>
+    <b>II. Obiectivul Psihodiagnosticului şi Evaluării:</b><br><br>
+    {% for line in data.obiectiv %}
+        {{ line }}<br/>
+    {% endfor %}
+</div><br>
+<div>
+    <b>III. Descrierea Succintă a Componentelor Psihologice</b>
+</div><br>
+<div>
+    <b>Nivel Subiectiv/Emoţional (inclusiv Satisfacţia/Calitatea vieţii)</b>
+</div><br>
+<table style="border-collapse: collapse; width: 100%; font-size: 16px;">
+    <tr>
+        <td style="width: 66%; min-height: 30px;"><b>Ce s-a evaluat?</b></td>
+        <td><b>Cu ce s-a evaluat? (teste/sarcini/probe şi/sau interviuri)</b></td>
+    </tr>
+    <tr>
+        <td style="width: 66%; min-height: 30px;">{{ data.evalPsiho.subiectiv_ce ?? '' }}</td>
+        <td>{{ data.evalPsiho.subiectiv_cu_ce ?? '' }}</td>
+    </tr>
+</table><br>
+<div>
+    <b>Nivel Cognitiv</b>
+</div><br>
+<table style="border-collapse: collapse; width: 100%; font-size: 16px;">
+    <tr>
+        <td style="width: 66%; min-height: 30px;"><b>Ce s-a evaluat?</b></td>
+        <td><b>Cu ce s-a evaluat? (teste/sarcini/probe şi/sau interviuri)</b></td>
+    </tr>
+    <tr>
+        <td style="width: 66%; min-height: 30px;">{{ data.evalPsiho.cognitiv_ce ?? '' }}</td>
+        <td>{{ data.evalPsiho.cognitiv_cu_ce ?? '' }}</td>
+    </tr>
+</table><br>
+<div>
+    <b>Nivel comportamental</b>
+</div><br>
+<table style="border-collapse: collapse; width: 100%; font-size: 16px;">
+    <tr>
+        <td style="width: 66%; min-height: 30px;"><b>Ce s-a evaluat?</b></td>
+        <td><b>Cu ce s-a evaluat? (teste/sarcini/probe şi/sau interviuri)</b></td>
+    </tr>
+    <tr>
+        <td style="width: 66%; min-height: 30px;">{{ data.evalPsiho.comportamental_ce ?? '' }}</td>
+        <td>{{ data.evalPsiho.comportamental_cu_ce ?? '' }}</td>
+    </tr>
+</table><br>
+<div>
+    <b>Nivel psihofiziologic</b>
+</div><br>
+<table style="border-collapse: collapse; width: 100%; font-size: 16px;">
+    <tr>
+        <td style="width: 66%; min-height: 30px;"><b>Ce s-a evaluat?</b></td>
+        <td><b>Cu ce s-a evaluat? (teste/sarcini/probe şi/sau interviuri)</b></td>
+    </tr>
+    <tr>
+        <td style="width: 66%; min-height: 30px;">{{ data.evalPsiho.psihofiziologic_ce ?? '' }}</td>
+        <td>{{ data.evalPsiho.psihofiziologic_cu_ce ?? '' }}</td>
+    </tr>
+</table><br>
+<div>
+    <b>Nivel de personalitate şi Mecanisme Defensive/Adaptare</b>
+</div><br>
+<table style="border-collapse: collapse; width: 100%; font-size: 16px;">
+    <tr>
+        <td style="width: 66%; min-height: 30px;"><b>Ce s-a evaluat?</b></td>
+        <td><b>Cu ce s-a evaluat? (teste/sarcini/probe şi/sau interviuri)</b></td>
+    </tr>
+    <tr>
+        <td style="width: 66%; min-height: 30px;">{{ data.evalPsiho.personalitate_ce ?? '' }}</td>
+        <td>{{ data.evalPsiho.personalitate_cu_ce ?? '' }}</td>
+    </tr>
+</table><br>
+<div>
+    <b>Nivel de relaţionare interpersonală (inclusiv, de cuplu, familie, grup etc.)</b>
+</div><br>
+<table style="border-collapse: collapse; width: 100%; font-size: 16px;">
+    <tr>
+        <td style="width: 66%; min-height: 30px;"><b>Ce s-a evaluat?</b></td>
+        <td><b>Cu ce s-a evaluat? (teste/sarcini/probe şi/sau interviuri)</b></td>
+    </tr>
+    <tr>
+        <td style="width: 66%; min-height: 30px;">{{ data.evalPsiho.relationare_ce ?? '' }}</td>
+        <td>{{ data.evalPsiho.relationare_cu_ce ?? '' }}</td>
+    </tr>
+</table><br>
+<div>
+    <b>IV. Concluzii:</b><br><br>
+    {% for line in data.concluzii %}
+        {{ line }}<br/>
+    {% endfor %}
+</div><br>
+<div>
+    <b>V. Recomandări:</b><br><br>
+    {% for line in data.recomandari %}
+        {{ line }}<br/>
+    {% endfor %}
+</div><br>
+<table style="border: 1px solid black; font-size: 26px;">
+    <tr>
+        <td style="border-right: white; border-bottom: white;"><b>Examinator:</b></td>
+        <td style="border-right: white; border-bottom: white; border-left: white;">{{ data.medic.nume ~ ' ' ~ data.medic.prenume }}</td>
+        <td style="border-right: white; border-bottom: white; border-left: white;"><b>Specialitate:</b></td>
+        <td style="border-bottom: white; border-left: white;">{{ data.medic.denumireSpecialitate }}</td>
+    </tr>
+    <tr>
+        <td style="border-right: white; border-top: white;"><b>Cod parafa:</b></td>
+        <td style="border-right: white; border-top: white; border-left: white;">{{ data.medic.codParafa }}</td>
+        <td style="border-right: white; border-top: white; border-left: white;"><b>Grad profesional:</b></td>
+        <td style="border-left: white; border-top: white;">{{ data.medic.denumireTitulatura }}</td>
+    </tr>
+</table>
+<table style="width: 100%; font-size: 16px; margin-top: 60px; color: #0f6674;">
+    <tr>
+        <td style="width: 400px; border-bottom: none; border-top: none; border-right: none; border-left: none;">
+            <b>{{ "now"|date('d-m-Y') }}</b>
+        </td>
+        <td style="border-bottom: none; border-top: none; border-right: none; border-left: none; text-align: right;">
+            <b>Semnatura si parafa</b><br/>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

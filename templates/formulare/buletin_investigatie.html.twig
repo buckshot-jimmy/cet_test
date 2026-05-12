@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+        td {
+            border:1px solid black;
+            width: 300px;
+        }
+    </style>
+    <title></title>
+</head>
+<body>
+<table style="width: 100%;">
+    <tr>
+        <td style="width: 400px; border-bottom: none; border-top: none; border-right: none; border-left: none;">
+            <br />
+            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{ data.owner.denumire }}</b></div>
+            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>CUI: {{ data.owner.cui }}</b></div>
+            <br /><br /><br /><br /><br /><br />
+        </td>
+        <td style="border-bottom: none; border-top: none; border-right: none; border-left: none;">
+            <img style="margin-left:140px; width: 250px; height: 120px;" src="{{ asset('assets/sigla_pdf.png') }}" alt="MIND RESET">
+        </td>
+    </tr>
+</table>
+<div style="width: 100%; text-align: center; font-weight: bold; font-size: 22px; color: #0f6674; margin-top: 60px; margin-bottom: 40px;">RAPORT - {{ data.tipInvestigatie }}</div>
+<table style="font-size: 22px;">
+    <tr>
+        <td><b>Nume:</b></td>
+        <td>{{ data.pacient.nume }}</td>
+        <td><b>Prenume:</b></td>
+        <td>{{ data.pacient.prenume }}</td>
+    </tr>
+    <tr>
+        <td><b>ID pacient:</b></td>
+        <td>{{ data.pacient.id }}</td>
+        <td><b>Trimitator:</b></td>
+        <td>{{ data.medicTrimitator }}</td>
+    </tr>
+    <tr>
+        <td><b>CNP:</b></td>
+        <td>{{ data.pacient.cnp }}</td>
+        <td><b>Varsta:</b></td>
+        <td>{{ data.pacient.varsta }}</td>
+    </tr>
+    <tr>
+        <td><b>Specialitate:</b></td>
+        <td>{{ data.medic.denumireSpecialitate }}</td>
+        <td><b>Nr. reg.:</b></td>
+        <td>{{ data.nrInreg }}</td>
+    </tr>
+    <tr>
+        <td><b>Data examinarii:</b></td>
+        <td>{{ data.dataConsultatie }}</td>
+        <td><b>Examinator:</b></td>
+        <td>{{ data.medic.nume ~ ' ' ~ data.medic.prenume }}</td>
+    </tr>
+</table>
+<br>
+<table>
+    <tr>
+        <td style="color: #0f6674; width: 1300px; font-size: 24px;"><b>Rezultat:</b></td>
+    </tr>
+    <tr>
+        <td style="font-size: 22px;">
+            {% for line in data.consultatie %}
+                {{ line }}<br/>
+            {% endfor %}
+        </td>
+    </tr>
+</table>
+<br>
+<table>
+    <tr>
+        <td style="color: #0f6674; width: 1300px; font-size: 24px;"><b>Concluzii:</b></td>
+    </tr>
+    <tr>
+        <td style="font-size: 22px;">
+            {% for line in data.tratament %}
+                {{ line }}<br/>
+            {% endfor %}
+        </td>
+    </tr>
+</table>
+<br>
+<table style="border: 1px solid black; font-size: 22px;">
+    <tr>
+        <td style="border-right: white; border-bottom: white;"><b>Examinator:</b></td>
+        <td style="border-right: white; border-bottom: white; border-left: white;">{{ data.medic.nume ~ ' ' ~ data.medic.prenume }}</td>
+        <td style="border-right: white; border-bottom: white; border-left: white;"><b>Specialitate:</b></td>
+        <td style="border-bottom: white; border-left: white;">{{ data.medic.denumireSpecialitate }}</td>
+    </tr>
+    <tr>
+        <td style="border-right: white; border-top: white;"><b>Cod parafa:</b></td>
+        <td style="border-right: white; border-top: white; border-left: white;">{{ data.medic.codParafa }}</td>
+        <td style="border-right: white; border-top: white; border-left: white;"><b>Grad profesional:</b></td>
+        <td style="border-left: white; border-top: white;">{{ data.medic.denumireTitulatura }}</td>
+    </tr>
+</table>
+<table style="width: 100%; font-size: 16px; margin-top: 60px; color: #0f6674;">
+    <tr>
+        <td style="width: 400px; border-bottom: none; border-top: none; border-right: none; border-left: none;">
+            <b>{{ "now"|date('d-m-Y') }}</b>
+        </td>
+        <td style="border-bottom: none; border-top: none; border-right: none; border-left: none; text-align: right;">
+            <b>Semnatura si parafa</b><br/>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

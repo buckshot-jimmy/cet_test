@@ -1,0 +1,26 @@
+<div class="modal servicii_documente_modal" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content servicii_documente_content">
+            <div class="modal-header">
+                <h5 class="modal-title titlu_servicii_documente_modal">Pacient - Lista consultatii / investigatii</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div style="display: inline-block; margin-left: 50px; margin-right: 10px; margin-top: 20px; font-weight: bold;">Cauta</div>
+                <div style="display: inline-block; width: 200px;">
+                    <input class="form-control" id="cauta_serviciu" />
+                </div>
+                <div id="div_servicii_documente">
+                    <table id="table_servicii_documente"></table>
+                </div>
+            </div>
+            <input id="servicii_documente_pacient_id" name="servicii_documente_pacient_id" type="hidden"/>
+            <div class="modal-footer">
+                <p class="rezultat_operatiune modal-body" style="display: none; margin-top: 10px; margin-bottom: 10px; font-weight: bold;"></p>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Inchide</button>
+            </div>
+        </div>
+    </div>
+</div>

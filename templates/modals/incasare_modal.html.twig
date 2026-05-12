@@ -1,0 +1,43 @@
+<div class="modal incasare_modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content incasare_content">
+            <div class="modal-header">
+                <h5 class="modal-title titlu_incasare_modal">Pacient - Plata</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-sm-10 mb-3 mb-sm-0">
+                        <div class="row">
+                            <div class="col-sm-12 mb-3 mb-sm-0" style="text-align: center;">
+                                <div style="margin-bottom: 10px;">
+                                    <span style="background-color: lightblue; color: black; font-weight: bold;">Valoare servicii</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <table id="table_servicii" style="width: 100%;"></table>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 mb-3 mb-sm-0">
+                        <div class="row" style="margin-top: 20px; color: #78261f; font-weight: bold;" id="incasare_owner_text"></div>
+                        <div class="row" style="margin-top: 20px;">
+                            <button type="button" class="btn btn-primary confirma_incasare" disabled>Incaseaza
+                                <span class="spinner-border spinner-border-sm spinner" style="display: none;"></span>
+                            </button>
+                            <p style="font-size: small; color: darkgreen; margin-top: 10px;">(Pentru raport colaborator si facturare)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <p class="modal-body rezultat_operatiune" style="display: none; margin-top: 10px; margin-bottom: 10px; font-weight: bold;"></p>
+                <input type="hidden" id="incasare_pacient_id" name="incasare_pacient_id" value="">
+                <input type="hidden" id="data_consultatii" name="data_consultatii" value="">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuleaza</button>
+            </div>
+        </div>
+    </div>
+</div>

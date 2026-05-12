@@ -1,0 +1,122 @@
+<div class="modal-header pacient_header">
+    <h5 class="modal-title titlu_add_edit_pacient">Adauga pacient</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span>&times;</span>
+    </button>
+</div>
+<div class="modal-body pacient_body">
+    <form id="add_edit_pacient_form">
+        <div class="form-group row">
+            <div class="col-sm-4 mb-3 mb-sm-0">
+                <label for="nume">Nume</label>
+                <input type="text" class="form-control" id="nume" name="nume" placeholder="Nume" value="{{ data.nume ?? '' }}">
+            </div>
+            <div class="col-sm-4">
+                <label for="prenume">Prenume</label>
+                <input type="text" class="form-control" id="prenume" name="prenume" placeholder="Prenume" value="{{ data.prenume ?? '' }}">
+            </div>
+            <div class="col-sm-4 mb-3 mb-sm-0">
+                <label for="tara">Tara</label>
+                <select type="text" class="form-control" id="tara" name="tara">
+                    {% for tara in tari %}
+                        <option value="{{ tara }}"
+                                {{ data.tara|default('') == tara ? 'selected' }}>
+                            {{ tara }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4 mb-3 mb-sm-0">
+                <label for="cnp">CNP / ID</label>
+                <input class="form-control" id="cnp" name="cnp" placeholder="CNP / ID" value="{{ data.cnp ?? '' }}">
+            </div>
+            <div class="col-sm-4 mb-3 mb-sm-0">
+                <label for="ci">C.I.</label>
+                <input class="form-control date-or-time" type="text" name="ci" id="ci" value="{{ data.ci ?? '' }}" />
+            </div>
+            <div class="col-sm-4 mb-3 mb-sm-0 form-group">
+                <label for="ciEliberat">Eliberata de</label>
+                <div class="input-group date">
+                    <input class="form-control" type="text" name="ciEliberat" id="ciEliberat" value="{{ data.ciEliberat ?? '' }}" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4 mb-3 mb-sm-0">
+                <label for="varsta">Varsta</label>
+                <input type="text" class="form-control" id="varsta" name="varsta" placeholder="Varsta" value="{{ data.varsta ?? '' }}" readonly>
+            </div>
+            <div class="col-sm-4 mb-3 mb-sm-0">
+                <label for="judet">Judet</label>
+                <select type="text" class="form-control select2-search" id="judet" name="judet">
+                    <option value="">---</option>
+                    {% for judet in judete %}
+                        <option value="{{ judet }}"
+                                {{ data.judet|default('') == judet ? 'selected' }}>
+                            {{ judet }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-sm-4 mb-3 mb-sm-0">
+                <label for="localitate">Localitate *</label>
+                <input type="text" class="form-control" id="localitate" name="localitate" placeholder="Localitate" value="{{ data.localitate ?? '' }}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-4 mb-3 mb-sm-0">
+                <label for="adresa">Adresa *</label>
+                <input type="text" class="form-control" id="adresa" name="adresa" placeholder="Adresa" value="{{ data.adresa ?? '' }}">
+            </div>
+            <div class="col-sm-4">
+                <label for="telefon">Telefon *</label>
+                <input type="text" class="form-control" id="telefon" name="telefon" placeholder="Telefon" value="{{ data.telefon ?? '' }}">
+            </div>
+            <div class="col-sm-4">
+                <label for="telefon2">Telefon 2</label>
+                <input type="text" class="form-control" id="telefon2" name="telefon2" placeholder="Telefon 2" value="{{ data.telefon2 ?? '' }}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-3">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" id="email" name="email" placeholder="Email" value="{{ data.email ?? '' }}">
+            </div>
+            <div class="col-sm-3 mb-3 mb-sm-0">
+                <label for="ocupatie">Ocupatie</label>
+                <input type="text" class="form-control" id="ocupatie" name="ocupatie" placeholder="Ocupatie" value="{{ data.ocupatie ?? '' }}">
+            </div>
+            <div class="col-sm-3 mb-3 mb-sm-0">
+                <label for="locMunca">Loc de munca</label>
+                <input type="text" class="form-control" id="locMunca" name="locMunca" placeholder="Loc de munca" value="{{ data.locMunca ?? '' }}">
+            </div>
+            <div class="col-sm-3 mb-3 mb-sm-0">
+                <label for="stareCivila">Stare civila</label>
+                <select type="text" class="form-control" id="stareCivila" name="stareCivila">
+                    {% for id, stareCivila in stariCivile %}
+                        <option value="{{ id }}"
+                                {{ data.stareCivila|default('') == stareCivila ? 'selected' }}>
+                            {{ stareCivila }}
+                        </option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-12 mb-3 mb-sm-0">
+                <label for="observatii">Observatii</label>
+                <textarea style="height: 75px;" class="form-control" id="observatii" name="observatii" placeholder="Observatii">{{ data.observatii ?? '' }}</textarea>
+            </div>
+        </div>
+        <input type="hidden" id="pacient_id" name="pacient_id" value="{{ data.id ?? '' }}"/>
+    </form>
+</div>
+<div class="modal-footer pacient_footer">
+    <p class="modal-body rezultat_operatiune" style="margin-top: 10px; margin-bottom: 10px; font-weight: bold;"></p>
+    <button type="button" class="btn btn-primary confirma_pacient">Confirma
+        <span class="spinner-border spinner-border-sm spinner" style="display: none;"></span>
+    </button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuleaza</button>
+</div>

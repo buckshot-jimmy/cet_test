@@ -1,0 +1,56 @@
+<div class="modal-header">
+    <h5 class="modal-title titlu_modal_owner">Adauga firma</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span>&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <form id="add_edit_owner_form">
+        <div class="form-group row">
+            <div class="col-12 col-md-5 mb-2">
+                <label for="denumire">Denumire *</label>
+                <input type="text" class="form-control" id="denumire" name="denumire" placeholder="Denumire owner" value="{{ data.denumire ?? '' }}">
+            </div>
+            <div class="col-12 col-md-7 mb-2">
+                <label for="adresa">Adresa *</label>
+                <input type="text" class="form-control" id="adresa" name="adresa" placeholder="Adresa owner" value="{{ data.adresa ?? '' }}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-12 col-md-3 mb-2">
+                <label for="cui">CUI *</label>
+                <input type="text" class="form-control" id="cui" name="cui" placeholder="CUI" value="{{ data.cui ?? '' }}">
+            </div>
+            <div class="col-12 col-md-3 mb-2">
+                <label for="serie_factura">Serie factura *</label>
+                <input type="text" class="form-control" id="serie_factura" name="serie_factura" placeholder="Serie factura" value="{{ data.serieFactura ?? '' }}">
+            </div>
+            <div class="col-12 col-md-3 mb-2">
+                <label for="reg_com">Nr. Reg. Comertului</label>
+                <input type="text" class="form-control" id="reg_com" name="reg_com" placeholder="Nr. Reg. Comertului" value="{{ data.regCom ?? '' }}">
+            </div>
+            <div class="col-12 col-md-3 mb-2">
+                <label for="cap_soc">Capital social RON</label>
+                <input type="text" class="form-control" id="cap_soc" name="cap_soc" placeholder="Capital social" value="{{ data.capitalSocial ?? '' }}">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <label for="banca">Banca</label>
+                <input type="text" class="form-control" id="banca" name="banca" placeholder="Banca owner" value="{{ data.banca ?? '' }}">
+            </div>
+            <div class="col-sm-6 mb-3 mb-sm-0">
+                <label for="cont">Cont bancar</label>
+                <input type="text" class="form-control" id="cont" name="cont" placeholder="Cont bancar" value="{{ data.cont ?? '' }}">
+            </div>
+        </div>
+        <input type="hidden" id="owner_id" name="owner_id" value="{{ data.id ?? '' }}"/>
+    </form>
+</div>
+<div class="modal-footer">
+    <p class="modal-body rezultat_operatiune" style="display: none; margin-top: 10px; margin-bottom: 10px; font-weight: bold;"></p>
+    <button type="button" class="btn btn-primary confirma_owner">Confirma
+        <span class="spinner-border spinner-border-sm spinner" style="display: none;"></span>
+    </button>
+    <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuleaza</button>
+</div>

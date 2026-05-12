@@ -1,0 +1,279 @@
+{% set specialitati = app.session.get('specialitati') %}
+{% set titulaturi = app.session.get('titulaturi') %}
+{% set roluri = app.session.get('roluri') %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title >{% block title %}MIND RESET{% endblock %}</title>
+
+    {% block stylesheets %}
+        <link href="{{ asset('assets/sigla.ico') }}" rel="icon" type="image/icon" />
+        <link href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+        <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('assets/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/dual_listbox.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/dual_listbox.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/bootstrap_datepicker.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/bootstrap_timepicker.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/select2.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/bootstrap_toogle.css') }}" rel="stylesheet" type="text/css">
+    {% endblock %}
+</head>
+<body class="bg-gradient-primary" id="page-top">
+
+{% set flashes = app.flashes %}
+
+{% block body %}
+    {% set user = app.user %}
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <input type="hidden" id="rol_user" name="rol_user" value="{{ user.role }}"/>
+        <input type="hidden" id="parola_schimbata" value="{{ user.parolaSchimbata ? 1 : 0 }}"/>
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <div style="height: 150px; margin-bottom: 50px;">
+                    <a href="{{ path('admin') }}">
+                        <img id="sigla" class="sigla_mare" src="{{ asset('assets/sigla.png') }}" alt="MIND RESET">
+                    </a>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseReceptie" aria-expanded="true" aria-controls="collapseReceptie">
+                    <i class="fas fa-fw fa-concierge-bell"></i>
+                    <span>Receptie</span>
+                </a>
+                <div id="collapseReceptie" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="no_padding_link collapse-item" href="{{ path('pacienti') }}">
+                            <i class="fas fa-fw fa-wheelchair" style="color: black;"></i>
+                            <span>Pacienti</span>
+                        </a>
+                        <a class="no_padding_link collapse-item" href="{{ path('servicii_preturi') }}">
+                            <i class="fas fa-fw fa-euro-sign" style="color: black;"></i>
+                            <span>Servicii si tarife</span>
+                        </a>
+                    </div>
+                </div>
+            </li>
+            {% if user.role == 'ROLE_Administrator' %}
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFacturare" aria-expanded="true" aria-controls="collapseFacturare">
+                        <i class="fas fa-fw fa-file-invoice"></i>
+                        <span>Facturare</span>
+                    </a>
+                    <div id="collapseFacturare" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                        <div class="bg-white py-2 collapse-inner rounded">
+                            <a class="no_padding_link collapse-item" href="{{ path('facturi') }}">
+                                <i class="fas fa-fw fa-file-invoice" style="color: black;"></i>
+                                <span>Facturi</span>
+                            </a>
+                            <a class="no_padding_link collapse-item" href="{{ path('clienti_pj') }}">
+                                <i class="fas fa-fw fa-store" style="color: black;"></i>
+                                <span>Clienti Persoane Juridice</span>
+                            </a>
+                            <a class="no_padding_link collapse-item" href="{{ path('owners') }}">
+                                <i class="fas fa-fw fa-address-card" style="color: black;"></i>
+                                <span>Firme (Owners)</span>
+                            </a>
+                            <a class="no_padding_link collapse-item" href="{{ path('consultatii_nefacturate') }}">
+                                <i class="fas fa-fw fa-euro-sign" style="color: black;"></i>
+                                <span>Consultatii nefacturate</span>
+                            </a>
+                        </div>
+                    </div>
+                </li>
+            {% endif %}
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="{{ path('programari') }}" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                    <i class="fas fa-fw fa-calendar"></i>
+                    <span>Programari</span>
+                </a>
+            </li>
+            {% if user.role != 'ROLE_Receptioner' %}
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="{{ path('consultatii_curente_cabinet') }}" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                        <i class="fas fa-fw fa-h-square"></i>
+                        <span>Cabinet</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="{{ path('consultatii') }}" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                        <i class="fas fa-fw fa-file-medical"></i>
+                        <span>Consultatii</span>
+                    </a>
+                </li>
+                <!-- Nav Item - Pages Collapse Menu -->
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="{{ path('user') }}" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                        <i class="fas fa-fw fa-users"></i>
+                        <span>Utilizatori</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link collapsed" href="{{ path('rapoarte') }}" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
+                        <i class="fas fa-fw fa-file-pdf"></i>
+                        <span>Rapoarte</span>
+                    </a>
+                </li>
+            {% endif %}
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+        </ul>
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+            <!-- Main Content -->
+            <div id="content">
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    <!-- Topbar Navbar -->
+                    <div class="marquee">
+                        <span>{{ app.session.get('informare') }}</span>
+                    </div>
+                    <ul class="navbar-nav ml-auto">
+                        <div class="topbar-divider d-none d-sm-block"></div>
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ user.prenume }}</span>
+                                <img class="img-profile rounded-circle" src="{{ asset('assets/sigla.png') }}">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item edit_profile_button" href="#">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profil
+                                </a>
+                                {% if user.role == 'ROLE_Administrator' %}
+                                    <a class="dropdown-item mesaj_admin" href="#">
+                                        <i class="fas fa-exclamation-triangle fa-sm fa-fw mr-2 text-gray-400"></i>
+                                        Informare
+                                    </a>
+                                {% endif %}
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    Iesire
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End of Topbar -->
+                {% block cards %}{% endblock %}
+                <div class="container-fluid">
+                    <div class="card shadow mb-4 {% block classHeader %}{% endblock %}">
+                        <div class="card-header py-3">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h6 class="m-0 font-weight-bold text-primary">{% block tableTitle %}{% endblock %}</h6>
+                                </div>
+                                <div class="col-md-6 btn-inside">
+                                    <a href="#" class="btn btn-success btn-icon-split btn-sm {% block classAddBtn %}{% endblock %}">
+                                        <span class="icon text-white-50">
+                                          <i class="fa fa-plus"></i>
+                                        </span><span class="text">{% block addBtnText %}Adauga{% endblock %}</span>
+                                    </a>
+                                    {% block serviciiBtn %}{% endblock %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <div id="dataTable_wrapper" class="dataTables_wrapper dt-bootstrap4">
+                                    <div class="row table-scroll-margin">
+                                        <div class="col-sm-12">
+                                            {% block table %}{% endblock %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% block heartbeat %}{% endblock %}
+                    {% block secondTable %}{% endblock %}
+                    <!-- End of Content Wrapper -->
+                    <footer class="sticky-footer bg-white">
+                        <div class="container my-auto">
+                            <div class="copyright text-center my-auto">
+                                <span>Copyright © &nbsp;&nbsp;&nbsp;<i style="color: #1cc88a" class="fas fa-heartbeat fa-2x"></i> CET 2020</span>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+                <!-- End of Page Wrapper -->
+                <!-- Scroll to Top Button-->
+                <a class="scroll-to-top rounded" href="#page-top">
+                    <i class="fas fa-angle-up"></i>
+                </a>
+                <!-- Logout Modal-->
+                <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" >
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Iesiti din aplicatie?</h5>
+                                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                                    <span>×</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">Apasa pentru a iesi din aplicatie.</div>
+                            <div class="modal-footer">
+                                <a class="btn btn-primary" id="iesire" href="{{ path('app_logout') }}">Iesire
+                                    <span class="spinner-border spinner-border-sm spinner" style="display: none;"></span>
+                                </a>
+                                <button class="btn btn-secondary" type="button" data-dismiss="modal">Anuleaza</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% if app.user %}
+    {% include 'modals/delete_dialog_modal.html.twig' %}
+    {% include 'modals/edit_profile_modal.html.twig' %}
+    {% include 'modals/mesaj_admin_modal.html.twig' %}
+    {% include 'modals/short_modal.html.twig' %}
+{% endif %}
+{% block addModal %}
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('assets/js/app_js/jquery.min.js') }}"></script>
+    <script src="{{ asset('assets/js/app_js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/js/app_js/bootstrap_datepicker.js') }}"></script>
+    <script src="{{ asset('assets/js/app_js/bootstrap_datepicker.ro.min.js') }}"></script>
+    <script src="{{ asset('assets/js/app_js/bootstrap_timepicker.js') }}"></script>
+    <script src="{{ asset('assets/js/app_js/jquery.easing.js') }}"></script>
+    <script src="{{ asset('assets/js/app_js/sb-admin-2.min.js') }}"></script>
+    <script src="{{ asset('assets/js/app_js/select2.min.js') }}"></script>
+    <script src="{{ asset('assets/js/app_js/jquery.validate.js') }}"></script>
+    <script src="{{ asset('assets/js/app_js/jquery_extend.js') }}"></script>
+    <script src="{{ asset('assets/js/app_js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('assets/js/app_js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('assets/js/app_js/moment.js') }}"></script>
+    <script src="{{ asset('assets/js/app_js/dual_listbox.js') }}"></script>
+    <script src="{{ asset('assets/js/app_js/bootstrap_toggle.js') }}"></script>
+    <script src="{{ asset('assets/js/base.js') }}"></script>
+    <script src="{{ asset('assets/js/mesaj.js') }}"></script>
+{% endblock %}
+<div id="global-alert-container"></div>
+</body>
+</html>

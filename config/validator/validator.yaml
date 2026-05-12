@@ -1,0 +1,5 @@
+App\Entity\User:
+  properties:
+    password:
+      - Symfony\Component\Validator\Constraints\PasswordStrength:
+          minScore: 4

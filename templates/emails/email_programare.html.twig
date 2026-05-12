@@ -1,0 +1,4 @@
+<p>Buna ziua,</p>
+<p>In data de <strong>{{ params.data }}</strong> aveti o programare la clinica MIND RESET, la ora <strong>{{ params.ora }}</strong>.</p>
+<p><strong>Serviciu: {{ params.serviciu }} - Medic: {{ params.medic }} - Pret: {{ params.pret }} RON</strong></p>
+<p><a href="{{ url('pacient_anuleaza_programare', {'programareId': params.programareId}) }}">Anuleaza programarea</a></p>

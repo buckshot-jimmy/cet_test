@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block title %}MIND RESET - Cabinet{% endblock %}
+{% block tableTitle %}Consultatii curente in cabinet<b>{{ medicLogat }}</b>{% endblock %}
+{% block classAddBtn %}{{ 'no_show' }}{% endblock %}
+{% block table %}
+    <table class="table table-bordered rounded dataTable display nowrap" id="consultatii_curente_cabinet" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info" style="width: 100%;"></table>
+{% endblock %}
+{% block addModal %}
+    {% include 'modals/add_edit_consultatie_modal.html.twig' %}
+    {% include 'modals/add_edit_investigatie_modal.html.twig' %}
+    {% include 'modals/add_edit_evaluare_psihologica_modal.html.twig' %}
+    {% include 'modals/view_consultatie_modal.html.twig' %}
+    {% include 'modals/view_investigatie_modal.html.twig' %}
+    {% include 'modals/view_evaluare_psihologica_modal.html.twig' %}
+    {% include 'modals/inchide_deschide_modal.html.twig' %}
+{% endblock %}
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('assets/js/cabinet.js') }}"></script>
+    <script src="{{ asset('assets/js/consultatii.js') }}"></script>
+{% endblock %}
