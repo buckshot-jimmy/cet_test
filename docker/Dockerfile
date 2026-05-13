@@ -1,28 +1,25 @@
 FROM php:8.2-apache
 
 RUN apt-get update && apt-get install -y \
-    git \
-    unzip \
-    zip \
-    libicu-dev \
-    libzip-dev \
+    git unzip zip \
+    libicu-dev libonig-dev libzip-dev \
+    libpng-dev libxml2-dev libpq-dev \
     default-mysql-client \
     && docker-php-ext-install \
-    pdo_mysql \
-    intl \
-    zip
+    pdo pdo_mysql intl zip opcache
 
 RUN a2enmod rewrite
 
-COPY docker/vhost.conf /etc/apache2/sites-available/000-default.conf
+# IMPORTANT: Render uses PORT env var
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/CET/public
+
+RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
+    /etc/apache2/sites-available/*.conf \
+    /etc/apache2/apache2.conf \
+    /etc/apache2/conf-available/*.conf
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug
-
-COPY xdebug.ini /usr/local/etc/php/conf.d/xdebug.ini
-
 WORKDIR /var/www/html
 
-ENTRYPOINT ["top", "-b"]
+EXPOSE 80
