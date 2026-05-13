@@ -12,6 +12,7 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     default-mysql-client \
     && docker-php-ext-install \
+      gd \
       pdo \
       pdo_mysql \
       intl \
