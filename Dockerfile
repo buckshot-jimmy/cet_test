@@ -2,7 +2,7 @@ FROM php:8.2-apache
 
 RUN apt-get update && apt-get install -y \
     git unzip zip \
-    libicu-dev libonig-dev libzip-dev \
+    libicu-dev libzip-dev libonig-dev \
     libpng-dev libxml2-dev libpq-dev \
     default-mysql-client \
     && docker-php-ext-install \
@@ -21,10 +21,13 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
-# Copy entire Symfony app
-COPY . .
+# Install dependencies first
+COPY composer.json composer.lock ./
 
 RUN composer install --no-dev --optimize-autoloader
+
+# Copy project files
+COPY . .
 
 RUN chown -R www-data:www-data var
 
