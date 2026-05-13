@@ -1,22 +1,26 @@
 FROM php:8.2-apache
 
 RUN apt-get update && apt-get install -y \
-    git unzip zip \
-    libicu-dev libonig-dev libzip-dev \
-    libpng-dev libjpeg62-turbo-dev \
-    libfreetype6-dev \
-    libxml2-dev libpq-dev \
+    git \
+    unzip \
+    zip \
+    libicu-dev \
+    libonig-dev \
+    libzip-dev \
+    libpng-dev \
+    libxml2-dev \
+    libpq-dev \
     default-mysql-client \
     && docker-php-ext-configure gd \
-        --with-freetype \
-        --with-jpeg \
+      --with-freetype \
+      --with-jpeg \
     && docker-php-ext-install \
-        gd \
-        pdo \
-        pdo_mysql \
-        intl \
-        zip \
-        opcache
+      gd \
+      pdo \
+      pdo_mysql \
+      intl \
+      zip \
+      opcache
 
 RUN a2enmod rewrite
 
@@ -31,16 +35,6 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 WORKDIR /var/www/html
 
-# Install dependencies first
-COPY composer.json composer.lock ./
-
-RUN composer install --no-dev --optimize-autoloader
-
-# Copy project files
-COPY . .
-
-RUN chown -R www-data:www-data var
+RUN usermod -u 1000 www-data
 
 EXPOSE 80
-
-CMD ["apache2-foreground"]
