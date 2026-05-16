@@ -1,17 +1,21 @@
 FROM php:8.2-apache
 
 RUN apt-get update && apt-get install -y \
-    git \
-    unzip \
-    zip \
-    libicu-dev \
-    libonig-dev \
-    libzip-dev \
-    libpng-dev \
-    libxml2-dev \
-    libpq-dev \
-    default-mysql-client \
-    && docker-php-ext-configure gd --with-freetype --with-jpeg \
+      git \
+      unzip \
+      zip \
+      libicu-dev \
+      libonig-dev \
+      libzip-dev \
+      libpng-dev \
+      libjpeg-dev \
+      libfreetype6-dev \
+      libxml2-dev \
+      libpq-dev \
+      default-mysql-client \
+    && docker-php-ext-configure gd \
+      --with-freetype \
+      --with-jpeg \
     && docker-php-ext-install \
       gd \
       pdo \
@@ -22,7 +26,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN a2enmod rewrite
 
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
+ENV APACHE_DOCUMENT_ROOT=/var/www/html/CET/public
 
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
     /etc/apache2/sites-available/*.conf \
@@ -30,6 +34,9 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
     /etc/apache2/conf-available/*.conf
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+RUN pecl install xdebug \
+    && docker-php-ext-enable xdebug
 
 WORKDIR /var/www/html
 
