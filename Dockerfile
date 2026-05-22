@@ -8,21 +8,21 @@ RUN apt-get update && apt-get install -y \
       libonig-dev \
       libzip-dev \
       libpng-dev \
-      libjpeg-dev \
+      libjpeg62-turbo-dev \
       libfreetype6-dev \
       libxml2-dev \
       libpq-dev \
       default-mysql-client \
-    && docker-php-ext-configure gd \
-      --with-freetype \
-      --with-jpeg \
-    && docker-php-ext-install \
-      gd \
-      pdo \
-      pdo_mysql \
-      intl \
-      zip \
-      opcache
+      && docker-php-ext-configure gd \
+          --with-freetype=/usr/include/ \
+          --with-jpeg=/usr/include/ \
+      && docker-php-ext-install -j$(nproc) \
+          gd \
+          pdo \
+          pdo_mysql \
+          intl \
+          zip \
+          opcache
 
 RUN a2enmod rewrite
 
