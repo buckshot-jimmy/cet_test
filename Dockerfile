@@ -35,9 +35,6 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
 
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
-RUN pecl install xdebug \
-    && docker-php-ext-enable xdebug
-
 WORKDIR /var/www/html
 
 RUN usermod -u 1000 www-data
