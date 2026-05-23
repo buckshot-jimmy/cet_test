@@ -24,7 +24,8 @@ class PreturiFixtures extends AbstractFixture implements DependentFixtureInterfa
                 'setPret' => 100, 'setSters' => false, 'setProcentajMedic' => 50,
                 'setMedic' => $this->getReference('userPopescu'),
                 'setServiciu' => $this->getReference('consultGeneral'),
-                'setOwner' => $this->getReference('ownerNeuro')
+                'setOwner' => $this->getReference('ownerNeuro'),
+                'setCotaTva' => 0
             ]
         );
 
@@ -39,7 +40,8 @@ class PreturiFixtures extends AbstractFixture implements DependentFixtureInterfa
                 'setPret' => 150, 'setSters' => false, 'setProcentajMedic' => 70,
                 'setMedic' => $this->getReference('userCasu'),
                 'setServiciu' => $this->getReference('consultSpecial'),
-                'setOwner' => $this->getReference('ownerCasu')
+                'setOwner' => $this->getReference('ownerCasu'),
+                'setCotaTva' => 0
             ]
         );
 
@@ -54,7 +56,8 @@ class PreturiFixtures extends AbstractFixture implements DependentFixtureInterfa
                 'setPret' => 200, 'setSters' => false, 'setProcentajMedic' => 50,
                 'setMedic' => $this->getReference('userSimori'),
                 'setServiciu' => $this->getReference('investigatieSpeciala'),
-                'setOwner' => $this->getReference('ownerNeuro')
+                'setOwner' => $this->getReference('ownerNeuro'),
+                'setCotaTva' => 0
             ]
         );
 
@@ -69,7 +72,8 @@ class PreturiFixtures extends AbstractFixture implements DependentFixtureInterfa
                 'setPret' => 300, 'setSters' => false, 'setProcentajMedic' => 25,
                 'setMedic' => $this->getReference('userMarginean'),
                 'setServiciu' => $this->getReference('consultGeneral'),
-                'setOwner' => $this->getReference('ownerNeuro')
+                'setOwner' => $this->getReference('ownerNeuro'),
+                'setCotaTva' => 0
             ]
         );
 
@@ -84,7 +88,8 @@ class PreturiFixtures extends AbstractFixture implements DependentFixtureInterfa
                 'setPret' => 250, 'setSters' => false, 'setProcentajMedic' => 40,
                 'setMedic' => $this->getReference('userLupu'),
                 'setServiciu' => $this->getReference('evaluarePsihologica'),
-                'setOwner' => $this->getReference('ownerLupu')
+                'setOwner' => $this->getReference('ownerLupu'),
+                'setCotaTva' => 0
             ]
         );
 

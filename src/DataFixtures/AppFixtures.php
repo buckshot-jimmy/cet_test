@@ -113,15 +113,16 @@ class AppFixtures extends AbstractFixture
         $entity = $this->entityFactory->ensureEntity(
             $manager, 'App\Entity\Owner',
             ['denumire' => 'Neuro Review S.R.L.'],
-            ['setDenumire' => 'Neuro Review S.R.L.', 'setCui' => '42475870', 'setSters' => false]
+            ['setDenumire' => 'Neuro Review S.R.L.', 'setCui' => '42475870', 'setSters' => false,
+                'setAdresa' => 'Adresa 1', 'setSerieFactura' => 'NEURO']
         );
         $this->addReference('ownerNeuro', $entity);
 
         $entity = $this->entityFactory->ensureEntity(
             $manager, 'App\Entity\Owner',
             ['denumire' => 'CASU A. MIHAI - MEDIC SPECIALIST PSIHIATRIE'],
-            ['setDenumire' => 'CASU A. MIHAI - MEDIC SPECIALIST PSIHIATRIE', 'setCui' => '32830479',
-                'setSters' => false]
+            ['setDenumire' => 'CASU A. MIHAI - MEDIC SPECIALIST PSIHIATRIE', 'setCui' => '32830479','setSters' => false,
+                'setAdresa' => 'Adresa 2', 'setSerieFactura' => 'CASU']
         );
         $this->addReference('ownerCasu', $entity);
 
@@ -129,7 +130,7 @@ class AppFixtures extends AbstractFixture
             $manager, 'App\Entity\Owner',
             ['denumire' => 'CABINET INDIVIDUAL PSIHOLOGIE LUPU MIHAELA ADRIANA'],
             ['setDenumire' => 'CABINET INDIVIDUAL PSIHOLOGIE LUPU MIHAELA ADRIANA', 'setCui' => '23779776',
-                'setSters' => false]
+                'setSters' => false, 'setAdresa' => 'Adresa 3', 'setSerieFactura' => 'PSIH']
         );
         $this->addReference('ownerLupu', $entity);
 
