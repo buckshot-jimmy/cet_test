@@ -26,7 +26,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN a2enmod rewrite
 
-ENV APACHE_DOCUMENT_ROOT=/var/www/html/CET/public
+ENV APACHE_DOCUMENT_ROOT=/home/ubuntu/cet_test/public
 
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
     /etc/apache2/sites-available/*.conf \
