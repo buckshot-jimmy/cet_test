@@ -24,6 +24,13 @@ RUN apt-get update && apt-get install -y \
           zip \
           opcache
 
+DocumentRoot /var/www/html/public
+
+<Directory /var/www/html/public>
+    AllowOverride All
+    Require all granted
+</Directory>
+
 RUN a2enmod rewrite
 
 ENV ENV APACHE_DOCUMENT_ROOT=/var/www/html/public
