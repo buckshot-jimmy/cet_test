@@ -53,7 +53,8 @@ services:
             $config:
                 mode: 'utf-8'
                 format: 'A4'
-                orientation: 'P'
+                orientation: 'P',
+                tempDir: '%kernel.project_dir%/tmp/mpdf'
 
     App\PDF\Builder\:
         resource: '../src/PDF/Builder/'
