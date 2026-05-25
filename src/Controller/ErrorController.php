@@ -17,7 +17,7 @@ class ErrorController extends AbstractController
     public function show(Request $request): Response
     {
         $exception = $request->attributes->get('exception');
-        
+        echo $exception->getMessage();
         $cetCodes = [2001, 4001, 4041, 5001, 4009];
         $exCode = $exception->getCode();
 
