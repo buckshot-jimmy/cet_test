@@ -183,7 +183,7 @@ class PacientiRepository extends ServiceEntityRepository
             throw new \Exception('Data collection error', 4001, $exception);
         }
 
-        if ($pacient[0]) {
+        if ($pacient && $pacient[0]) {
             $pacient[0] = array_merge($pacient[0], UtilService::calculeazaDatePacient($pacient[0]['cnp']));
         }
 

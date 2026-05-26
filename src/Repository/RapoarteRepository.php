@@ -178,7 +178,9 @@ class RapoarteRepository extends ServiceEntityRepository
             $parameters[':filter'] = '%' . $filter['value'] . '%';
         }
 
-        foreach ($filter['propertyFilters'] as $entityFieldValue) {
+        $propFilters = $filter['propertyFilters'] ?? [];
+
+        foreach ($propFilters as $entityFieldValue) {
             $entity = array_key_first($entityFieldValue);
             $field = array_key_first($entityFieldValue[$entity]);
             $value = $entityFieldValue[$entity][$field];

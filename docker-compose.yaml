@@ -5,6 +5,7 @@ services:
     build:
       context: .
     container_name: cet_app
+    restart: unless-stopped
     ports:
       - "8089:80"
     volumes:

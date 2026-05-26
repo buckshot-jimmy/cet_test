@@ -375,7 +375,7 @@ class ConsultatiiRepository extends ServiceEntityRepository
             $consultatie->setDataConsultatie(new \DateTime());
             $consultatie->setTarif($pret->getPret());
 
-            if ($programare) {
+            if (isset($programare)) {
                 $consultatie->setProgramare($programare);
             }
 
