@@ -12,6 +12,5 @@ return array (
     'DATABASE_URL' => 'mysql://root:root@127.0.0.1:3306/cet_test?serverVersion=8.0.44',
     'MERCURE_PUBLISH_URL' => 'http://localhost:3000/.well-known/mercure',
     'MERCURE_JWT_TOKEN' => 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtZXJjdXJlIjp7InB1Ymxpc2giOltdfX0.OgXn3jIfbeDQgs1Cu7ISCHDorNOcC31wZHpId1FfdE4',
-    'XDEBUG_MODE' => 'debug',
-    'MAILER_DSN' => 'smtp://ciprianmarta.cm@gmail.com:ylhewluchgewobei@smtp.gmail.com:587?encryption=tls&auth_mode=login&verify_peer=0&verify_peer_name=0'
+    'XDEBUG_MODE' => 'debug'
 );
