@@ -35,10 +35,18 @@ RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
     /etc/apache2/apache2.conf \
     /etc/apache2/conf-available/*.conf
 
+RUN apt-get update && apt-get install -y \
+    unzip \
+    && pecl install xdebug \
+    && docker-php-ext-enable xdebug
+
 COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
+
+COPY ~/php.ini /usr/local/etc/php/
 
 WORKDIR /var/www/html
 
 RUN usermod -u 1000 www-data
 
 EXPOSE 80
+EXPOSE 9003
