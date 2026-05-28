@@ -116,7 +116,7 @@ class MesajAdminRepositoryTest extends KernelTestCase
     {
         $mesaj = $this->repo->getMesajAdmin();
 
-        $this->assertEquals('text admin', $mesaj);
+        $this->assertEquals('Mesaj info', $mesaj);
     }
 
     protected function tearDown(): void

@@ -2,13 +2,13 @@
 
 namespace App\Tests\PDF\Builder;
 
-use App\Entity\Consultatii;
-use App\Entity\Pacienti;
-use App\Entity\Preturi;
+use App\Entity\Consultatie;
+use App\Entity\Pacient;
+use App\Entity\Pret;
 use App\PDF\Builder\FisaPsihodiagnosticPdfBuilder;
 use App\PDF\DTO\PdfDocument;
-use App\Repository\ConsultatiiRepository;
-use App\Repository\PacientiRepository;
+use App\Repository\ConsultatieRepository;
+use App\Repository\PacientRepository;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
@@ -21,11 +21,11 @@ class FisaPsihodiagnosticPdfBuilderTest extends KernelTestCase
 
         $this->em = $this->getContainer()->get(EntityManagerInterface::class);
 
-        $this->pret = $this->em->getRepository(Preturi::class)->findAll()[0];
+        $this->pret = $this->em->getRepository(Pret::class)->findAll()[0];
 
         $this->em->getConnection()->beginTransaction();
 
-        $this->pacient = new Pacienti();
+        $this->pacient = new Pacient();
         $this->pacient->setNume('Pacient_Test');
         $this->pacient->setPrenume('Prenume_Test');
         $this->pacient->setCnp('1790630060770');
@@ -38,7 +38,7 @@ class FisaPsihodiagnosticPdfBuilderTest extends KernelTestCase
         $this->pacient->setDataInreg(new \DateTime());
         $this->em->persist($this->pacient);
 
-        $this->evaluare = new Consultatii();
+        $this->evaluare = new Consultatie();
         $this->evaluare->setPret($this->pret);
         $this->evaluare->setPacient($this->pacient);
         $this->evaluare->setDiagnostic('diag');

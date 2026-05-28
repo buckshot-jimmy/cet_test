@@ -2,8 +2,8 @@
 
 namespace App\PDF\Builder;
 
-use App\Entity\Consultatii;
-use App\Entity\RapoarteColaboratori;
+use App\Entity\Consultatie;
+use App\Entity\RaportColaborator;
 use App\PDF\Contract\PdfDocumentBuilderInterface;
 use App\PDF\DTO\PdfDocument;
 use App\Services\UtilService;
@@ -20,7 +20,7 @@ class RaportColaboratorPdfBuilder implements PdfDocumentBuilderInterface
 
     public function build($id): PdfDocument
     {
-        $raport = $this->em->getRepository(RapoarteColaboratori::class)->find($id);
+        $raport = $this->em->getRepository(RaportColaborator::class)->find($id);
 
         $totalDePlata = 0;
 
@@ -33,10 +33,10 @@ class RaportColaboratorPdfBuilder implements PdfDocumentBuilderInterface
             'stare' => $raport->getStare(),
         ];
 
-        $consultatiiRaport = $this->em->getRepository(Consultatii::class)->getConsultatiiRaportColaborator($raport);
+        $consultatiiRaport = $this->em->getRepository(Consultatie::class)->getConsultatiiRaportColaborator($raport);
 
         foreach ($consultatiiRaport as $id) {
-            $consultatie = $this->em->getRepository(Consultatii::class)->find($id);
+            $consultatie = $this->em->getRepository(Consultatie::class)->find($id);
 
             $tmp = [
                 'dataConsultatie' => $consultatie->getDataConsultatie()->format('d-m-Y'),

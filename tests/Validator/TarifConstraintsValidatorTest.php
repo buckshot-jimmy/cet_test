@@ -2,8 +2,8 @@
 
 namespace App\Tests\Validator;
 
-use App\Entity\Preturi;
-use App\Repository\PreturiRepository;
+use App\Entity\Pret;
+use App\Repository\PretRepository;
 use App\Validator\TarifConstraints;
 use App\Validator\TarifConstraintsValidator;
 use Doctrine\ORM\EntityManagerInterface;
@@ -24,7 +24,7 @@ class TarifConstraintsValidatorTest extends ConstraintValidatorTestCase
     protected function createValidator()
     {
         $em = $this->createMock(EntityManagerInterface::class);
-        $this->repo = $this->getMockBuilder(PreturiRepository::class)
+        $this->repo = $this->getMockBuilder(PretRepository::class)
             ->disableOriginalConstructor()
             ->onlyMethods(['findOneBy'])
             ->getMock();
@@ -41,7 +41,7 @@ class TarifConstraintsValidatorTest extends ConstraintValidatorTestCase
      */
     public function testInvalidMedicServiciuOwnerUnicAddsViolation()
     {
-        $pret = $this->createMock(Preturi::class);
+        $pret = $this->createMock(Pret::class);
         $this->repo->method('findOneBy')->willReturn($pret);
         $pret->method('getPret')->willReturn($pret);
 

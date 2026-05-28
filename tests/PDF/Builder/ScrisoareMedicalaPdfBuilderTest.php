@@ -2,9 +2,9 @@
 
 namespace App\Tests\PDF\Builder;
 
-use App\Entity\Consultatii;
-use App\Entity\Pacienti;
-use App\Entity\Preturi;
+use App\Entity\Consultatie;
+use App\Entity\Pacient;
+use App\Entity\Pret;
 use App\PDF\Builder\ScrisoareMedicalaPdfBuilder;
 use App\PDF\DTO\PdfDocument;
 use Doctrine\ORM\EntityManagerInterface;
@@ -18,11 +18,11 @@ class ScrisoareMedicalaPdfBuilderTest extends KernelTestCase
 
         $this->em = $this->getContainer()->get(EntityManagerInterface::class);
 
-        $this->pret = $this->em->getRepository(Preturi::class)->findAll()[0];
+        $this->pret = $this->em->getRepository(Pret::class)->findAll()[0];
 
         $this->em->getConnection()->beginTransaction();
 
-        $this->pacient = new Pacienti();
+        $this->pacient = new Pacient();
         $this->pacient->setNume('Pacient_Test');
         $this->pacient->setPrenume('Prenume_Test');
         $this->pacient->setCnp('1790630060770');
@@ -35,7 +35,7 @@ class ScrisoareMedicalaPdfBuilderTest extends KernelTestCase
         $this->pacient->setDataInreg(new \DateTime());
         $this->em->persist($this->pacient);
 
-        $this->consultatie = new Consultatii();
+        $this->consultatie = new Consultatie();
         $this->consultatie->setPret($this->pret);
         $this->consultatie->setPacient($this->pacient);
         $this->consultatie->setDiagnostic('diag');

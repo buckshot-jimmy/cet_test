@@ -2,15 +2,15 @@
 
 namespace App\Tests\PDF\Builder;
 
-use App\Entity\Consultatii;
+use App\Entity\Consultatie;
 use App\Entity\FacturaConsultatie;
-use App\Entity\Facturi;
+use App\Entity\Factura;
 use App\Entity\Owner;
-use App\Entity\Pacienti;
-use App\Entity\Preturi;
+use App\Entity\Pacient;
+use App\Entity\Pret;
 use App\PDF\Builder\FacturaPdfBuilder;
 use App\PDF\DTO\PdfDocument;
-use App\Repository\FacturiRepository;
+use App\Repository\FacturaRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
@@ -22,12 +22,12 @@ class FacturaPdfBuilderTest extends KernelTestCase
 
         $this->em = $this->getContainer()->get(EntityManagerInterface::class);
 
-        $pret = $this->em->getRepository(Preturi::class)->findAll()[0];
+        $pret = $this->em->getRepository(Pret::class)->findAll()[0];
         $owner = $this->em->getRepository(Owner::class)->findAll()[0];
 
         $this->em->getConnection()->beginTransaction();
 
-        $this->pacient = new Pacienti();
+        $this->pacient = new Pacient();
         $this->pacient->setNume('Pacient_Test');
         $this->pacient->setPrenume('Prenume_Test');
         $this->pacient->setCnp('1790630060770');
@@ -40,7 +40,7 @@ class FacturaPdfBuilderTest extends KernelTestCase
         $this->pacient->setDataInreg(new \DateTime());
         $this->em->persist($this->pacient);
 
-        $this->consultatie = new Consultatii();
+        $this->consultatie = new Consultatie();
         $this->consultatie->setPret($pret);
         $this->consultatie->setPacient($this->pacient);
         $this->consultatie->setDiagnostic('diag');
@@ -56,7 +56,7 @@ class FacturaPdfBuilderTest extends KernelTestCase
         $this->consultatie->setEvalPsiho('eval');
         $this->em->persist($this->consultatie);
 
-        $this->invoice = new Facturi();
+        $this->invoice = new Factura();
         $this->invoice->setOwner($owner);
         $this->invoice->setPacient($this->pacient);
         $this->invoice->setSerie($owner->getSerieFactura());
@@ -66,7 +66,7 @@ class FacturaPdfBuilderTest extends KernelTestCase
         $this->invoice->setTip(0);
         $this->em->persist($this->invoice);
 
-        $this->storno = new Facturi();
+        $this->storno = new Factura();
         $this->storno->setOwner($owner);
         $this->storno->setPacient($this->pacient);
         $this->storno->setSerie($owner->getSerieFactura());

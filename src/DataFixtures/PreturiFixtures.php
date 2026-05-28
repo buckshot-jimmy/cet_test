@@ -14,7 +14,7 @@ class PreturiFixtures extends AbstractFixture implements DependentFixtureInterfa
     public function load(ObjectManager $manager)
     {
         $this->entityFactory->ensureEntity(
-            $manager, 'App\Entity\Preturi',
+            $manager, 'App\Entity\Pret',
             [
                 'medic' => $this->getReference('userPopescu'),
                 'serviciu' => $this->getReference('consultGeneral'),
@@ -30,7 +30,7 @@ class PreturiFixtures extends AbstractFixture implements DependentFixtureInterfa
         );
 
         $this->entityFactory->ensureEntity(
-            $manager, 'App\Entity\Preturi',
+            $manager, 'App\Entity\Pret',
             [
                 'medic' => $this->getReference('userCasu'),
                 'serviciu' => $this->getReference('consultSpecial'),
@@ -46,7 +46,7 @@ class PreturiFixtures extends AbstractFixture implements DependentFixtureInterfa
         );
 
         $this->entityFactory->ensureEntity(
-            $manager, 'App\Entity\Preturi',
+            $manager, 'App\Entity\Pret',
             [
                 'medic' => $this->getReference('userSimori'),
                 'serviciu' => $this->getReference('investigatieSpeciala'),
@@ -62,7 +62,7 @@ class PreturiFixtures extends AbstractFixture implements DependentFixtureInterfa
         );
 
         $this->entityFactory->ensureEntity(
-            $manager, 'App\Entity\Preturi',
+            $manager, 'App\Entity\Pret',
             [
                 'medic' => $this->getReference('userMarginean'),
                 'serviciu' => $this->getReference('consultGeneral'),
@@ -78,7 +78,7 @@ class PreturiFixtures extends AbstractFixture implements DependentFixtureInterfa
         );
 
         $this->entityFactory->ensureEntity(
-            $manager, 'App\Entity\Preturi',
+            $manager, 'App\Entity\Pret',
             [
                 'medic' => $this->getReference('userLupu'),
                 'serviciu' => $this->getReference('evaluarePsihologica'),

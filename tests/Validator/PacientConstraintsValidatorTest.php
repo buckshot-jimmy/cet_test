@@ -2,9 +2,9 @@
 
 namespace App\Tests\Validator;
 
-use App\DTO\PacientiDTO;
-use App\Entity\Pacienti;
-use App\Repository\PacientiRepository;
+use App\DTO\PacientDTO;
+use App\Entity\Pacient;
+use App\Repository\PacientRepository;
 use App\Validator\PacientConstraints;
 use App\Validator\PacientConstraintsValidator;
 use Doctrine\ORM\EntityManagerInterface;
@@ -26,13 +26,13 @@ class PacientConstraintsValidatorTest extends ConstraintValidatorTestCase
     protected function createValidator()
     {
         $em = $this->createMock(EntityManagerInterface::class);
-        $this->repo = $this->getMockBuilder(PacientiRepository::class)
+        $this->repo = $this->getMockBuilder(PacientRepository::class)
             ->disableOriginalConstructor()
             ->onlyMethods(['findOneBy'])
             ->getMock();
         $em->method('getRepository')->willReturn($this->repo);
 
-        $this->dto = new PacientiDTO(1, 'n', 'p', '1790630060774', '0745545689' ,
+        $this->dto = new PacientDTO(1, 'n', 'p', '1790630060774', '0745545689' ,
             '', 'ciprianmarta.cm@gmail.com', 'a', 'Alba', 'Baciu', 'Romania',
             'M', '30-06-1979', 'l', 'o', '2026-01-01', false,
             'o', 1, 1, [], []
@@ -47,7 +47,7 @@ class PacientConstraintsValidatorTest extends ConstraintValidatorTestCase
      */
     public function testInvalidCnpUnicAddsViolation()
     {
-        $pacient = $this->createMock(Pacienti::class);
+        $pacient = $this->createMock(Pacient::class);
         $this->repo->method('findOneBy')->willReturn($pacient);
 
         $constraint = new PacientConstraints();
@@ -77,7 +77,7 @@ class PacientConstraintsValidatorTest extends ConstraintValidatorTestCase
      */
     public function testValidCnpUnicSameCnpDoesNotAddViolation()
     {
-        $pacient = $this->createMock(Pacienti::class);
+        $pacient = $this->createMock(Pacient::class);
         $this->repo->method('findOneBy')->willReturn($pacient);
         $pacient->method('getCnp')->willReturn('1212232354589');
         $pacient->method('getId')->willReturn(1);

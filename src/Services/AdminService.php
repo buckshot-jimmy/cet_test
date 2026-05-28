@@ -2,9 +2,8 @@
 
 namespace App\Services;
 
-use App\Entity\Consultatii;
-use App\Entity\MesajAdmin;
-use App\Entity\Pacienti;
+use App\Entity\Consultatie;
+use App\Entity\Pacient;
 use App\Entity\Role;
 use App\Entity\Specialitate;
 use App\Entity\Titulatura;
@@ -71,10 +70,10 @@ class AdminService
         }
 
         try {
-            $valoareServicii['total'] = $this->em->getRepository(Consultatii::class)->valoareServicii($filterValoare);
+            $valoareServicii['total'] = $this->em->getRepository(Consultatie::class)->valoareServicii($filterValoare);
             $filterValoare['luna'] = date('m');
             $filterValoare['an'] = date('Y');
-            $valoareServicii['luna'] = $this->em->getRepository(Consultatii::class)->valoareServicii($filterValoare);
+            $valoareServicii['luna'] = $this->em->getRepository(Consultatie::class)->valoareServicii($filterValoare);
         } catch (\Exception $exception) {
             throw new \Exception("Data collection error", 4001, $exception);
         }
@@ -85,15 +84,15 @@ class AdminService
     public function getTotaluriPacienti(array $userData)
     {
         $valoriCabinet = [
-            'nrTotalPacienti' => $this->em->getRepository(Pacienti::class)->count([]),
-            'nrTotalPrestatii' => $this->em->getRepository(Consultatii::class)->count([])
+            'nrTotalPacienti' => $this->em->getRepository(Pacient::class)->count([]),
+            'nrTotalPrestatii' => $this->em->getRepository(Consultatie::class)->count([])
         ];
 
         try {
             $consultatiiPacientiMedic['nrPacientiMedic'] =
-                $this->em->getRepository(Consultatii::class)->getNrPacientiConsultatiDeMedic($userData['id']);
+                $this->em->getRepository(Consultatie::class)->getNrPacientiConsultatiDeMedic($userData['id']);
             $consultatiiPacientiMedic['nrServiciiMedic'] =
-                $this->em->getRepository(Consultatii::class)->getNrServiciiPrestateMedic($userData['id']);
+                $this->em->getRepository(Consultatie::class)->getNrServiciiPrestateMedic($userData['id']);
 
             return [
                 'consultatiiPacientiMedic' => $consultatiiPacientiMedic,

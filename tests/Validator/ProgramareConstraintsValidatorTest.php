@@ -2,7 +2,7 @@
 
 namespace App\Tests\Validator;
 
-use App\Repository\ProgramariRepository;
+use App\Repository\ProgramareRepository;
 use App\Validator\ProgramareConstraints;
 use App\Validator\ProgramareConstraintsValidator;
 use Doctrine\ORM\EntityManagerInterface;
@@ -23,7 +23,7 @@ class ProgramareConstraintsValidatorTest extends ConstraintValidatorTestCase
     protected function createValidator()
     {
         $em = $this->createMock(EntityManagerInterface::class);
-        $this->repo = $this->createMock(ProgramariRepository::class);
+        $this->repo = $this->createMock(ProgramareRepository::class);
         $em->method('getRepository')->willReturn($this->repo);
 
         return new ProgramareConstraintsValidator($em);

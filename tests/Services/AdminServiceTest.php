@@ -2,19 +2,19 @@
 
 namespace App\Tests\Services;
 
-use App\Entity\Consultatii;
+use App\Entity\Consultatie;
 use App\Entity\MesajAdmin;
 use App\Entity\Owner;
-use App\Entity\Pacienti;
-use App\Entity\Preturi;
+use App\Entity\Pacient;
+use App\Entity\Pret;
 use App\Entity\Role;
-use App\Entity\Servicii;
+use App\Entity\Serviciu;
 use App\Entity\Specialitate;
 use App\Entity\Titulatura;
 use App\Entity\User;
-use App\Repository\ConsultatiiRepository;
+use App\Repository\ConsultatieRepository;
 use App\Repository\MesajAdminRepository;
-use App\Repository\PacientiRepository;
+use App\Repository\PacientRepository;
 use App\Repository\RoleRepository;
 use App\Repository\SpecialitateRepository;
 use App\Repository\TitulaturaRepository;
@@ -45,17 +45,17 @@ class AdminServiceTest extends KernelTestCase
         $this->rolesRepo = $this->createMock(RoleRepository::class);
         $this->specialitateRepo = $this->createMock(SpecialitateRepository::class);
         $this->titulaturaRepo = $this->createMock(TitulaturaRepository::class);
-        $this->consultatiiRepo = $this->createMock(ConsultatiiRepository::class);
+        $this->consultatiiRepo = $this->createMock(ConsultatieRepository::class);
         $this->mesajRepo = $this->createMock(MesajAdminRepository::class);
-        $this->pacientiRepo = $this->createMock(PacientiRepository::class);
+        $this->pacientiRepo = $this->createMock(PacientRepository::class);
 
         $this->emMock->method('getRepository')->willReturnMap([
             [Role::class, $this->rolesRepo],
             [Specialitate::class, $this->specialitateRepo],
             [Titulatura::class, $this->titulaturaRepo],
-            [Consultatii::class, $this->consultatiiRepo],
+            [Consultatie::class, $this->consultatiiRepo],
             [MesajAdmin::class, $this->mesajRepo],
-            [Pacienti::class, $this->pacientiRepo]
+            [Pacient::class, $this->pacientiRepo]
         ]);
 
         $this->em->getConnection()->beginTransaction();
@@ -80,12 +80,12 @@ class AdminServiceTest extends KernelTestCase
         $this->owner->setSerieFactura('Ftest');
         $this->em->persist($this->owner);
 
-        $this->serviciu = (new Servicii())->setDenumire('Consult_Test');
+        $this->serviciu = (new Serviciu())->setDenumire('Consult_Test');
         $this->serviciu->setTip(0);
         $this->serviciu->setSters(false);
         $this->em->persist($this->serviciu);
 
-        $this->pret = new Preturi();
+        $this->pret = new Pret();
         $this->pret->setMedic($this->medic);
         $this->pret->setOwner($this->owner);
         $this->pret->setServiciu($this->serviciu);
@@ -95,7 +95,7 @@ class AdminServiceTest extends KernelTestCase
         $this->pret->setCotaTva(0);
         $this->em->persist($this->pret);
 
-        $this->pacient = new Pacienti();
+        $this->pacient = new Pacient();
         $this->pacient->setNume('Pacient_Test');
         $this->pacient->setPrenume('Prenume_Test');
         $this->pacient->setCnp('1234567890109');
@@ -108,7 +108,7 @@ class AdminServiceTest extends KernelTestCase
         $this->pacient->setDataInreg(new \DateTime());
         $this->em->persist($this->pacient);
 
-        $this->consultatie = new Consultatii();
+        $this->consultatie = new Consultatie();
         $this->consultatie->setPret($this->pret);
         $this->consultatie->setPacient($this->pacient);
         $this->consultatie->setDiagnostic('diag');

@@ -2,7 +2,7 @@
 
 namespace App\Validator;
 
-use App\Entity\Facturi;
+use App\Entity\Factura;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
@@ -29,7 +29,7 @@ class FacturaConstraintsValidator extends ConstraintValidator
 
     private function facturaUnica($value, $constraint)
     {
-        $factura = $this->em->getRepository(Facturi::class)
+        $factura = $this->em->getRepository(Factura::class)
             ->findOneBy([
                 'serie' => $value->getSerie(),
                 'numar' => $value->getNumar(),

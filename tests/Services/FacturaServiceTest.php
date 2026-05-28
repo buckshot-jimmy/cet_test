@@ -2,14 +2,14 @@
 
 namespace App\Tests\Services;
 
-use App\Entity\Consultatii;
-use App\Entity\Facturi;
+use App\Entity\Consultatie;
+use App\Entity\Factura;
 use App\Entity\Owner;
-use App\Entity\Pacienti;
-use App\Entity\PersoaneJuridice;
-use App\Entity\Preturi;
+use App\Entity\Pacient;
+use App\Entity\PersoanaJuridica;
+use App\Entity\Pret;
 use App\Entity\Role;
-use App\Entity\Servicii;
+use App\Entity\Serviciu;
 use App\Entity\User;
 use App\Services\FacturaService;
 use Doctrine\Persistence\ManagerRegistry;
@@ -37,7 +37,7 @@ class FacturaServiceTest extends KernelTestCase
         $this->owner->setSerieFactura('Fact');
         $this->em->persist($this->owner);
 
-        $this->pacient = new Pacienti();
+        $this->pacient = new Pacient();
         $this->pacient->setNume('Pacient_Test');
         $this->pacient->setPrenume('Prenume_Test');
         $this->pacient->setCnp('1891022414121');
@@ -50,14 +50,14 @@ class FacturaServiceTest extends KernelTestCase
         $this->pacient->setDataInreg(new \DateTime());
         $this->em->persist($this->pacient);
 
-        $this->pj = new PersoaneJuridice();
+        $this->pj = new PersoanaJuridica();
         $this->pj->setDenumire('test11');
         $this->pj->setCui('443333445');
         $this->pj->setAdresa('Addr22');
         $this->pj->setSters(false);
         $this->em->persist($this->pj);
 
-        $this->serviciu = (new Servicii())->setDenumire('Consult_Test');
+        $this->serviciu = (new Serviciu())->setDenumire('Consult_Test');
         $this->serviciu->setTip(0);
         $this->serviciu->setSters(false);
         $this->em->persist($this->serviciu);
@@ -76,7 +76,7 @@ class FacturaServiceTest extends KernelTestCase
         $this->medic->setParolaSchimbata(false);
         $this->em->persist($this->medic);
 
-        $this->pret = new Preturi();
+        $this->pret = new Pret();
         $this->pret->setMedic($this->medic);
         $this->pret->setOwner($this->owner);
         $this->pret->setServiciu($this->serviciu);
@@ -86,7 +86,7 @@ class FacturaServiceTest extends KernelTestCase
         $this->pret->setCotaTva(0);
         $this->em->persist($this->pret);
 
-        $this->consultatie = new Consultatii();
+        $this->consultatie = new Consultatie();
         $this->consultatie->setPret($this->pret);
         $this->consultatie->setPacient($this->pacient);
         $this->consultatie->setDiagnostic('diag');
@@ -147,7 +147,7 @@ class FacturaServiceTest extends KernelTestCase
             'consultatii_factura' => implode([$this->consultatie->getId()])
         ]);
 
-        $this->assertInstanceOf(Facturi::class, $result);
+        $this->assertInstanceOf(Factura::class, $result);
         $this->assertSame($result->getOwner(), $this->owner);
 
         $result = $this->service->prepareInvoice([
@@ -157,7 +157,7 @@ class FacturaServiceTest extends KernelTestCase
             'consultatii_factura' => implode([$this->consultatie->getId()])
         ]);
 
-        $this->assertInstanceOf(Facturi::class, $result);
+        $this->assertInstanceOf(Factura::class, $result);
         $this->assertSame($result->getClientPj()->getId(), $this->pj->getId());
     }
 }

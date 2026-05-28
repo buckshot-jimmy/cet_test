@@ -5,7 +5,7 @@ namespace App\Tests\DataFixtures;
 use App\DataFixtures\AppFixtures;
 use App\DataFixtures\PreturiFixtures;
 use App\DataFixtures\UserFixtures;
-use App\Entity\Preturi;
+use App\Entity\Pret;
 use App\Services\FixturesEntityFactory;
 use Doctrine\Common\DataFixtures\ReferenceRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -49,7 +49,7 @@ class PreturiFixturesTest extends KernelTestCase
             $em->flush();
             $em->clear();
 
-            $pret = $em->getRepository(Preturi::class)->findOneBy([
+            $pret = $em->getRepository(Pret::class)->findOneBy([
                 'procentajMedic' => '50',
             ]);
 

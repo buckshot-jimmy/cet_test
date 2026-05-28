@@ -2,17 +2,17 @@
 
 namespace App\Tests\PDF\Builder;
 
-use App\Entity\Consultatii;
+use App\Entity\Consultatie;
 use App\Entity\Owner;
-use App\Entity\Pacienti;
-use App\Entity\Preturi;
-use App\Entity\RapoarteColaboratori;
+use App\Entity\Pacient;
+use App\Entity\Pret;
+use App\Entity\RaportColaborator;
 use App\Entity\Role;
-use App\Entity\Servicii;
+use App\Entity\Serviciu;
 use App\Entity\User;
 use App\PDF\Builder\RaportColaboratorPdfBuilder;
 use App\PDF\DTO\PdfDocument;
-use App\Repository\RapoarteRepository;
+use App\Repository\RaportColaboratorRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
@@ -26,7 +26,7 @@ class RaportColaboratorPdfBuilderTest extends KernelTestCase
 
         $this->em->getConnection()->beginTransaction();
 
-        $this->serviciu = (new Servicii())->setDenumire('Consult_Test');
+        $this->serviciu = (new Serviciu())->setDenumire('Consult_Test');
         $this->serviciu->setTip(0);
         $this->serviciu->setSters(false);
         $this->em->persist($this->serviciu);
@@ -51,7 +51,7 @@ class RaportColaboratorPdfBuilderTest extends KernelTestCase
         $this->owner->setSerieFactura('F');
         $this->em->persist($this->owner);
 
-        $this->pret = new Preturi();
+        $this->pret = new Pret();
         $this->pret->setMedic($this->medic);
         $this->pret->setOwner($this->owner);
         $this->pret->setServiciu($this->serviciu);
@@ -61,7 +61,7 @@ class RaportColaboratorPdfBuilderTest extends KernelTestCase
         $this->pret->setCotaTva(0);
         $this->em->persist($this->pret);
 
-        $this->pacient = new Pacienti();
+        $this->pacient = new Pacient();
         $this->pacient->setNume('Pacient_Test');
         $this->pacient->setPrenume('Prenume_Test');
         $this->pacient->setCnp('1790630060770');
@@ -76,7 +76,7 @@ class RaportColaboratorPdfBuilderTest extends KernelTestCase
 
         $date = new \DateTime('2026-01-01');
 
-        $this->consultatie = new Consultatii();
+        $this->consultatie = new Consultatie();
         $this->consultatie->setPret($this->pret);
         $this->consultatie->setPacient($this->pacient);
         $this->consultatie->setDiagnostic('diag');
@@ -92,14 +92,14 @@ class RaportColaboratorPdfBuilderTest extends KernelTestCase
         $this->consultatie->setEvalPsiho('eval');
         $this->em->persist($this->consultatie);
 
-        $this->raport = new RapoarteColaboratori();
+        $this->raport = new RaportColaborator();
         $this->raport->setDataGenerarii($date);
         $this->raport->setSuma(200);
         $this->raport->setMedic($this->medic);
         $this->raport->setOwner($this->owner);
         $this->raport->setLuna('Ianuarie');
         $this->raport->setAn($date->format('Y'));
-        $this->raport->setStare(RapoarteRepository::STARE_NEPLATITA);
+        $this->raport->setStare(RaportColaboratorRepository::STARE_NEPLATITA);
         $this->em->persist($this->raport);
 
         $this->em->flush();

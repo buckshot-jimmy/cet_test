@@ -20,11 +20,11 @@ class FacturaConsultatie
 
     #[ORM\ManyToOne(inversedBy: 'facturaConsultatii')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Facturi $factura = null;
+    private ?Factura $factura = null;
 
     #[ORM\ManyToOne(inversedBy: 'facturaConsultatii')]
     #[ORM\JoinColumn(nullable: false)]
-    private ?Consultatii $consultatie = null;
+    private ?Consultatie $consultatie = null;
 
     #[ORM\Column]
     private ?int $valoare = null;
@@ -34,24 +34,24 @@ class FacturaConsultatie
         return $this->id;
     }
 
-    public function getFactura(): ?Facturi
+    public function getFactura(): ?Factura
     {
         return $this->factura;
     }
 
-    public function setFactura(?Facturi $factura): static
+    public function setFactura(?Factura $factura): static
     {
         $this->factura = $factura;
 
         return $this;
     }
 
-    public function getConsultatie(): ?Consultatii
+    public function getConsultatie(): ?Consultatie
     {
         return $this->consultatie;
     }
 
-    public function setConsultatie(?Consultatii $consultatie): static
+    public function setConsultatie(?Consultatie $consultatie): static
     {
         $this->consultatie = $consultatie;
 

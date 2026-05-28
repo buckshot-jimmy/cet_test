@@ -135,28 +135,28 @@ class AppFixtures extends AbstractFixture
         $this->addReference('ownerLupu', $entity);
 
         $entity = $this->entityFactory->ensureEntity(
-            $manager, 'App\Entity\Servicii',
+            $manager, 'App\Entity\Serviciu',
             ['denumire' => 'Consult general'],
             ['setDenumire' => 'Consult general', 'setTip' => 0, 'setSters' => false]
         );
         $this->addReference('consultGeneral', $entity);
 
         $entity = $this->entityFactory->ensureEntity(
-            $manager, 'App\Entity\Servicii',
+            $manager, 'App\Entity\Serviciu',
             ['denumire' => 'Consult special'],
             ['setDenumire' => 'Consult special', 'setTip' => 0, 'setSters' => false]
         );
         $this->addReference('consultSpecial', $entity);
 
         $entity = $this->entityFactory->ensureEntity(
-            $manager, 'App\Entity\Servicii',
+            $manager, 'App\Entity\Serviciu',
             ['denumire' => 'Investigatie speciala'],
             ['setDenumire' => 'Investigatie speciala', 'setTip' => 1, 'setSters' => false]
         );
         $this->addReference('investigatieSpeciala', $entity);
 
         $entity = $this->entityFactory->ensureEntity(
-            $manager, 'App\Entity\Servicii',
+            $manager, 'App\Entity\Serviciu',
             ['denumire' => 'Evaluare psihologica'],
             ['setDenumire' => 'Evaluare psihologica', 'setTip' => 2, 'setSters' => false]
         );

@@ -2,8 +2,8 @@
 
 namespace App\PDF\Builder;
 
-use App\Entity\Consultatii;
-use App\Entity\Pacienti;
+use App\Entity\Consultatie;
+use App\Entity\Pacient;
 use App\PDF\Contract\PdfDocumentBuilderInterface;
 use App\PDF\DTO\PdfDocument;
 use App\Services\UtilService;
@@ -20,7 +20,7 @@ class ScrisoareMedicalaPdfBuilder implements PdfDocumentBuilderInterface
 
     public function build($id): PdfDocument
     {
-        $serviciu = $this->em->getRepository(Consultatii::class)->find($id);
+        $serviciu = $this->em->getRepository(Consultatie::class)->find($id);
 
         $data = [
             'dataConsultatie' => $serviciu->getDataConsultatie()->format('d-m-Y'),
@@ -38,7 +38,7 @@ class ScrisoareMedicalaPdfBuilder implements PdfDocumentBuilderInterface
             'ownerCui' => $serviciu->getPret()->getOwner()->getCui(),
             'tratamenteUrmate' => preg_split('/\n|\r\n?/', $serviciu->getTratamenteUrmate()),
             'investigatiiUrmate' => preg_split('/\n|\r\n?/', $serviciu->getInvestigatiiUrmate()),
-            'pacient' => $this->em->getRepository(Pacienti::class)->getPacient($serviciu->getPacient()),
+            'pacient' => $this->em->getRepository(Pacient::class)->getPacient($serviciu->getPacient()),
             'formular' => 'Scrisoare_medicala_'
         ];
 

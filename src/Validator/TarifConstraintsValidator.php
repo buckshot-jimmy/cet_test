@@ -4,7 +4,7 @@
 namespace App\Validator;
 
 
-use App\Entity\Preturi;
+use App\Entity\Pret;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
@@ -25,7 +25,7 @@ class TarifConstraintsValidator extends ConstraintValidator
             return true;
         }
 
-        $tarif = $this->em->getRepository(Preturi::class)
+        $tarif = $this->em->getRepository(Pret::class)
             ->findOneBy(['medic' => $tarif['pret_medic'], 'serviciu' => $tarif['pret_serviciu'],
                 'owner' => $tarif['pret_owner']]);
 

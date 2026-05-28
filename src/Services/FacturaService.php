@@ -2,12 +2,12 @@
 
 namespace App\Services;
 
-use App\Entity\Consultatii;
+use App\Entity\Consultatie;
 use App\Entity\FacturaConsultatie;
-use App\Entity\Facturi;
+use App\Entity\Factura;
 use App\Entity\Owner;
-use App\Entity\Pacienti;
-use App\Entity\PersoaneJuridice;
+use App\Entity\Pacient;
+use App\Entity\PersoanaJuridica;
 use Doctrine\ORM\EntityManagerInterface;
 
 class FacturaService
@@ -18,11 +18,11 @@ class FacturaService
 
     public function prepareInvoice($data)
     {
-        $factura = new Facturi();
+        $factura = new Factura();
         $date = new \DateTime();
 
         $furnizor = $this->em->getRepository(Owner::class)->find($data['owner_factura']);
-        $lastInvoice = $this->em->getRepository(Facturi::class)
+        $lastInvoice = $this->em->getRepository(Factura::class)
             ->findOneBy(['owner' => $furnizor->getId()], ['id' => 'DESC']);
 
         $factura->setData(new \DateTime());
@@ -35,7 +35,8 @@ class FacturaService
         foreach (explode(',', $data['consultatii_factura']) as $cf) {
             $facturaConsultatie = new FacturaConsultatie();
             $facturaConsultatie->setFactura($factura);
-            $consultatie = $this->em->getRepository(Consultatii::class)->find($cf);
+            $consultatie = $this->em->getRepository(Consultatie::class)->find($cf);
+            $consultatie->setFacturata(true);
             $facturaConsultatie->setConsultatie($consultatie);
             $facturaConsultatie->setValoare($consultatie->getTarif());
 
@@ -43,14 +44,14 @@ class FacturaService
         }
 
         if (isset($data['factura_pacient'])) {
-            $pacient = $this->em->getRepository(Pacienti::class)->find($data['factura_pacient']);
+            $pacient = $this->em->getRepository(Pacient::class)->find($data['factura_pacient']);
             $factura->setPacient($pacient);
             $factura->setClientPj(null);
         }
         if (isset($data['factura_pj'])) {
-            $pj = $this->em->getRepository(PersoaneJuridice::class)->find($data['factura_pj']);
-            $factura->setClientPj($pj);
+            $pj = $this->em->getRepository(PersoanaJuridica::class)->find($data['factura_pj']);
             $factura->setPacient(null);
+            $factura->setClientPj($pj);
         }
 
         return $factura;

@@ -7,7 +7,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
-#[ORM\Table(name: "owner")]
+#[ORM\Table(name: "owners")]
 #[ORM\Entity(repositoryClass: OwnerRepository::class)]
 class Owner
 {
@@ -44,9 +44,9 @@ class Owner
     private ?int $capitalSocial = null;
 
     /**
-     * @var Collection<int, Facturi>
+     * @var Collection<int, Factura>
      */
-    #[ORM\OneToMany(mappedBy: 'owner', targetEntity: Facturi::class)]
+    #[ORM\OneToMany(mappedBy: 'owner', targetEntity: Factura::class)]
     private Collection $facturi;
 
     public function __construct()
@@ -172,14 +172,14 @@ class Owner
     }
 
     /**
-     * @return Collection<int, Facturi>
+     * @return Collection<int, Factura>
      */
     public function getFacturi(): Collection
     {
         return $this->facturi;
     }
 
-    public function addFacturi(Facturi $facturi): static
+    public function addFacturi(Factura $facturi): static
     {
         if (!$this->facturi->contains($facturi)) {
             $this->facturi->add($facturi);
@@ -189,7 +189,7 @@ class Owner
         return $this;
     }
 
-    public function removeFacturi(Facturi $facturi): static
+    public function removeFacturi(Factura $facturi): static
     {
         if ($this->facturi->removeElement($facturi)) {
             // set the owning side to null (unless already changed)

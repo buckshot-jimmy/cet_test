@@ -695,7 +695,7 @@
       </trans-unit>
       <trans-unit id="wg.7ovU" resname="Enter a valid email address">
         <source>Enter a valid email address</source>
-        <target>__Enter a valid email address</target>
+        <target>Introduceti o adresa de email valida.</target>
       </trans-unit>
     </body>
   </file>

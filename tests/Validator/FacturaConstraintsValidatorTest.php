@@ -2,9 +2,9 @@
 
 namespace App\Tests\Validator;
 
-use App\Entity\Facturi;
-use App\Entity\Pacienti;
-use App\Repository\FacturiRepository;
+use App\Entity\Factura;
+use App\Entity\Pacient;
+use App\Repository\FacturaRepository;
 use App\Validator\FacturaConstraints;
 use App\Validator\FacturaConstraintsValidator;
 use Doctrine\ORM\EntityManagerInterface;
@@ -17,7 +17,7 @@ class FacturaConstraintsValidatorTest extends ConstraintValidatorTestCase
     protected function createValidator()
     {
         $em = $this->createMock(EntityManagerInterface::class);
-        $this->repo = $this->getMockBuilder(FacturiRepository::class)
+        $this->repo = $this->getMockBuilder(FacturaRepository::class)
             ->disableOriginalConstructor()
             ->onlyMethods(['findOneBy'])
             ->getMock();
@@ -40,8 +40,8 @@ class FacturaConstraintsValidatorTest extends ConstraintValidatorTestCase
      */
     public function testItBuildsViolationWithFacturaUnica()
     {
-        $factura = $this->createMock(Facturi::class);
-        $pacient = $this->createMock(Pacienti::class);
+        $factura = $this->createMock(Factura::class);
+        $pacient = $this->createMock(Pacient::class);
         $factura->method('getData')->willReturn(new \DateTimeImmutable('2024-01-01'));
         $factura->method('getPacient')->willReturn($pacient);
         $this->repo->method('findOneBy')->willReturn($factura);
@@ -59,8 +59,8 @@ class FacturaConstraintsValidatorTest extends ConstraintValidatorTestCase
      */
     public function testItBuildsNoViolationWithFacturaUnica()
     {
-        $factura = $this->createMock(Facturi::class);
-        $pacient = $this->createMock(Pacienti::class);
+        $factura = $this->createMock(Factura::class);
+        $pacient = $this->createMock(Pacient::class);
         $factura->method('getData')->willReturn(new \DateTimeImmutable('2024-01-01'));
         $factura->method('getPacient')->willReturn($pacient);
         $this->repo->method('findOneBy')->willReturn(null);
@@ -78,7 +78,7 @@ class FacturaConstraintsValidatorTest extends ConstraintValidatorTestCase
      */
     public function testItBuildsViolationWithNoClient()
     {
-        $factura = $this->createMock(Facturi::class);
+        $factura = $this->createMock(Factura::class);
         $factura->method('getData')->willReturn(new \DateTimeImmutable('2024-01-01'));
         $factura->method('getPacient')->willReturn(null);
         $this->repo->method('findOneBy')->willReturn(null);
@@ -96,8 +96,8 @@ class FacturaConstraintsValidatorTest extends ConstraintValidatorTestCase
      */
     public function testItBuildsNoViolationWithNoClient()
     {
-        $factura = $this->createMock(Facturi::class);
-        $pacient = $this->createMock(Pacienti::class);
+        $factura = $this->createMock(Factura::class);
+        $pacient = $this->createMock(Pacient::class);
         $factura->method('getData')->willReturn(new \DateTimeImmutable('2024-01-01'));
         $factura->method('getPacient')->willReturn($pacient);
         $this->repo->method('findOneBy')->willReturn(null);

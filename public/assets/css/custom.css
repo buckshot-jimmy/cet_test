@@ -36,16 +36,14 @@ table.table-bordered.dataTable {
 }
 .modal_consultatie_content, .modal_investigatie_content, .modal_eval_psiho_content, .view_modal_consultatie_content,
 .view_modal_investigatie_content, .view_modal_eval_psiho_content {
-    width: 100%;
-    max-width: 1365px;
+    width: 1365px;
     top:auto;
     right:87%;
     left:auto;
     bottom:10%;
 }
 .modal_raport_colaboratori_content {
-    width: 100%;
-    max-width: 1000px;
+    width: 1000px;
     right: 45%;
     left:auto;
 }
@@ -54,8 +52,7 @@ table.table-bordered.dataTable {
     margin-bottom: 100px;
     margin-left: 20px;
     margin-right: 20px;
-    width: 100%;
-    max-width: 180px;
+    width: 180px;
     height: 100px;
     box-shadow: 0 0 38px 4px white;
 }
@@ -63,8 +60,7 @@ table.table-bordered.dataTable {
     margin-top: 20px;
     margin-left: 10px;
     margin-right: 10px;
-    width: 100%;
-    max-width: 80px;
+    width: 80px;
     height: 35px;
     box-shadow: 0 0 10px 1px white;
 }
@@ -84,27 +80,23 @@ table.table-bordered.dataTable {
     color: red;
 }
 .modal_pacient_content {
-    width: 100%;
-    max-width: 800px;
+    width: 800px;
     right:30%;
     left:auto;
 }
 .pret_content {
-    width: 100%;
-    max-width: 800px;
+    width: 800px;
     right:30%;
     left:auto;
 }
 .cons_inv_content {
-    width: 100%;
-    max-width: 1365px;
+    width: 1365px;
     right: 85%;
     left:auto;
     height: 700px;
 }
 .servicii_documente_content, .consultatii_nefacturate_content {
-    width: 100%;
-    max-width: 1200px;
+    width: 1200px;
     right: 60%;
     left:auto;
     height: 500px;
@@ -123,8 +115,7 @@ table.table-bordered.dataTable {
     text-align: center;
 }
 .incasare_content {
-    width: 100%;
-    max-width: 1000px;
+    width: 1000px;
     right: 45%;
     left:auto;
 }
@@ -202,8 +193,7 @@ input::-webkit-calendar-picker-indicator {
 
 .checkmark-style .check-box {
     position: relative;
-    width: 100%;
-    max-width: 22px;
+    width: 22px;
     height: 22px;
     border: 2px solid #d1d5db;
     border-radius: 6px;
@@ -216,8 +206,7 @@ input::-webkit-calendar-picker-indicator {
     position: absolute;
     left: 7px;
     top: 2px;
-    width: 100%;
-    max-width: 5px;
+    width: 5px;
     height: 11px;
     border: solid white;
     border-width: 0 2.5px 2.5px 0;

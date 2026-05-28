@@ -14,18 +14,18 @@ final class Version20260220133230 extends AbstractMigration
 {
     public function getDescription(): string
     {
-        return 'Add unique index to owner cui column';
+        return 'Add unique index to owners cui column';
     }
 
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('CREATE UNIQUE INDEX UNIQ_CF60E67CD3F6F824 ON owner (cui)');
+        $this->addSql('CREATE UNIQUE INDEX UNIQ_CF60E67CD3F6F824 ON owners (cui)');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('DROP INDEX UNIQ_CF60E67CD3F6F824 ON owner');
+        $this->addSql('DROP INDEX UNIQ_CF60E67CD3F6F824 ON owners');
     }
 }

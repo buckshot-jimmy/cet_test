@@ -2,8 +2,8 @@
 
 namespace App\PDF\Builder;
 
-use App\Entity\Consultatii;
-use App\Entity\Pacienti;
+use App\Entity\Consultatie;
+use App\Entity\Pacient;
 use App\Entity\User;
 use App\PDF\Contract\PdfDocumentBuilderInterface;
 use App\PDF\DTO\PdfDocument;
@@ -21,7 +21,7 @@ class FisaPsihodiagnosticPdfBuilder implements PdfDocumentBuilderInterface
 
     public function build($id): PdfDocument
     {
-        $evaluare = $this->em->getRepository(Consultatii::class)->find($id);
+        $evaluare = $this->em->getRepository(Consultatie::class)->find($id);
 
         $data = [
             'obiectiv' => preg_split('/\n|\r\n?/', $evaluare->getConsultatie()),
@@ -34,7 +34,7 @@ class FisaPsihodiagnosticPdfBuilder implements PdfDocumentBuilderInterface
             'parafa' => $evaluare->getPret()->getMedic()->getCodParafa(),
             'owner' => $evaluare->getPret()->getOwner(),
             'medic' => $this->em->getRepository(User::class)->getUser($evaluare->getPret()->getMedic()),
-            'pacient' => $this->em->getRepository(Pacienti::class)->getPacient($evaluare->getPacient()),
+            'pacient' => $this->em->getRepository(Pacient::class)->getPacient($evaluare->getPacient()),
             'formular' => 'Fisa_psihodiagnostic_',
             'evalPsiho' => unserialize($evaluare->getEvalPsiho())
         ];

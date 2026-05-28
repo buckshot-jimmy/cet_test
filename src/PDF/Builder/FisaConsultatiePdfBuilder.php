@@ -2,8 +2,8 @@
 
 namespace App\PDF\Builder;
 
-use App\Entity\Consultatii;
-use App\Entity\Pacienti;
+use App\Entity\Consultatie;
+use App\Entity\Pacient;
 use App\PDF\Contract\PdfDocumentBuilderInterface;
 use App\PDF\DTO\PdfDocument;
 use App\Services\NomenclatoareService;
@@ -23,11 +23,11 @@ class FisaConsultatiePdfBuilder implements PdfDocumentBuilderInterface
 
     public function build($id): PdfDocument
     {
-        $serviciu = $this->em->getRepository(Consultatii::class)->find($id);
+        $serviciu = $this->em->getRepository(Consultatie::class)->find($id);
 
         $pacient = $serviciu->getPacient();
 
-        $consultatii = $this->em->getRepository(Consultatii::class)->getIstoricConsultatiiPentruFisa(
+        $consultatii = $this->em->getRepository(Consultatie::class)->getIstoricConsultatiiPentruFisa(
             $pacient, $serviciu->getPret()->getMedic(), self::TIP_CONSULTATIE);
 
         foreach ($consultatii as &$consultatie) {
@@ -37,7 +37,7 @@ class FisaConsultatiePdfBuilder implements PdfDocumentBuilderInterface
 
         $data = [
             'consultatii' => $consultatii,
-            'pacient' => $this->em->getRepository(Pacienti::class)->getPacient($pacient->getId()),
+            'pacient' => $this->em->getRepository(Pacient::class)->getPacient($pacient->getId()),
             'medic' => $serviciu->getPret()->getMedic(),
             'stareCivila' => (new NomenclatoareService())->getStariCivile()[$pacient->getStareCivila()],
             'formular' => 'Fisa_consultatii_'

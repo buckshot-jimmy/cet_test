@@ -27,7 +27,7 @@ final class Version20260421154151 extends AbstractMigration
         $this->addSql('ALTER TABLE facturi ADD CONSTRAINT FK_F730283B1DF7AA4B FOREIGN KEY (pacient_id) REFERENCES pacienti (id)');
         $this->addSql('ALTER TABLE facturi ADD CONSTRAINT FK_F730283B51068020 FOREIGN KEY (client_pj_id) REFERENCES persoane_juridice (id)');
         $this->addSql('ALTER TABLE facturi ADD CONSTRAINT FK_F730283B90813B9F FOREIGN KEY (stornare_id) REFERENCES facturi (id)');
-        $this->addSql('ALTER TABLE facturi ADD CONSTRAINT FK_F730283B7E3C61F9 FOREIGN KEY (owner_id) REFERENCES owner (id)');
+        $this->addSql('ALTER TABLE facturi ADD CONSTRAINT FK_F730283B7E3C61F9 FOREIGN KEY (owner_id) REFERENCES owners (id)');
     }
 
     public function down(Schema $schema): void

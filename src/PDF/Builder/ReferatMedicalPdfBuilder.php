@@ -2,8 +2,8 @@
 
 namespace App\PDF\Builder;
 
-use App\Entity\Consultatii;
-use App\Entity\Pacienti;
+use App\Entity\Consultatie;
+use App\Entity\Pacient;
 use App\Entity\User;
 use App\PDF\Contract\PdfDocumentBuilderInterface;
 use App\PDF\DTO\PdfDocument;
@@ -21,7 +21,7 @@ class ReferatMedicalPdfBuilder implements PdfDocumentBuilderInterface
 
     public function build($id): PdfDocument
     {
-        $consultatie = $this->em->getRepository(Consultatii::class)->find($id);
+        $consultatie = $this->em->getRepository(Consultatie::class)->find($id);
 
         $data = [
             'dataConsultatie' => $consultatie->getDataConsultatie()->format('d-m-Y'),
@@ -32,7 +32,7 @@ class ReferatMedicalPdfBuilder implements PdfDocumentBuilderInterface
             'observatii' => preg_split('/\n|\r\n?/', $consultatie->getObservatii()),
             'consultatie' => preg_split('/\n|\r\n?/', $consultatie->getConsultatie()),
             'formular' => 'Referat_medical_',
-            'pacient' => $this->em->getRepository(Pacienti::class)->getPacient($consultatie->getPacient()),
+            'pacient' => $this->em->getRepository(Pacient::class)->getPacient($consultatie->getPacient()),
             'medic' => $this->em->getRepository(User::class)->getUser($consultatie->getPret()->getMedic()->getId()),
             'owner' => $consultatie->getPret()->getOwner(),
             'investigatiiUrmate' => preg_split('/\n|\r\n?/', $consultatie->getInvestigatiiUrmate()),

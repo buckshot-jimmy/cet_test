@@ -2,7 +2,7 @@
 
 namespace App\Validator;
 
-use App\Entity\Programari;
+use App\Entity\Programare;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
@@ -19,7 +19,7 @@ class ProgramareConstraintsValidator extends ConstraintValidator
 
     private function checkAvailability($value, $constraint)
     {
-        $free = $this->em->getRepository(Programari::class)->checkAvailability($value);
+        $free = $this->em->getRepository(Programare::class)->checkAvailability($value);
 
         if (!$free) {
             $this->context->buildViolation($constraint->messages['unavailableTime'])->addViolation();

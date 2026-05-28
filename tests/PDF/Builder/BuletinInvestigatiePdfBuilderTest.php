@@ -2,13 +2,13 @@
 
 namespace App\Tests\PDF\Builder;
 
-use App\Entity\Consultatii;
-use App\Entity\Pacienti;
-use App\Entity\Preturi;
+use App\Entity\Consultatie;
+use App\Entity\Pacient;
+use App\Entity\Pret;
 use App\PDF\Builder\BuletinInvestigatiePdfBuilder;
 use App\PDF\DTO\PdfDocument;
-use App\Repository\ConsultatiiRepository;
-use App\Repository\PacientiRepository;
+use App\Repository\ConsultatieRepository;
+use App\Repository\PacientRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
@@ -20,11 +20,11 @@ class BuletinInvestigatiePdfBuilderTest extends KernelTestCase
 
         $this->em = $this->getContainer()->get(EntityManagerInterface::class);
 
-        $pret = $this->em->getRepository(Preturi::class)->findAll()[0];
+        $pret = $this->em->getRepository(Pret::class)->findAll()[0];
 
         $this->em->getConnection()->beginTransaction();
 
-        $this->pacient = new Pacienti();
+        $this->pacient = new Pacient();
         $this->pacient->setNume('Pacient_Test');
         $this->pacient->setPrenume('Prenume_Test');
         $this->pacient->setCnp('1790630060770');
@@ -37,7 +37,7 @@ class BuletinInvestigatiePdfBuilderTest extends KernelTestCase
         $this->pacient->setDataInreg(new \DateTime());
         $this->em->persist($this->pacient);
 
-        $this->consultatie = new Consultatii();
+        $this->consultatie = new Consultatie();
         $this->consultatie->setPret($pret);
         $this->consultatie->setPacient($this->pacient);
         $this->consultatie->setDiagnostic('diag');

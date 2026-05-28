@@ -2,7 +2,7 @@
 
 namespace App\PDF\Builder;
 
-use App\Entity\Facturi;
+use App\Entity\Factura;
 use App\PDF\Contract\PdfDocumentBuilderInterface;
 use App\PDF\DTO\PdfDocument;
 use App\Services\UtilService;
@@ -21,7 +21,7 @@ class FacturaPdfBuilder implements PdfDocumentBuilderInterface
 
     public function build($id): PdfDocument
     {
-        $factura = $this->em->getRepository(Facturi::class)->find($id);
+        $factura = $this->em->getRepository(Factura::class)->find($id);
 
         $total = 0;
         $consultatii = [];
@@ -38,7 +38,7 @@ class FacturaPdfBuilder implements PdfDocumentBuilderInterface
 
         $stornata = null;
         if ($factura->getTip() === self::STORNO) {
-            $stornata = $this->em->getRepository(Facturi::class)->findOneBy(['stornare' => $factura->getId()]);
+            $stornata = $this->em->getRepository(Factura::class)->findOneBy(['stornare' => $factura->getId()]);
         }
 
         $data = [

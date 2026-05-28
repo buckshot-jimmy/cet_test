@@ -4,7 +4,7 @@
 namespace App\Validator;
 
 
-use App\Entity\Pacienti;
+use App\Entity\Pacient;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Validator\Constraint;
 use Symfony\Component\Validator\ConstraintValidator;
@@ -29,7 +29,7 @@ class PacientConstraintsValidator extends ConstraintValidator
 
     private function cnpIdUnic($value, $constraint, $id)
     {
-        $pacient = $this->em->getRepository(Pacienti::class)->findOneBy(['cnp' => $value]);
+        $pacient = $this->em->getRepository(Pacient::class)->findOneBy(['cnp' => $value]);
 
         if ($pacient && $pacient->getId() !== (int) $id) {
             $this->context->buildViolation($constraint->messages['cnpIdUnic'])->addViolation();

@@ -2,10 +2,10 @@
 
 namespace App\Tests\Controller;
 
-use App\Controller\OwnersController;
-use App\Entity\Consultatii;
+use App\Controller\OwnerController;
+use App\Entity\Consultatie;
 use App\Entity\Owner;
-use App\Repository\ConsultatiiRepository;
+use App\Repository\ConsultatieRepository;
 use App\Repository\OwnerRepository;
 use App\Repository\UserRepository;
 use App\Services\AdminService;
@@ -34,7 +34,7 @@ class OwnerControllerTest extends WebTestCase
         $this->ownerConstraint = $this->createMock(FirmeConstraints::class);
         $this->authorizationChecker = $this->createMock(AuthorizationCheckerInterface::class);
 
-        $this->controller = new OwnersController(
+        $this->controller = new OwnerController(
             $this->em,
             $this->validator,
             $this->ownerConstraint,
@@ -43,7 +43,7 @@ class OwnerControllerTest extends WebTestCase
             $this->authorizationChecker
         );
 
-        $this->controllerMock = $this->getMockBuilder(OwnersController::class)
+        $this->controllerMock = $this->getMockBuilder(OwnerController::class)
             ->setConstructorArgs([$this->em, $this->validator, $this->ownerConstraint, $this->translator,
                 $this->adminService, $this->authorizationChecker])
             ->onlyMethods(['getUser'])
@@ -101,11 +101,11 @@ class OwnerControllerTest extends WebTestCase
     }
 
     /**
-     * @covers \App\Controller\OwnersController::__construct
+     * @covers \App\Controller\OwnerController::__construct
      */
     public function testCanBuildController()
     {
-        $controller = new OwnersController(
+        $controller = new OwnerController(
             $this->em,
             $this->validator,
             $this->ownerConstraint,
@@ -114,11 +114,11 @@ class OwnerControllerTest extends WebTestCase
             $this->authorizationChecker
         );
 
-        $this->assertInstanceOf(OwnersController::class, $controller);
+        $this->assertInstanceOf(OwnerController::class, $controller);
     }
 
     /**
-     * @covers \App\Controller\OwnersController::owners
+     * @covers \App\Controller\OwnerController::owners
      */
     public function testRendersOwnersTemplateWithCorrectData(): void
     {
@@ -135,7 +135,7 @@ class OwnerControllerTest extends WebTestCase
     }
 
     /**
-     * @covers \App\Controller\OwnersController::owners
+     * @covers \App\Controller\OwnerController::owners
      */
     public function testRendersOwnersWithAccessDenied(): void
     {
@@ -154,7 +154,7 @@ class OwnerControllerTest extends WebTestCase
     }
 
     /**
-     * @covers \App\Controller\OwnersController::list
+     * @covers \App\Controller\OwnerController::list
      */
     public function testItCanFetchOwnersList()
     {
@@ -173,7 +173,7 @@ class OwnerControllerTest extends WebTestCase
     }
 
     /**
-     * @covers \App\Controller\OwnersController::salveazaOwner
+     * @covers \App\Controller\OwnerController::salveazaOwner
      */
     public function testOwnersCanShowValidationErrorsFromEdit(): void
     {
@@ -218,7 +218,7 @@ class OwnerControllerTest extends WebTestCase
     }
 
     /**
-     * @covers \App\Controller\OwnersController::salveazaOwner
+     * @covers \App\Controller\OwnerController::salveazaOwner
      */
     public function testSaveWithAccessDenied(): void
     {
@@ -232,7 +232,7 @@ class OwnerControllerTest extends WebTestCase
     }
 
     /**
-     * @covers \App\Controller\OwnersController::salveazaOwner
+     * @covers \App\Controller\OwnerController::salveazaOwner
      */
     public function testItCanSaveOwner()
     {
@@ -273,7 +273,7 @@ class OwnerControllerTest extends WebTestCase
     }
 
     /**
-     * @covers \App\Controller\OwnersController::getOwner
+     * @covers \App\Controller\OwnerController::getOwner
      */
     public function testItCanGetOwner()
     {
@@ -305,7 +305,7 @@ class OwnerControllerTest extends WebTestCase
     }
 
     /**
-     * @covers \App\Controller\OwnersController::getOwner
+     * @covers \App\Controller\OwnerController::getOwner
      */
     public function testGetOwnerWithAccessDenied(): void
     {
@@ -319,7 +319,7 @@ class OwnerControllerTest extends WebTestCase
     }
 
     /**
-     * @covers \App\Controller\OwnersController::sterge
+     * @covers \App\Controller\OwnerController::sterge
      */
     public function testOwnerAccessDeniedForDelete(): void
     {
@@ -338,7 +338,7 @@ class OwnerControllerTest extends WebTestCase
     }
 
     /**
-     * @covers \App\Controller\OwnersController::sterge
+     * @covers \App\Controller\OwnerController::sterge
      */
     public function testDeleteWithHasConsultationsOpenDenied(): void
     {
@@ -347,10 +347,10 @@ class OwnerControllerTest extends WebTestCase
             ->with('DELETE', $this->isInstanceOf(Owner::class))
             ->willReturn(true);
 
-        $cons = $this->createMock(ConsultatiiRepository::class);
+        $cons = $this->createMock(ConsultatieRepository::class);
 
         $this->em->method('getRepository')
-            ->with(Consultatii::class)
+            ->with(Consultatie::class)
             ->willReturn($cons);
 
         $cons->method('ownerAreConsultatiiDeschise')->willReturn(true);
@@ -373,7 +373,7 @@ class OwnerControllerTest extends WebTestCase
     }
 
     /**
-     * @covers \App\Controller\OwnersController::sterge
+     * @covers \App\Controller\OwnerController::sterge
      */
     public function testPacientiCanBeDeleted(): void
     {
@@ -392,10 +392,10 @@ class OwnerControllerTest extends WebTestCase
 
         $request = new Request([], ['id' => $this->owner->getId()]);
 
-        $cons = $this->createMock(ConsultatiiRepository::class);
+        $cons = $this->createMock(ConsultatieRepository::class);
 
         $this->em->method('getRepository')->willReturnMap([
-            [Consultatii::class, $cons],
+            [Consultatie::class, $cons],
             [Owner::class, $this->repo],
         ]);
 
