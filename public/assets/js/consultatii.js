@@ -301,7 +301,7 @@ let consultatii = function () {
                     title: "Actiuni",
                     render: function (data, type, row) {
                         return '<a href="#" class="btn btn-sm btn-primary btn-circle servicii_documente"' +
-                            ' title="Serviciu si documente" style="margin-left: 10px;" pacient="' + row.nume + " "
+                            ' title="Servicii si documente" style="margin-left: 10px;" pacient="' + row.nume + " "
                             + row.prenume + '"><i class="fas fa-list"></i></a>'
                     }
                 },
