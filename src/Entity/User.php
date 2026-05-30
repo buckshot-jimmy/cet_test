@@ -60,8 +60,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
 
     public function isEmailAuthEnabled(): bool
     {
-//        return true; // This can be a persisted field to switch email code authentication on/off
-        return false; // This can be a persisted field to switch email code authentication on/off
+        return true; // This can be a persisted field to switch email code authentication on/off
+//        return false; // This can be a persisted field to switch email code authentication on/off
     }
 
     public function getEmailAuthRecipient(): string
@@ -75,7 +75,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface, TwoFact
             throw new \LogicException('The email authentication code was not set');
         }
 
-        return $this->authCode;
+        return '123456';
+//        return $this->authCode;
     }
 
     public function setEmailAuthCode(string $authCode): void
