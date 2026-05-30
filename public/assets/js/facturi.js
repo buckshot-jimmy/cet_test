@@ -192,34 +192,6 @@ function salveazaFactura() {
     });
 }
 
-function facturaFormValidation() {
-    $("#add_factura_form").validate({
-        ignore: [],
-        rules: {
-            factura_pacient: {
-                required: function () {
-                    const val = $('#factura_pj').val();
-                    return !val || !Number.isInteger(Number(val));
-                }
-            },
-            factura_pj: {
-                required: function () {
-                    const val = $('#factura_pacient').val();
-                    return !val || !Number.isInteger(Number(val));
-                }
-            }
-        },
-        messages: {
-            "factura_pacient": {
-                required: "Adaugati cel putin un client persoana fizica sau juridica"
-            },
-            "factura_pj": {
-                required: "Adaugati cel putin un client persoana fizica sau juridica"
-            }
-        }
-    });
-}
-
 $(document).ready(function () {
     facturi.init();
 });

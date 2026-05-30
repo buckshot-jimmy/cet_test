@@ -9,8 +9,7 @@
 /vendor/
 /tmp/
 /config/secrets/test/test.decrypt.private.php
-/config/secrets/dev/test.decrypt.private.php
-/config/secrets/prod/test.decrypt.private.php
+/config/secrets/dev/dev.decrypt.private.php
 ###< symfony/framework-bundle ###
 
 ###> symfony/web-server-bundle ###

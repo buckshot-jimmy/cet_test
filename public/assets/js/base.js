@@ -122,6 +122,10 @@ $(document).ready(function () {
             .removeClass('rezultat_operatiune_info').hide();
     });
 
+    $('.modal').on('show.bs.modal', function () {
+        $(".spinner").hide();
+    });
+
     if ($("#parola_schimbata").val() == PAROLA_NESCHIMBATA_PRIMA_LOGARE) {
         $( "#change_password_form" ).validate({
             rules: {
@@ -292,6 +296,34 @@ function addShortModal(response, result) {
 
     $("#short_modal_text").text(modalText);
     $(".short_modal").modal("show");
+}
+
+function facturaFormValidation() {
+    $("#add_factura_form").validate({
+        ignore: [],
+        rules: {
+            factura_pacient: {
+                required: function () {
+                    const val = $('#factura_pj').val();
+                    return !val || !Number.isInteger(Number(val));
+                }
+            },
+            factura_pj: {
+                required: function () {
+                    const val = $('#factura_pacient').val();
+                    return !val || !Number.isInteger(Number(val));
+                }
+            }
+        },
+        messages: {
+            "factura_pacient": {
+                required: "Adaugati cel putin un client persoana fizica sau juridica"
+            },
+            "factura_pj": {
+                required: "Adaugati cel putin un client persoana fizica sau juridica"
+            }
+        }
+    });
 }
 
 function initSearchPacient(input) {

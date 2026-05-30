@@ -861,7 +861,6 @@ let pacienti = function () {
             initInchideToate();
             initSearchPacient("#factura_pacient");
             initSearchClientPj("#factura_pj");
-            facturaFormValidation();
         }
     }
 }();
