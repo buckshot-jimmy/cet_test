@@ -10,6 +10,7 @@ services:
       - "8089:80"
     volumes:
       - /home/ubuntu/cet_test:/var/www/html
+      - /home/ubuntu/cet_test/var:/var/www/html/var
     depends_on:
       - db
     environment:
