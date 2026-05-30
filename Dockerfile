@@ -46,7 +46,9 @@ COPY ~/php.ini /usr/local/etc/php/
 
 WORKDIR /var/www/html
 
+RUN chown -R www-data:www-data /var/www/html/var
 RUN usermod -u 1000 www-data
+USER www-data
 
 EXPOSE 80
 EXPOSE 9003
