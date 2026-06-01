@@ -24,7 +24,7 @@ let facturi = function() {
             ],
             "createdRow": function (row, data, dataIndex) {
                 if (data.tip === STORNO || data.storno) {
-                    $(row).css('background-color', '#f3eaeb');
+                    $(row).addClass('js-row-storno');
                 }
             },
             "columns": [
@@ -40,14 +40,14 @@ let facturi = function() {
 
                         actiuni += "<a href='#' onclick='pdfFactura(" + row.id + "); return false;' "
                             + "class='btn btn-outline-danger btn-circle btn-sm pdf_factura' " +
-                            'title="Factura PDF" style="margin-right: 3px;"><i class="fas fa-file-pdf"></i></a>';
+                            'title="Factura PDF"><i class="fas fa-file-pdf"></i></a>';
 
                         actiuni += '<a href="#" class="btn btn-outline-dark btn-circle btn-sm email_trimite_factura" ' +
-                            'title="Trimite pe email" style="margin-right: 3px;"><i class="fas fa-envelope"></i></a>';
+                            'title="Trimite pe email"><i class="fas fa-envelope"></i></a>';
 
                         if (row.tip === FACTURA && !row.storno) {
                             actiuni += '<a href="#" class="btn btn-outline-warning btn-circle btn-sm storneaza_factura" '
-                                + 'title="Storneaza" style="margin-right: 3px;"><i class="fas fa-undo"></i></a>';
+                                + 'title="Storneaza"><i class="fas fa-undo"></i></a>';
                         }
 
                         return actiuni;

@@ -28,11 +28,11 @@ let rapoarte = function () {
                     render: function (data, type, row) {
                         let actiuni = "<a href='#' onclick='pdfPlataColaborator(" + row.id + "); return false;' "
                             + "class='btn btn-outline-danger btn-circle btn-sm pdf_raport_colaborator' " +
-                            'title="Descarca raport" style="margin-right: 3px;"><i class="fas fa-file-pdf"></i></a>';
+                            'title="Descarca raport"><i class="fas fa-file-pdf"></i></a>';
 
                         if (row.stare === 'neplatita' && $("#rol_user").val() === 'ROLE_Administrator') {
                             actiuni += '<a href="#" class="btn btn-info btn-circle btn-sm plateste_colaborator_grid" ' +
-                                'title="Plateste colaborator" style="margin-right: 3px;"><i class="fas fa-credit-card">'
+                                'title="Plateste colaborator"><i class="fas fa-credit-card">'
                                 + '</i></a>';
                         }
 

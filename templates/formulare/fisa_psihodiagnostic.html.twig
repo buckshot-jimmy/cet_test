@@ -1,41 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        table {
-            border-collapse: collapse;
-        }
-        td {
-            border:1px solid black;
-            width: 300px;
-            font-family: Arial,sans-serif;
-        }
-        div, b {
-            font-family: Arial,sans-serif;
-        }
-    </style>
-    <title></title>
+<link href="{{ asset('assets/css/twig-extracted.css') }}" rel="stylesheet" type="text/css">
+<title></title>
 </head>
-<body>
-<table style="width: 100%;">
+<body class="tpl-formulare-fisa_psihodiagnostic">
+<table class="twig-style-007">
     <tr>
-        <td style="width: 400px; border-bottom: none; border-top: none; border-right: none; border-left: none;">
+        <td class="twig-style-021">
             <br />
-            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{ data.owner.denumire }}</b></div>
-            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>CUI: {{ data.owner.cui }}</b></div>
+            <div class="twig-style-022">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{ data.owner.denumire }}</b></div>
+            <div class="twig-style-022">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>CUI: {{ data.owner.cui }}</b></div>
             <br /><br /><br /><br /><br /><br />
         </td>
-        <td style="border-bottom: none; border-top: none; border-right: none; border-left: none;">
-            <img style="margin-left:140px; width: 250px; height: 120px;" src="{{ asset('assets/sigla_pdf.png') }}" alt="MIND RESET">
+        <td class="twig-style-023">
+            <img src="{{ asset('assets/sigla_pdf.png') }}" alt="MIND RESET" class="twig-style-024">
         </td>
     </tr>
 </table>
-<div style="width: 100%; text-align: center; font-weight: bold; font-size: 22px; color: #0f6674; margin-top: 40px; margin-bottom: 40px; font-family: Arial,sans-serif;">
+<div class="twig-style-069">
     RAPORT DE PSIHODIAGNOSTIC ȘI EVALUARE CLINICĂ
 </div>
 <div>
     <b>I. Informaţii despre pacient:</b><br><br />
-    <table style="font-size: 26px;">
+    <table class="twig-style-070">
         <tr>
             <td><b>Nume:</b></td>
             <td>{{ data.pacient.nume }}</td>
@@ -81,78 +69,78 @@
 <div>
     <b>Nivel Subiectiv/Emoţional (inclusiv Satisfacţia/Calitatea vieţii)</b>
 </div><br>
-<table style="border-collapse: collapse; width: 100%; font-size: 16px;">
+<table class="twig-style-071">
     <tr>
-        <td style="width: 66%; min-height: 30px;"><b>Ce s-a evaluat?</b></td>
+        <td class="twig-style-072"><b>Ce s-a evaluat?</b></td>
         <td><b>Cu ce s-a evaluat? (teste/sarcini/probe şi/sau interviuri)</b></td>
     </tr>
     <tr>
-        <td style="width: 66%; min-height: 30px;">{{ data.evalPsiho.subiectiv_ce ?? '' }}</td>
+        <td class="twig-style-072">{{ data.evalPsiho.subiectiv_ce ?? '' }}</td>
         <td>{{ data.evalPsiho.subiectiv_cu_ce ?? '' }}</td>
     </tr>
 </table><br>
 <div>
     <b>Nivel Cognitiv</b>
 </div><br>
-<table style="border-collapse: collapse; width: 100%; font-size: 16px;">
+<table class="twig-style-071">
     <tr>
-        <td style="width: 66%; min-height: 30px;"><b>Ce s-a evaluat?</b></td>
+        <td class="twig-style-072"><b>Ce s-a evaluat?</b></td>
         <td><b>Cu ce s-a evaluat? (teste/sarcini/probe şi/sau interviuri)</b></td>
     </tr>
     <tr>
-        <td style="width: 66%; min-height: 30px;">{{ data.evalPsiho.cognitiv_ce ?? '' }}</td>
+        <td class="twig-style-072">{{ data.evalPsiho.cognitiv_ce ?? '' }}</td>
         <td>{{ data.evalPsiho.cognitiv_cu_ce ?? '' }}</td>
     </tr>
 </table><br>
 <div>
     <b>Nivel comportamental</b>
 </div><br>
-<table style="border-collapse: collapse; width: 100%; font-size: 16px;">
+<table class="twig-style-071">
     <tr>
-        <td style="width: 66%; min-height: 30px;"><b>Ce s-a evaluat?</b></td>
+        <td class="twig-style-072"><b>Ce s-a evaluat?</b></td>
         <td><b>Cu ce s-a evaluat? (teste/sarcini/probe şi/sau interviuri)</b></td>
     </tr>
     <tr>
-        <td style="width: 66%; min-height: 30px;">{{ data.evalPsiho.comportamental_ce ?? '' }}</td>
+        <td class="twig-style-072">{{ data.evalPsiho.comportamental_ce ?? '' }}</td>
         <td>{{ data.evalPsiho.comportamental_cu_ce ?? '' }}</td>
     </tr>
 </table><br>
 <div>
     <b>Nivel psihofiziologic</b>
 </div><br>
-<table style="border-collapse: collapse; width: 100%; font-size: 16px;">
+<table class="twig-style-071">
     <tr>
-        <td style="width: 66%; min-height: 30px;"><b>Ce s-a evaluat?</b></td>
+        <td class="twig-style-072"><b>Ce s-a evaluat?</b></td>
         <td><b>Cu ce s-a evaluat? (teste/sarcini/probe şi/sau interviuri)</b></td>
     </tr>
     <tr>
-        <td style="width: 66%; min-height: 30px;">{{ data.evalPsiho.psihofiziologic_ce ?? '' }}</td>
+        <td class="twig-style-072">{{ data.evalPsiho.psihofiziologic_ce ?? '' }}</td>
         <td>{{ data.evalPsiho.psihofiziologic_cu_ce ?? '' }}</td>
     </tr>
 </table><br>
 <div>
     <b>Nivel de personalitate şi Mecanisme Defensive/Adaptare</b>
 </div><br>
-<table style="border-collapse: collapse; width: 100%; font-size: 16px;">
+<table class="twig-style-071">
     <tr>
-        <td style="width: 66%; min-height: 30px;"><b>Ce s-a evaluat?</b></td>
+        <td class="twig-style-072"><b>Ce s-a evaluat?</b></td>
         <td><b>Cu ce s-a evaluat? (teste/sarcini/probe şi/sau interviuri)</b></td>
     </tr>
     <tr>
-        <td style="width: 66%; min-height: 30px;">{{ data.evalPsiho.personalitate_ce ?? '' }}</td>
+        <td class="twig-style-072">{{ data.evalPsiho.personalitate_ce ?? '' }}</td>
         <td>{{ data.evalPsiho.personalitate_cu_ce ?? '' }}</td>
     </tr>
 </table><br>
 <div>
     <b>Nivel de relaţionare interpersonală (inclusiv, de cuplu, familie, grup etc.)</b>
 </div><br>
-<table style="border-collapse: collapse; width: 100%; font-size: 16px;">
+<table class="twig-style-071">
     <tr>
-        <td style="width: 66%; min-height: 30px;"><b>Ce s-a evaluat?</b></td>
+        <td class="twig-style-072"><b>Ce s-a evaluat?</b></td>
         <td><b>Cu ce s-a evaluat? (teste/sarcini/probe şi/sau interviuri)</b></td>
     </tr>
     <tr>
-        <td style="width: 66%; min-height: 30px;">{{ data.evalPsiho.relationare_ce ?? '' }}</td>
+        <td class="twig-style-072">{{ data.evalPsiho.relationare_ce ?? '' }}</td>
         <td>{{ data.evalPsiho.relationare_cu_ce ?? '' }}</td>
     </tr>
 </table><br>
@@ -168,26 +156,26 @@
         {{ line }}<br/>
     {% endfor %}
 </div><br>
-<table style="border: 1px solid black; font-size: 26px;">
+<table class="twig-style-073">
     <tr>
-        <td style="border-right: white; border-bottom: white;"><b>Examinator:</b></td>
-        <td style="border-right: white; border-bottom: white; border-left: white;">{{ data.medic.nume ~ ' ' ~ data.medic.prenume }}</td>
-        <td style="border-right: white; border-bottom: white; border-left: white;"><b>Specialitate:</b></td>
-        <td style="border-bottom: white; border-left: white;">{{ data.medic.denumireSpecialitate }}</td>
+        <td class="twig-style-029"><b>Examinator:</b></td>
+        <td class="twig-style-030">{{ data.medic.nume ~ ' ' ~ data.medic.prenume }}</td>
+        <td class="twig-style-030"><b>Specialitate:</b></td>
+        <td class="twig-style-031">{{ data.medic.denumireSpecialitate }}</td>
     </tr>
     <tr>
-        <td style="border-right: white; border-top: white;"><b>Cod parafa:</b></td>
-        <td style="border-right: white; border-top: white; border-left: white;">{{ data.medic.codParafa }}</td>
-        <td style="border-right: white; border-top: white; border-left: white;"><b>Grad profesional:</b></td>
-        <td style="border-left: white; border-top: white;">{{ data.medic.denumireTitulatura }}</td>
+        <td class="twig-style-032"><b>Cod parafa:</b></td>
+        <td class="twig-style-033">{{ data.medic.codParafa }}</td>
+        <td class="twig-style-033"><b>Grad profesional:</b></td>
+        <td class="twig-style-034">{{ data.medic.denumireTitulatura }}</td>
     </tr>
 </table>
-<table style="width: 100%; font-size: 16px; margin-top: 60px; color: #0f6674;">
+<table class="twig-style-035">
     <tr>
-        <td style="width: 400px; border-bottom: none; border-top: none; border-right: none; border-left: none;">
+        <td class="twig-style-021">
             <b>{{ "now"|date('d-m-Y') }}</b>
         </td>
-        <td style="border-bottom: none; border-top: none; border-right: none; border-left: none; text-align: right;">
+        <td class="twig-style-036">
             <b>Semnatura si parafa</b><br/>
         </td>
     </tr>

@@ -201,7 +201,7 @@ let servicii_preturi = function () {
                                 '<i class="fas fa-smile fa-2x"></i></button>';
                         }
 
-                        return '<a href="#" class="btn btn-danger btn-circle btn-sm sterge_pret" title="Sterge" style="margin-right: 3px;">' +
+                        return '<a href="#" class="btn btn-danger btn-circle btn-sm sterge_pret" title="Sterge">' +
                             '<i class="fas fa-trash"></i></a>' +
                             '<a href="#" class="btn btn-info btn-circle btn-sm editeaza_pret" title="Editeaza"><i class="fas fa-edit">' +
                             '</i></a>';

@@ -269,7 +269,7 @@ let utilizatori = function () {
                                 '<i class="fas fa-smile fa-2x"></i></button>';
                         }
 
-                        return '<a href="#" class="btn btn-danger btn-circle btn-sm sterge_utilizator" title="Sterge" style="margin-right: 3px;">' +
+                        return '<a href="#" class="btn btn-danger btn-circle btn-sm sterge_utilizator" title="Sterge">' +
                             '<i class="fas fa-trash"></i></a>' +
                             '<a href="#" class="btn btn-info btn-circle btn-sm editeaza_utilizator" title="Editeaza">' +
                             '<i class="fas fa-edit"></i></a>';

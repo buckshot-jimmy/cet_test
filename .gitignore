@@ -10,6 +10,7 @@
 /tmp/
 /config/secrets/test/test.decrypt.private.php
 /config/secrets/dev/dev.decrypt.private.php
+styles-php-script-css.php
 ###< symfony/framework-bundle ###
 
 ###> symfony/web-server-bundle ###

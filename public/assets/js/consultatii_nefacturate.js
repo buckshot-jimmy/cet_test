@@ -25,7 +25,7 @@ let consultatiiNefacturate = function() {
                     width: "100px",
                     render: function () {
                         return '<a href="#" class="btn btn-outline-warning btn-circle btn-sm consultatii_nefacturate" '
-                            + 'title="Consultatii nefacturate" style="margin-right: 3px;"><i class="fas fa-fw fa-file-invoice"></i></a>';
+                            + 'title="Consultatii nefacturate"><i class="fas fa-fw fa-file-invoice"></i></a>';
                     }
                 },
                 {
@@ -124,7 +124,7 @@ let consultatiiNefacturate = function() {
         $("body").on("click", ".consultatii_nefacturate", function () {
             let pacient = tableConsultatiiNefacturate.row($(this).closest('tr')).data().pacient;
             $("#cnp_factura").val(tableConsultatiiNefacturate.row($(this).closest('tr')).data().cnp);
-            $(".consultatii_nefacturate_title").css('font-weight', 'bold')
+            $(".consultatii_nefacturate_title").addClass('js-font-bold')
                 .text('Lista consultatii nefacturate - ' + pacient);
 
             $(".consultatii_nefacturate_modal").modal("show");
@@ -149,17 +149,16 @@ let consultatiiNefacturate = function() {
                 },
                 success: function (response) {
                     $.each(response.serviciiPacient, function (index, serviciu) {
-                        let row = '<tr style="padding-bottom: 15px;" id="' + serviciu.id + '">' +
-                            '<td style="width: 120px; padding-right: 15px; padding-bottom: 15px; font-weight: bold;">' +
-                            serviciu.dataConsultatie + '</td><td style="width: 200px; font-weight: bold; padding-right: 15px; '
-                            + 'padding-bottom: 15px;">' + serviciu.numeMedic +
-                            '</td><td style="width: 150px; font-weight: bold; padding-right: 15px; padding-bottom: 15px;">'
+                        let row = '<tr class="js-row-pad-bottom" id="' + serviciu.id + '">' +
+                            '<td class="js-unbilled-date-cell">' +
+                            serviciu.dataConsultatie + '</td><td class="js-unbilled-medic-cell">' + serviciu.numeMedic +
+                            '</td><td class="js-service-name-cell">'
                             + serviciu.denumireServiciu + '</td>' +
-                            '<td class="owner_serviciu" style="font-weight: bold; padding-right: 15px; padding-bottom: 15px;"> '
-                            + serviciu.denumireOwner + '<td style="font-weight: bold; padding-bottom: 15px;" class="pret_serviciu">'
+                            '<td class="owner_serviciu js-cell-bold-pad"> '
+                            + serviciu.denumireOwner + '<td class="pret_serviciu js-cell-bold-bottom">'
                             + serviciu.tarif + ' lei</td>' +
-                            '</td><td style="padding-left: 50px; vertical-align: top;"><input name="facturare_checkbox[]" ' +
-                            'owner="' + serviciu.ownerId + '" type="checkbox" style="' + checkBoxStyle() + '"></td></tr>';
+                            '</td><td class="js-checkbox-cell"><input name="facturare_checkbox[]" ' +
+                            'owner="' + serviciu.ownerId + '" type="checkbox" class="' + checkBoxStyle() + '"></td></tr>';
 
                         $("#table_consultatii_nefacturate").append(row);
 

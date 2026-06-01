@@ -107,16 +107,16 @@
         <div class="form-group row">
             <div class="col-sm-12 mb-3 mb-sm-0">
                 <label for="observatii">Observatii</label>
-                <textarea style="height: 75px;" class="form-control" id="observatii" name="observatii" placeholder="Observatii">{{ data.observatii ?? '' }}</textarea>
+                <textarea class="form-control twig-style-104" id="observatii" name="observatii" placeholder="Observatii">{{ data.observatii ?? '' }}</textarea>
             </div>
         </div>
         <input type="hidden" id="pacient_id" name="pacient_id" value="{{ data.id ?? '' }}"/>
     </form>
 </div>
 <div class="modal-footer pacient_footer">
-    <p class="modal-body rezultat_operatiune" style="margin-top: 10px; margin-bottom: 10px; font-weight: bold;"></p>
+    <p class="modal-body rezultat_operatiune twig-style-105"></p>
     <button type="button" class="btn btn-primary confirma_pacient">Confirma
-        <span class="spinner-border spinner-border-sm spinner" style="display: none;"></span>
+        <span class="spinner-border spinner-border-sm spinner twig-style-003"></span>
     </button>
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuleaza</button>
 </div>

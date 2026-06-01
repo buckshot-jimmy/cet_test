@@ -15,7 +15,7 @@
                   <div class="text-center">
                     {% for label, messages in flashes %}
                       {% for message in messages %}
-                        <div class="alert alert-{{ label }}" role="alert" style="text-align: center; margin-bottom: 20px;">
+                        <div class="alert alert-{{ label }} twig-style-122" role="alert">
                           {{ message }}
                         </div>
                       {% endfor %}
@@ -51,11 +51,11 @@
                       Login
                     </button>
                   </form>
-                  <div class="text-center" style="margin-top: 20px;">
+                  <div class="text-center twig-style-079">
                     <a href="{{ path('forgot_password_email') }}">Ai uitat parola?</a>
                   </div>
                   <hr>
-                  <div style="height: 100px; margin-top: 40px;">
+                  <div class="twig-style-125">
                     <img class="sigla_login" src="{{ asset('assets/sigla.png') }}" alt="MIND RESET">
                   </div>
                 </div>

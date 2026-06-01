@@ -1,118 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link href="{{ asset('assets/css/twig-extracted.css') }}" rel="stylesheet" type="text/css">
     <title>Fisa consultatie</title>
-    <style>
-        .dotted_underline {
-            border-bottom: 1px dotted #000;
-        }
-        #schimbari td {
-            border-bottom: 1px solid black;
-        }
-        table, div, b, p {
-            font-family: Arial,sans-serif;
-        }
-    </style>
 </head>
-<body>
-<table style="width: 100%;">
+<body class="tpl-formulare-fisa_consultatii">
+<table class="twig-style-007">
     <tr>
-        <td style="width: 400px; border-bottom: none; border-top: none; border-right: none; border-left: none;">
+        <td class="twig-style-021">
             <br />
             <div>Judetul: <b class="dotted_underline">{{ dateFirma.judet }}</b></div>
             <div>Localitatea: <b class="dotted_underline">{{ dateFirma.localitate }}</b></div>
-            <div style="font-size: 13px;">Unitatea sanitara: <b class="dotted_underline">{{ data.consultatii[0].denumireOwner }}</b><br></div>
-            <div style="font-size: 13px;">CUI: <b class="dotted_underline">{{ data.consultatii[0].cuiOwner }}</b><br></div>
-            <div style="font-size: 13px;">Medic: <b>{{ "Dr. " ~ data.medic.nume ~ " " ~ data.medic.prenume }}</b></div>
+            <div class="twig-style-045">Unitatea sanitara: <b class="dotted_underline">{{ data.consultatii[0].denumireOwner }}</b><br></div>
+            <div class="twig-style-045">CUI: <b class="dotted_underline">{{ data.consultatii[0].cuiOwner }}</b><br></div>
+            <div class="twig-style-045">Medic: <b>{{ "Dr. " ~ data.medic.nume ~ " " ~ data.medic.prenume }}</b></div>
             <br />
         </td>
-        <td style="border-bottom: none; border-top: none; border-right: none; border-left: none; text-align: right;">
-            <img style="margin-left:140px; width: 250px; height: 120px;" src="{{ asset('assets/sigla_pdf.png') }}" alt="MIND RESET">
+        <td class="twig-style-036">
+            <img src="{{ asset('assets/sigla_pdf.png') }}" alt="MIND RESET" class="twig-style-024">
         </td>
     </tr>
 </table>
-<table style="border-collapse: collapse; border: 1px solid white; width: 100%;">
-    <tr><td style="text-align: right; margin-bottom: 5px;">Nr.<b class="dotted_underline"> {{ data.consultatii[0].nrInreg }} </b> / <b class="dotted_underline">{{ data.consultatii[0].dataConsultatie|date("d-m-Y") }}&nbsp;&nbsp;</b></td></tr>
+<table class="twig-style-046">
+    <tr><td class="twig-style-047">Nr.<b class="dotted_underline"> {{ data.consultatii[0].nrInreg }} </b> / <b class="dotted_underline">{{ data.consultatii[0].dataConsultatie|date("d-m-Y") }}&nbsp;&nbsp;</b></td></tr>
     <tr>
-        <td style="text-align: right;">Cod numeric personal&nbsp;</td>
+        <td class="twig-style-048">Cod numeric personal&nbsp;</td>
         {% set cnp = data.pacient.cnp %}
         {% set cifre = cnp|split('') %}
         {% for cifra in cifre %}
-            <td style="border: 1px solid black; text-align: center;">{{ cifra }}</td>
+            <td class="twig-style-049">{{ cifra }}</td>
         {% endfor %}
     </tr>
 </table>
-<div style="text-align: center; font-size: 18px; font-weight: bold; margin-top: 40px; margin-bottom: 30px;">FISA DE CONSULTATII MEDICALE</div>
-<p style="margin-top: 0; margin-bottom: 0;">Numele ..... <b>{{ data.pacient.nume }}</b> ..... Prenumele ..... <b>{{ data.pacient.prenume }}</b> ..... Sexul ..... <b>{{ data.pacient.sex }}</b> ..........
+<div class="twig-style-050">FISA DE CONSULTATII MEDICALE</div>
+<p class="twig-style-051">Numele ..... <b>{{ data.pacient.nume }}</b> ..... Prenumele ..... <b>{{ data.pacient.prenume }}</b> ..... Sexul ..... <b>{{ data.pacient.sex }}</b> ..........
 Data nasterii: anul ..... {{ data.pacient.dataNasterii|date('Y') }} ..... luna ..... {{ data.pacient.dataNasterii|date('m') }} ..... ziua ..... {{ data.pacient.dataNasterii|date('d') }} ..... </p>
-<p style="margin-top: 0; margin-bottom: 0;">Starea civila: ..... {{ data.stareCivila }} ....., Domiciuliul: ..... {{ data.pacient.adresa }}, Localitatea: {{ data.pacient.localitate }}, Judetul: {{ data.pacient.judet }} </p>
-<p style="margin-top: 0; margin-bottom: 10px;">Ocupatia: {{ data.pacient.ocupatie}}, Locul de munca: {{ data.pacient.locMunca }}</p>
-<hr style="font-weight: bold; color: black; margin-top: 0;">
-<div style="text-align: center;">Schimbari de:</div>
-<table id="schimbari" style="width:100%">
+<p class="twig-style-051">Starea civila: ..... {{ data.stareCivila }} ....., Domiciuliul: ..... {{ data.pacient.adresa }}, Localitatea: {{ data.pacient.localitate }}, Judetul: {{ data.pacient.judet }} </p>
+<p class="twig-style-052">Ocupatia: {{ data.pacient.ocupatie}}, Locul de munca: {{ data.pacient.locMunca }}</p>
+<hr class="twig-style-053">
+<div class="twig-style-054">Schimbari de:</div>
+<table id="schimbari" class="twig-style-007">
     <tr>
-        <td style="text-align: center;">
+        <td class="twig-style-054">
             <p><u>domiciliu:</u></p>
-            <p style="font-size: 10px;">&nbsp;</p>
+            <p class="twig-style-055">&nbsp;</p>
             <p>.......................................................................................................................</p>
-            <p style="font-size: 10px;">&nbsp;</p>
+            <p class="twig-style-055">&nbsp;</p>
             <p>.......................................................................................................................</p>
         </td>
-        <td style="border-right: 1px solid black;"></td>
-        <td style="text-align: center;">
+        <td class="twig-style-056"></td>
+        <td class="twig-style-054">
             <p><u>loc de munca:</u></p>
-            <p style="font-size: 10px;">&nbsp;</p>
+            <p class="twig-style-055">&nbsp;</p>
             <p>.......................................................................................................................</p>
-            <p style="font-size: 10px;">&nbsp;</p>
+            <p class="twig-style-055">&nbsp;</p>
             <p>.......................................................................................................................</p>
         </td>
     </tr>
 </table>
-<div style="margin-top: 20px; margin-bottom: 10px;">
+<div class="twig-style-057">
     <b><u>Antecedente:</u></b>
 </div>
-<div style="margin-bottom: 10px;"><b>&nbsp;&nbsp;&nbsp;heredo-colaterale:</b><br>
+<div class="twig-style-058"><b>&nbsp;&nbsp;&nbsp;heredo-colaterale:</b><br>
     {% for line in data.consultatii[0].ahc %}
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ line }}<br/>
     {% endfor %}
 </div>
-<div style="margin-bottom: 10px;"><b>&nbsp;&nbsp;&nbsp;personale:</b><br>
+<div class="twig-style-058"><b>&nbsp;&nbsp;&nbsp;personale:</b><br>
     {% for line in data.consultatii[0].app %}
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ line }}<br/>
     {% endfor %}
 </div>
 <b><u>Conditii de munca:</u></b> ................................................................................................................................<br /><br />
-<table style="border-collapse: collapse; width: 100%; font-size: 18px;">
+<table class="twig-style-059">
     <tr>
-        <td colspan="7" style="font-size: 24px;"><b>CONSULTATII, INVESTIGATII</b></td>
+        <td colspan="7" class="twig-style-060"><b>CONSULTATII, INVESTIGATII</b></td>
     </tr>
     <tr>
-        <td style="text-align: center; border:1px solid black; width: 25px;">Nr. reg.</td>
-        <td style="text-align: center; border:1px solid black; width: 50px;">Data</td>
-        <td style="text-align: center; border:1px solid black; text-rotate: 90; width: 25px;">Locul consultatiei *</td>
-        <td style="text-align: center; border:1px solid black; width: 400px;">Simptome</td>
-        <td style="text-align: center; border:1px solid black; width: 400px;">Diagnostic</td>
-        <td style="text-align: center; border:1px solid black; width: 25px; ">Codul</td>
-        <td style="text-align: center;border:1px solid black; width: 150px;">Prescripţii <br>
+        <td class="twig-style-061">Nr. reg.</td>
+        <td class="twig-style-062">Data</td>
+        <td class="twig-style-063">Locul consultatiei *</td>
+        <td class="twig-style-064">Simptome</td>
+        <td class="twig-style-064">Diagnostic</td>
+        <td class="twig-style-061">Codul</td>
+        <td class="twig-style-065">Prescripţii <br>
             Recomandări**</td>
-        <td style="text-align: center;border:1px solid black; width: 60px;">Nr. zile
+        <td class="twig-style-066">Nr. zile
             concediu
             medical;
             Nr. certificat
         </td>
-        <td style="text-align: center; border:1px solid black; width: 60px; ">Semnatura si parafa</td>
+        <td class="twig-style-066">Semnatura si parafa</td>
     </tr>
     {% for consultatie in data.consultatii %}
         <tr>
-            <td style="border:1px solid black; height: 80px;">{{ consultatie.nrInreg }}</td>
-            <td style="border:1px solid black; height: 80px;">{{ consultatie.dataConsultatie }}</td>
-            <td style="border:1px solid black; height: 80px;">{{ consultatie.loc }}</td>
-            <td style="border:1px solid black; height: 80px;">{{ consultatie.consultatie }}</td>
-            <td style="border:1px solid black; height: 80px;">{{ consultatie.diagnostic }}</td>
-            <td style="border:1px solid black; height: 80px;"></td>
-            <td style="border:1px solid black; height: 80px;">{{ consultatie.tratament }}</td>
-            <td style="border:1px solid black; height: 80px;"></td>
-            <td style="border:1px solid black; height: 270px;"></td>
+            <td class="twig-style-067">{{ consultatie.nrInreg }}</td>
+            <td class="twig-style-067">{{ consultatie.dataConsultatie }}</td>
+            <td class="twig-style-067">{{ consultatie.loc }}</td>
+            <td class="twig-style-067">{{ consultatie.consultatie }}</td>
+            <td class="twig-style-067">{{ consultatie.diagnostic }}</td>
+            <td class="twig-style-067"></td>
+            <td class="twig-style-067">{{ consultatie.tratament }}</td>
+            <td class="twig-style-067"></td>
+            <td class="twig-style-068"></td>
         </tr>
     {% endfor %}
 </table>

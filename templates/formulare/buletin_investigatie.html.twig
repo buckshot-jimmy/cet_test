@@ -1,33 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        table {
-            border-collapse: collapse;
-        }
-        td {
-            border:1px solid black;
-            width: 300px;
-        }
-    </style>
-    <title></title>
+<link href="{{ asset('assets/css/twig-extracted.css') }}" rel="stylesheet" type="text/css">
+<title></title>
 </head>
-<body>
-<table style="width: 100%;">
+<body class="tpl-formulare-buletin_investigatie">
+<table class="twig-style-007">
     <tr>
-        <td style="width: 400px; border-bottom: none; border-top: none; border-right: none; border-left: none;">
+        <td class="twig-style-021">
             <br />
-            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{ data.owner.denumire }}</b></div>
-            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>CUI: {{ data.owner.cui }}</b></div>
+            <div class="twig-style-022">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{ data.owner.denumire }}</b></div>
+            <div class="twig-style-022">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>CUI: {{ data.owner.cui }}</b></div>
             <br /><br /><br /><br /><br /><br />
         </td>
-        <td style="border-bottom: none; border-top: none; border-right: none; border-left: none;">
-            <img style="margin-left:140px; width: 250px; height: 120px;" src="{{ asset('assets/sigla_pdf.png') }}" alt="MIND RESET">
+        <td class="twig-style-023">
+            <img src="{{ asset('assets/sigla_pdf.png') }}" alt="MIND RESET" class="twig-style-024">
         </td>
     </tr>
 </table>
-<div style="width: 100%; text-align: center; font-weight: bold; font-size: 22px; color: #0f6674; margin-top: 60px; margin-bottom: 40px;">RAPORT - {{ data.tipInvestigatie }}</div>
-<table style="font-size: 22px;">
+<div class="twig-style-025">RAPORT - {{ data.tipInvestigatie }}</div>
+<table class="twig-style-026">
     <tr>
         <td><b>Nume:</b></td>
         <td>{{ data.pacient.nume }}</td>
@@ -62,10 +54,10 @@
 <br>
 <table>
     <tr>
-        <td style="color: #0f6674; width: 1300px; font-size: 24px;"><b>Rezultat:</b></td>
+        <td class="twig-style-027"><b>Rezultat:</b></td>
     </tr>
     <tr>
-        <td style="font-size: 22px;">
+        <td class="twig-style-026">
             {% for line in data.consultatie %}
                 {{ line }}<br/>
             {% endfor %}
@@ -75,10 +67,10 @@
 <br>
 <table>
     <tr>
-        <td style="color: #0f6674; width: 1300px; font-size: 24px;"><b>Concluzii:</b></td>
+        <td class="twig-style-027"><b>Concluzii:</b></td>
     </tr>
     <tr>
-        <td style="font-size: 22px;">
+        <td class="twig-style-026">
             {% for line in data.tratament %}
                 {{ line }}<br/>
             {% endfor %}
@@ -86,26 +78,26 @@
     </tr>
 </table>
 <br>
-<table style="border: 1px solid black; font-size: 22px;">
+<table class="twig-style-028">
     <tr>
-        <td style="border-right: white; border-bottom: white;"><b>Examinator:</b></td>
-        <td style="border-right: white; border-bottom: white; border-left: white;">{{ data.medic.nume ~ ' ' ~ data.medic.prenume }}</td>
-        <td style="border-right: white; border-bottom: white; border-left: white;"><b>Specialitate:</b></td>
-        <td style="border-bottom: white; border-left: white;">{{ data.medic.denumireSpecialitate }}</td>
+        <td class="twig-style-029"><b>Examinator:</b></td>
+        <td class="twig-style-030">{{ data.medic.nume ~ ' ' ~ data.medic.prenume }}</td>
+        <td class="twig-style-030"><b>Specialitate:</b></td>
+        <td class="twig-style-031">{{ data.medic.denumireSpecialitate }}</td>
     </tr>
     <tr>
-        <td style="border-right: white; border-top: white;"><b>Cod parafa:</b></td>
-        <td style="border-right: white; border-top: white; border-left: white;">{{ data.medic.codParafa }}</td>
-        <td style="border-right: white; border-top: white; border-left: white;"><b>Grad profesional:</b></td>
-        <td style="border-left: white; border-top: white;">{{ data.medic.denumireTitulatura }}</td>
+        <td class="twig-style-032"><b>Cod parafa:</b></td>
+        <td class="twig-style-033">{{ data.medic.codParafa }}</td>
+        <td class="twig-style-033"><b>Grad profesional:</b></td>
+        <td class="twig-style-034">{{ data.medic.denumireTitulatura }}</td>
     </tr>
 </table>
-<table style="width: 100%; font-size: 16px; margin-top: 60px; color: #0f6674;">
+<table class="twig-style-035">
     <tr>
-        <td style="width: 400px; border-bottom: none; border-top: none; border-right: none; border-left: none;">
+        <td class="twig-style-021">
             <b>{{ "now"|date('d-m-Y') }}</b>
         </td>
-        <td style="border-bottom: none; border-top: none; border-right: none; border-left: none; text-align: right;">
+        <td class="twig-style-036">
             <b>Semnatura si parafa</b><br/>
         </td>
     </tr>

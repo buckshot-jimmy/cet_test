@@ -69,11 +69,11 @@
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-sm-11 mb-3 mb-sm-0" style="display: inline-block;">
+        <div class="col-sm-11 mb-3 mb-sm-0 twig-style-020">
             <label for="view_consultatie_diagnostic">Diagnostic</label>
             <textarea class="form-control" id="view_consultatie_diagnostic" name="view_consultatie_diagnostic" disabled>{{ data.diagnostic ?? '' }}</textarea>
         </div>
-        <div class="col-sm-1 mb-3 mb-sm-0" style="display: inline-block;">
+        <div class="col-sm-1 mb-3 mb-sm-0 twig-style-020">
             <button type="button"
                     class="btn btn-primary confirma_preia_cons"
                     data-from-consultatie="#view_consultatie_diagnostic"
@@ -87,7 +87,7 @@
             <label for="view_consultatie_ahc">AHC</label>
             <textarea disabled class="form-control" id="view_consultatie_ahc" name="view_consultatie_ahc">{{ data.ahc ?? '' }}</textarea>
         </div>
-        <div class="col-sm-1 mb-3 mb-sm-0" style="display: inline-block;">
+        <div class="col-sm-1 mb-3 mb-sm-0 twig-style-020">
             <button type="button"
                     class="btn btn-primary confirma_preia_cons"
                     data-from-consultatie="#view_consultatie_ahc"
@@ -103,7 +103,7 @@
             <label for="view_consultatie_app">APP</label>
             <textarea disabled class="form-control" id="view_consultatie_app" name="view_consultatie_app">{{ data.app ?? '' }}</textarea>
         </div>
-        <div class="col-sm-1 mb-3 mb-sm-0" style="display: inline-block;">
+        <div class="col-sm-1 mb-3 mb-sm-0 twig-style-020">
             <button type="button"
                     class="btn btn-primary confirma_preia_cons"
                     data-from-consultatie="#view_consultatie_app"
@@ -115,11 +115,11 @@
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-sm-11 mb-3 mb-sm-0" style="display: inline-block;">
+        <div class="col-sm-11 mb-3 mb-sm-0 twig-style-020">
             <label for="view_consultatie_consultatie">Consultatie</label>
             <textarea class="form-control" id="view_consultatie_consultatie" name="view_consultatie_consultatie" disabled>{{ data.consultatie ?? '' }}</textarea>
         </div>
-        <div class="col-sm-1 mb-3 mb-sm-0" style="display: inline-block;">
+        <div class="col-sm-1 mb-3 mb-sm-0 twig-style-020">
             <button type="button"
                     class="btn btn-primary confirma_preia_cons"
                     data-from-consultatie="#view_consultatie_consultatie"
@@ -131,11 +131,11 @@
         </div>
     </div>
     <div class="form-group row">
-        <div class="col-sm-11 mb-3 mb-sm-0" style="display: inline-block;">
+        <div class="col-sm-11 mb-3 mb-sm-0 twig-style-020">
             <label for="view_consultatie_tratament">Recomandari si tratament</label>
             <textarea class="form-control" id="view_consultatie_tratament" name="view_consultatie_tratament" disabled>{{ data.tratament ?? '' }}</textarea>
         </div>
-        <div class="col-sm-1 mb-3 mb-sm-0" style="display: inline-block;">
+        <div class="col-sm-1 mb-3 mb-sm-0 twig-style-020">
             <button type="button"
                     class="btn btn-primary confirma_preia_cons"
                     data-from-consultatie="#view_consultatie_tratament"
@@ -151,7 +151,7 @@
             <label for="view_consultatie_investigatii_urmate">Investigatii urmate</label>
             <textarea disabled class="form-control" id="view_consultatie_investigatii_urmate" name="view_consultatie_investigatii_urmate">{{ data.investigatiiUrmate ?? '' }}</textarea>
         </div>
-        <div class="col-sm-1 mb-3 mb-sm-0" style="display: inline-block;">
+        <div class="col-sm-1 mb-3 mb-sm-0 twig-style-020">
             <button type="button"
                     class="btn btn-primary confirma_preia_cons"
                     data-from-consultatie="#view_consultatie_investigatii_urmate"
@@ -165,7 +165,7 @@
             <label for="view_consultatie_tratamenteUrmate">Tratamente urmate</label>
             <textarea disabled class="form-control" id="view_consultatie_tratamente_urmate" name="view_consultatie_tratamente_urmate">{{ data.tratamenteUrmate ?? '' }}</textarea>
         </div>
-        <div class="col-sm-1 mb-3 mb-sm-0" style="display: inline-block;">
+        <div class="col-sm-1 mb-3 mb-sm-0 twig-style-020">
             <button type="button"
                     class="btn btn-primary confirma_preia_cons"
                     data-from-consultatie="#view_consultatie_tratamente_urmate"
@@ -179,7 +179,7 @@
             <label for="view_consultatie_observatii">Observatii</label>
             <textarea disabled class="form-control" id="view_consultatie_observatii" name="view_consultatie_observatii">{{ data.observatii ?? '' }}</textarea>
         </div>
-        <div class="col-sm-1 mb-3 mb-sm-0" style="display: inline-block;">
+        <div class="col-sm-1 mb-3 mb-sm-0 twig-style-020">
             <button type="button"
                     class="btn btn-primary confirma_preia_cons"
                     data-from-consultatie="#view_consultatie_observatii"
@@ -216,9 +216,9 @@
     </div>
 </div>
 <div class="modal-footer">
-    <label style="text-align: right; color: #AA3333; font-weight: bold;" for="view_tarif_consultatie">Tarif consultatie</label>
-    <input disabled style="width: 55px; border: 1px solid #AA3333; border-radius:5px; text-align: right; font-weight: bold; color: black;" id="view_tarif_consultatie" name="view_tarif_consultatie" value="{{ data.tarif ?? '0' }}"/>
-    <p style="color: black; margin-right: 10px; margin-left: 5px; border: none;"><b>RON</b></p>
+    <label for="view_tarif_consultatie" class="twig-style-013">Tarif consultatie</label>
+    <input disabled id="view_tarif_consultatie" name="view_tarif_consultatie" value="{{ data.tarif ?? '0' }}" class="twig-style-014" />
+    <p class="twig-style-015"><b>RON</b></p>
     <button type="button" class="btn btn-primary confirma_preia_tot">Preia tot</button>
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuleaza</button>
 </div>

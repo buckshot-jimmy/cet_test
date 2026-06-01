@@ -4,11 +4,11 @@
         <span>&times;</span>
     </button>
 </div>
-<div class="modal-body cons" style="height: 630px;">
+<div class="modal-body cons twig-style-008">
     {% set TIP_CONSULTATIE = 0 %}
     <div class="row">
         <div class="col-sm-1" id="istoric_pacient_cons"><b>ISTORIC</b>
-            <div class="btn-group istoric_btn" style="margin-top: 10px;">
+            <div class="btn-group istoric_btn twig-style-009">
                 <a class="btn btn-sm btn-success istoric_a">Consultatii</a>
                 <button type="button" class="istoric_consultatii_cons btn btn-sm btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
                 <div class="dropdown-menu dropdown_consultatii_cons"></div>
@@ -19,7 +19,7 @@
                 <div class="dropdown-menu dropdown_investigatii_cons"></div>
             </div>
             <div class="btn-group istoric_btn">
-                <a class="btn btn-sm btn-secondary istoric_a" style="width: 85.58px;">Toate</a>
+                <a class="btn btn-sm btn-secondary istoric_a twig-style-010">Toate</a>
                 <button type="button" class="istoric_toate_cons btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
                 <div class="dropdown-menu dropdown_toate_cons"></div>
             </div>
@@ -169,13 +169,13 @@
         </div>
     </div>
 </div>
-<div class="modal-footer" style="margin-right: 25px;">
-    <p class="modal-body rezultat_operatiune" style="display: none; margin-top: 10px; margin-bottom: 10px; font-weight: bold;"></p>
-    <label style="text-align: right; color: #AA3333; font-weight: bold;" for="tarif_consultatie">Tarif consultatie</label>
-    <input style="width: 55px; border: 1px solid #AA3333; border-radius:5px; text-align: right; font-weight: bold; color: black;" id="tarif_consultatie" name="tarif_consultatie" class="input_tarif" value="{{ data.tarif ?? '0' }}"/>
-    <p style="color: black; margin-right: 10px; margin-left: 5px; border: none;"><b>RON</b></p>
+<div class="modal-footer twig-style-011">
+    <p class="modal-body rezultat_operatiune twig-style-012"></p>
+    <label for="tarif_consultatie" class="twig-style-013">Tarif consultatie</label>
+    <input id="tarif_consultatie" name="tarif_consultatie" class="input_tarif twig-style-014" value="{{ data.tarif ?? '0' }}"/>
+    <p class="twig-style-015"><b>RON</b></p>
     <button type="button" class="btn btn-primary confirma_consultatie btn_confirma confirma_cons_from_pacient">Salveaza
-        <span class="spinner-border spinner-border-sm spinner" style="display: none;"></span>
+        <span class="spinner-border spinner-border-sm spinner twig-style-003"></span>
     </button>
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuleaza</button>
 </div>
