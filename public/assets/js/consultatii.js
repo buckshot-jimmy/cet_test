@@ -438,11 +438,10 @@ let consultatii = function () {
                 let istoricPacient = "";
                 $.each(response.istoric, function (id, istoricServiciu) {
                     if (istoricServiciu.id !== consInvEvalId) {
-                        istoricPacient = "<a class='dropdown-item' href='#' " +
+                        istoricPacient = "<a class='dropdown-item " + color + "' href='#' " +
                             "onclick='getServiciuIstoric(" + istoricServiciu.id + ", " + TIP_SERVICIU + "); " +
-                            "return false;' class='dropdown-item istoric_a " + color + "'>" +
-                            istoricServiciu.denumire + ' | ' + istoricServiciu.data + ' | ' + istoricServiciu.nume
-                            + ' ' + istoricServiciu.prenume + "</a>";
+                            "return false;'>" + istoricServiciu.denumire + ' | ' + istoricServiciu.data + ' | '
+                            + istoricServiciu.nume + ' ' + istoricServiciu.prenume + "</a>";
 
                         parentDiv.append(istoricPacient);
                     }
@@ -794,9 +793,8 @@ function getServiciiPacient(id) {
 
                 if ($("#rol_user").val() === 'ROLE_Administrator') {
                     row += '<td class="js-service-cell">' +
-                        '<button class="js-service-button" ' +
-                        'class="btn btn-danger sterge_consultatie" tip="' + serviciu.tipServiciu +
-                        '"><i class="fas fa-trash"></i></button></td>';
+                        '<button class="js-service-button btn btn-danger sterge_consultatie" ' +
+                        ' tip="' + serviciu.tipServiciu + '"><i class="fas fa-trash"></i></button></td>';
                 } else {
                     row += '<td class="js-service-cell">' +
                         '<button class="js-service-button-hidden-narrow"></button></td>';
@@ -805,8 +803,8 @@ function getServiciiPacient(id) {
                 if (!serviciu.inchisa && (serviciu.medicId === parseInt($("#logged_user_id").val()) ||
                     $("#rol_user").val() === 'ROLE_Administrator')) {
                     row += '<td class="js-service-cell">' +
-                        '<button class="js-service-button-edit" tip="' + serviciu.tipServiciu +
-                        '"' + ' class="btn btn-info edit_from_pacient"><i class="fas fa-edit"></i></button></td>';
+                        '<button class="js-service-button-edit btn btn-info edit_from_pacient" tip="'
+                        + serviciu.tipServiciu + '"' + ' ><i class="fas fa-edit"></i></button></td>';
                 } else {
                     row += '<td class="js-service-cell">' +
                         '<button class="js-service-button-hidden"></td>';
@@ -814,28 +812,28 @@ function getServiciiPacient(id) {
 
                 if (serviciu.tipServiciu === TIP_CONSULTATIE) {
                     row += '<td class="js-service-cell">' +
-                        '<button class="js-doc-button" ' +
-                        'class="btn btn-danger scrisoare_from_pacient" onclick="tiparesteScrisoareMedicala(' +
+                        '<button class="js-doc-button btn btn-danger scrisoare_from_pacient" ' +
+                        ' onclick="tiparesteScrisoareMedicala(' +
                         serviciu.consultatieId + ')">' +
                         numeDocument + '</button></td>';
                 } else if (serviciu.tipServiciu === TIP_INVESTIGATIE) {
                     row += '<td class="js-service-cell">' +
-                        '<button class="js-doc-button" ' +
-                        'class="btn btn-danger buletin_from_pacient" onclick="tiparesteBuletinInvestigatie(' +
+                        '<button class="js-doc-button btn btn-danger buletin_from_pacient" ' +
+                        'onclick="tiparesteBuletinInvestigatie(' +
                         serviciu.consultatieId + ')">' +
                         numeDocument + '</button></td>';
                 } else if (serviciu.tipServiciu === TIP_EVAL_PSIHO) {
                     row += '<td class="js-service-cell">' +
-                        '<button class="js-doc-button" ' +
-                        'class="btn btn-success eval_psiho_from_pacient" onclick="tiparesteFisaPsihodiagnostic(' +
+                        '<button class="js-doc-button btn btn-success eval_psiho_from_pacient" ' +
+                        'onclick="tiparesteFisaPsihodiagnostic(' +
                         serviciu.consultatieId + ')">' +
                         'Fisa psihodiag.</button></td>';
                 }
 
                 if (serviciu.tipServiciu === TIP_CONSULTATIE) {
                     row += '<td class="js-service-cell">' +
-                        '<button class="js-doc-button" ' +
-                        'class="btn btn-success referat_from_pacient" onclick="tiparesteReferatMedical(' +
+                        '<button class="js-doc-button btn btn-success referat_from_pacient" ' +
+                        'onclick="tiparesteReferatMedical(' +
                         serviciu.consultatieId + ')">' +
                         'Referat medical</button></td>';
                 } else {
@@ -844,8 +842,8 @@ function getServiciiPacient(id) {
 
                 if (serviciu.tipServiciu === TIP_CONSULTATIE) {
                     row += '<td class="js-service-cell">' +
-                        '<button class="js-doc-button" ' +
-                        'class="btn btn-warning fisa_consultatie_from_pacient" onclick="tiparesteFisaConsultatii(' +
+                        '<button class="js-doc-button btn btn-warning fisa_consultatie_from_pacient" ' +
+                        'onclick="tiparesteFisaConsultatii(' +
                         serviciu.consultatieId + ')">' +
                         'Fisa de consultatii</button></td>';
                 } else {
@@ -853,8 +851,8 @@ function getServiciiPacient(id) {
                 }
 
                 row += '<td class="js-service-cell">' +
-                    '<button disabled class="js-doc-button" ' +
-                    'class="btn btn-outline-secondary">Alte documente</button></td></tr>';
+                    '<button disabled class="js-doc-button btn btn-outline-secondary" ' +
+                    '>Alte documente</button></td></tr>';
 
                 $("#table_servicii_documente").append(row);
             });

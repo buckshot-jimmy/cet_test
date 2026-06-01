@@ -71,6 +71,8 @@ table.table-bordered.dataTable {
 .istoric_btn {
     margin-bottom: 10px;
 }
+
+/* prevent clickable */
 .istoric_a {
     color: white !important;
     pointer-events: none;
@@ -144,9 +146,9 @@ input::-webkit-calendar-picker-indicator {
 }
 .dropdown_consultatii_cons, .dropdown_investigatii_cons, .dropdown_toate_cons,
 .dropdown_consultatii_inv, .dropdown_investigatii_inv, .dropdown_toate_inv {
-    height: 100px;
-    overflow-y: auto;
-    position: absolute; will-change: transform; top: 0; left: 0; transform: translate3d(83px, 31px, 0px) !important;
+    height: 100px; overflow-y: auto;
+    position: absolute; will-change: transform; top: 0; left: 0;
+    transform: translate3d(83px, 31px, 0px) !important;
 }
 .rezultat_operatiune_success {
     font-weight: bold;

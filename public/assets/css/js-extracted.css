@@ -43,20 +43,24 @@
 }
 
 .js-text-black {
-    color: black;
+    color: black !important;
 }
 
 .js-text-success {
-    color: #1cc88a;
+    color: #1cc88a !important;
 }
 
 .js-text-primary {
-    color: #4e73df;
+    color: #4e73df !important;
 }
 
 .js-service-cell {
     padding-right: 15px;
     padding-bottom: 15px;
+}
+
+.js-service-button {
+    width: 40px; height: 40px;
 }
 
 .js-service-cell-empty {

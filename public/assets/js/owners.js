@@ -120,7 +120,14 @@ let owners = function() {
         $("body").on("click", ".add_owner", function () {
             $("#owner_id").val("");
             validateOwnerForm();
-            $(".owner_content").load("/owners/get_owner");
+
+            let content = fetch("/owners/get_owner")
+                .then(res => res.text())
+                .then(html => {
+                    document.querySelector(".owner_content").innerHTML = html;
+                    $(".spinner").hide();
+                });
+
             $(".titlu_modal_owner").text("Adauga firma");
             $(".add_edit_owner_modal").modal("show");
         });

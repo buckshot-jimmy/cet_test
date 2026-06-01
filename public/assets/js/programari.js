@@ -339,7 +339,7 @@ let programari = function () {
             showMeridian: false,
             showInputs: true,
             disableFocus: false,
-            minuteStep: 1,
+            minuteStep: 15,
             icons: {
                 up: 'fas fa-chevron-up',
                 down: 'fas fa-chevron-down'

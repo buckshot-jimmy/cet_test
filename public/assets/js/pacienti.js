@@ -553,8 +553,8 @@ let pacienti = function () {
                             }
 
                             buttons += '<a class="btn ' + culoareIncasare + ' btn-circle btn-sm incaseaza" ' +
-                                'title="Incaseaza" pacient="' +
-                                row.nume + " " + row.prenume + '"><i class="fas fa-money-bill"></i></a>';
+                                'title="Incaseaza" pacient="' + row.nume + " " + row.prenume
+                                + '"><i class="fas fa-money-bill tooltipHover"></i></a>';
                         }
 
                         return buttons;
@@ -762,7 +762,7 @@ let pacienti = function () {
                         "<td>" + serviciu.denumireServiciu + "</td>" +
                         "<td class='pret_serviciu'>" + serviciu.pretServiciu + "</td>" +
                         "<td class='owner_serviciu'>" + serviciu.denumireOwner + "</td>" +
-                        "<td><input type='checkbox' class='" + checkBoxStyle() + "' owner='" + serviciu.ownerId
+                        "<td><input type='checkbox' class='styled-checkbox' owner='" + serviciu.ownerId
                         + "' consultatie='" + serviciu.consultatieId + "' name='plata_checkbox[]' /></td></tr>";
 
                     total += serviciu.pretServiciu;

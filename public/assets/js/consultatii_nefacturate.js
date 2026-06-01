@@ -158,7 +158,7 @@ let consultatiiNefacturate = function() {
                             + serviciu.denumireOwner + '<td class="pret_serviciu js-cell-bold-bottom">'
                             + serviciu.tarif + ' lei</td>' +
                             '</td><td class="js-checkbox-cell"><input name="facturare_checkbox[]" ' +
-                            'owner="' + serviciu.ownerId + '" type="checkbox" class="' + checkBoxStyle() + '"></td></tr>';
+                            'owner="' + serviciu.ownerId + '" type="checkbox" class="styled-checkbox"></td></tr>';
 
                         $("#table_consultatii_nefacturate").append(row);
 

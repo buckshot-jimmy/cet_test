@@ -97,7 +97,15 @@ let pj = function() {
         $("body").on("click", ".add_pj", function () {
             $("#pj_id").val("");
             validatePjForm();
-            $(".pj_content").load("/get_client_pj");
+
+            let content = fetch("/get_client_pj")
+                .then(res => res.text())
+                .then(html => {
+                    document.querySelector(".pj_content").innerHTML = html;
+                    $(".spinner").hide();
+                });
+
+            $(".pj_content").html(content);
             $(".titlu_modal_pj").text("Adauga client");
             $(".add_edit_pj_modal").modal("show");
         });
