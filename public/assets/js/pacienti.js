@@ -544,7 +544,7 @@ let pacienti = function () {
                             buttons += '<a title="Click pentru consultatii in desfasurare" data-toggle="tooltip" ' +
                                 'data-placement="right" class="btn tooltipHover ' + culoareConsultatie +
                                 ' btn-circle btn-sm">' +
-                                '<i class="fas fa-user-md"></i></a>';
+                                '<i class="fas fa-user-md tooltipHover"></i></a>';
                         }
 
                         if (row.areConsultatiiNeplatite === true && row.areConsultatiiDeschise === false) {
