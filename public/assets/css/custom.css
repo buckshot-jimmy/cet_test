@@ -288,3 +288,6 @@ input[type="checkbox"]:checked + .checkmark-style .check-box::after {
 .confirma_preia_cons, .confirma_preia_inv, .confirma_preia_eval {
     margin-top: 55px;
 }
+.fa-heartbeat {
+    color: #1cc88a;
+}
