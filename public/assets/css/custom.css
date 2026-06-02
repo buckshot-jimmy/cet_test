@@ -101,7 +101,7 @@ table.table-bordered.dataTable {
     width: 1200px;
     right: 60%;
     left:auto;
-    height: 500px;
+    height: 600px;
 }
 .modal-dialog {
     overflow-y: initial
@@ -292,4 +292,8 @@ input[type="checkbox"]:checked + .checkmark-style .check-box::after {
 }
 .fa-heartbeat {
     color: #1cc88a;
+}
+.styled-checkbox {
+    position: relative; width: 20px; height: 20px; border: 2px solid #d1d5db; border-radius: 6px;
+    margin-right: 12px; padding-bottom: 15px;
 }

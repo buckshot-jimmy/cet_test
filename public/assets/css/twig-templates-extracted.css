@@ -3,6 +3,7 @@
 /* templates/formulare/buletin_investigatie.html.twig */
 body.tpl-formulare-buletin_investigatie table {
     border-collapse: collapse;
+    width: 100%;
 }
 
 body.tpl-formulare-buletin_investigatie td {
@@ -133,9 +134,3 @@ body.tpl-formulare-scrisoare_medicala #table_scrisoare td {
     width: 100%;
     font-family: Arial,sans-serif;
 }
-
-.styled-checkbox {
-    position: relative; width: 20px; height: 20px; border: 2px solid #d1d5db; border-radius: 6px; margin-right: 12px;
-    padding-bottom: 15px;
-}
-

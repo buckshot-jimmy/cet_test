@@ -4,6 +4,7 @@ twig:
     globals:
         fos_csrf_provider: "@security.csrf.token_manager"
     paths:
+        '%kernel.project_dir%/public': public
         '%kernel.project_dir%/templates': templates
         '%kernel.project_dir%/templates/main': main
         '%kernel.project_dir%/templates/security': security
