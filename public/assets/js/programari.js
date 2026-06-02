@@ -57,23 +57,23 @@ let programari = function () {
                             if (([ROL_MEDIC, ROL_PSHIHOLOG].includes(ROL_USER_LOGAT) &&
                                 row.medicId === parseInt($("#logged_user_id").val())) || ROL_ADMIN === ROL_USER_LOGAT) {
                                 actiuni += '<a href="#" class="btn btn-danger btn-circle btn-sm anuleaza_programare"' +
-                                    ' title="Anuleaza" style="margin-right: 3px;"><i class="fas fa-trash"></i></a>'
+                                    ' title="Anuleaza"><i class="fas fa-trash"></i></a>'
 
                                 actiuni += '<a href="#" class="btn btn-info btn-circle btn-sm editeaza_programare" ' +
-                                    'title="Editeaza" style="margin-right: 3px;"><i class="fas fa-edit"></i></a>';
+                                    'title="Editeaza"><i class="fas fa-edit"></i></a>';
                             }
 
                             if (row.stare !== NEONORATA) {
                                 actiuni += '<a href="javascript:trimiteEmailProgramare(' + row.id + ')"' +
                                     ' class="btn btn-outline-dark btn-circle btn-sm trimite_email" ' +
-                                    'title="Trimite email" style="margin-right: 3px;"><i class="fas fa-envelope"></i></a>';
+                                    'title="Trimite email"><i class="fas fa-envelope"></i></a>';
                             }
 
 
                             actiuni += '<a href="javascript:deschideConsultatie(' + row.id + ','
                                 + row.pacientId + ', \'' + row.numePacient + '\')" ' +
                                 'class="btn btn-primary btn-circle btn-sm deschide_consultatie" ' +
-                                'title="Deschide consultatie" style="margin-right: 3px;">' +
+                                'title="Deschide consultatie">' +
                                 '<i class="fas fa-book-medical"></i></a>';
                         }
 
@@ -339,7 +339,7 @@ let programari = function () {
             showMeridian: false,
             showInputs: true,
             disableFocus: false,
-            minuteStep: 1,
+            minuteStep: 15,
             icons: {
                 up: 'fas fa-chevron-up',
                 down: 'fas fa-chevron-down'
@@ -457,9 +457,9 @@ function trimiteEmailProgramare(programareId) {
 }
 
 function deschideConsultatie(programareId, pacientId, numePacient) {
-    $("select[multiple]").css('overflow-x', 'auto');
+    $("select[multiple]").addClass('js-overflow-x-auto');
 
-    $(".titlu_cons_inv_modal").css('font-weight', 'bold')
+    $(".titlu_cons_inv_modal").addClass('js-font-bold')
         .text('Pacient ' + numePacient + ' - Adauga consultatie / investigatie');
 
     $("#deschide_cons_inv_pacient_id").val(pacientId);

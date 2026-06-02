@@ -1,0 +1,201 @@
+/* Extracted from public/assets/js/*.js, excluding app_js. */
+
+.js-mr-3,
+.btn-circle.btn-sm {
+    margin-right: 3px;
+}
+
+.servicii_documente {
+    margin-left: 10px;
+}
+
+.tooltipHover,
+.incaseaza {
+    color: white;
+}
+
+.js-filter-blur {
+    filter: blur(5px);
+}
+
+.js-z-index-1100 {
+    z-index: 1100;
+}
+
+.js-font-bold {
+    font-weight: bold;
+}
+
+.js-row-storno {
+    background-color: #f3eaeb;
+}
+
+.js-overflow-x-auto {
+    overflow-x: auto;
+}
+
+.js-tooltip-danger {
+    background-color: #d52a1a !important;
+}
+
+.js-tooltip-success {
+    background-color: #169b6b !important;
+}
+
+.js-text-black {
+    color: black !important;
+}
+
+.js-text-success {
+    color: #1cc88a !important;
+}
+
+.js-text-primary {
+    color: #4e73df !important;
+}
+
+.js-service-cell {
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+.js-service-button {
+    width: 40px; height: 40px;
+}
+
+.js-service-cell-empty {
+    width: 150px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+.js-service-date-cell {
+    width: 100px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    font-weight: bold;
+}
+
+.js-unbilled-date-cell {
+    width: 120px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    font-weight: bold;
+}
+
+.js-service-medic-cell {
+    width: 120px;
+    font-weight: bold;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+.js-unbilled-medic-cell {
+    width: 200px;
+    font-weight: bold;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+.js-service-name-cell {
+    width: 150px;
+    font-weight: bold;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+.js-cell-bold-pad {
+    font-weight: bold;
+    padding-right: 15px;
+    padding-bottom: 15px;
+}
+
+.js-cell-bold-bottom {
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+.js-checkbox-cell {
+    padding-left: 50px;
+    vertical-align: top;
+}
+
+.js-row-pad-bottom {
+    padding-bottom: 15px;
+}
+
+.js-service-button {
+    width: 40px;
+    height: 40px;
+}
+
+.js-service-button-hidden {
+    width: 40px;
+    height: 40px;
+    display: none;
+}
+
+.js-service-button-hidden-narrow {
+    width: 25px;
+    height: 40px;
+    display: none;
+}
+
+.js-service-button-edit {
+    width: 40px;
+    height: 40px;
+    font-weight: bold;
+}
+
+.js-doc-button {
+    width: 150px;
+    height: 40px;
+    font-size: 14px;
+}
+
+.js-empty-doc-button {
+    width: 150px;
+    height: 40px;
+    display: none;
+}
+
+.js-checkbox-input {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #d1d5db;
+    border-radius: 6px;
+    margin-right: 12px;
+    padding-bottom: 15px;
+}
+
+.js-payment-header-cell,
+.js-payment-total-cell {
+    color: #78261f;
+    font-weight: bold;
+}
+
+.js-service-row-middle {
+    border-left: black solid 1px;
+    border-right: black solid 1px;
+    height: 40px;
+}
+
+.js-service-row-first {
+    border-top: black solid 1px;
+    border-left: black solid 1px;
+    border-right: black solid 1px;
+    height: 40px;
+}
+
+.js-service-row-last {
+    border-bottom: black solid 1px;
+    border-left: black solid 1px;
+    border-right: black solid 1px;
+    height: 40px;
+}
+
+.js-service-row-single {
+    border: black solid 1px;
+    height: 40px;
+}

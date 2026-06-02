@@ -31,11 +31,11 @@ let owners = function() {
                                 '<i class="fas fa-smile fa-2x"></i></button>';
                         }
 
-                        actiuni += '<a style="margin-right: 3px;" href="#" ' +
+                        actiuni += '<a href="#" ' +
                             'class="btn btn-info btn-circle btn-sm editeaza_owner" title="Editeaza">'
                             + '<i class="fas fa-edit"></i></a>';
                         actiuni += '<a href="#" class="btn btn-danger btn-circle btn-sm sterge_owner"' +
-                            ' title="Sterge" style="margin-right: 3px;"><i class="fas fa-trash"></i></a>';
+                            ' title="Sterge"><i class="fas fa-trash"></i></a>';
 
                         return actiuni;
                     }
@@ -120,7 +120,14 @@ let owners = function() {
         $("body").on("click", ".add_owner", function () {
             $("#owner_id").val("");
             validateOwnerForm();
-            $(".owner_content").load("/owners/get_owner");
+
+            let content = fetch("/owners/get_owner")
+                .then(res => res.text())
+                .then(html => {
+                    document.querySelector(".owner_content").innerHTML = html;
+                    $(".spinner").hide();
+                });
+
             $(".titlu_modal_owner").text("Adauga firma");
             $(".add_edit_owner_modal").modal("show");
         });

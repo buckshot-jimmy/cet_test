@@ -1,66 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        #table_rapoarte {
-            border-collapse: collapse;
-        }
-        #table_rapoarte td {
-            border:1px solid black;
-            width: 300px;
-            font-size: 40px;
-        }
-    </style>
-    <title></title>
+<title></title>
+    <link href="{{ asset('assets/css/twig-extracted.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/twig-templates-extracted.css') }}" rel="stylesheet" type="text/css">
 </head>
-<body>
+<body class="tpl-formulare-plata_colaborator">
 <table>
     <tr>
         <td>
-            <img style="width: 210px; height: 100px;" src="{{ asset('assets/sigla_pdf.png') }}" alt="MIND RESET">
+            <img src="{{ asset('assets/sigla_pdf.png') }}" alt="MIND RESET" class="twig-style-074">
         </td>
-        <td style="width: 150px;"></td>
+        <td class="twig-style-075"></td>
         <td>
-            <div style="font-size: 22px;"><b>{{ dateFirma.denumire }}</b>
-                <hr style="width: 600px;">
+            <div class="twig-style-026"><b>{{ dateFirma.denumire }}</b>
+                <hr class="twig-style-076">
             </div>
             <div>{{ dateFirma.adresa ~ ', ' ~ dateFirma.localitate ~ ', ' ~ dateFirma.judet ~ ',
                     ' ~ dateFirma.tara ~ ', ' ~ dateFirma.codPostal ~ ', ' ~ dateFirma.telefon ~ ',
                     ' ~ dateFirma.email}}
                 <br /><br />
                 <b>{{ data.owner }}</b>
-                <hr style="width: 600px;">
+                <hr class="twig-style-076">
             </div>
         </td>
     </tr>
 </table>
-<div style="width: 100%; text-align: center; font-weight: bold; font-size: 22px; margin-top: 20px; margin-bottom: 15px;">
+<div class="twig-style-077">
     {{ 'Raport plati ' ~ data.luna ~ ' ' ~ data.an ~ ' - medic colaborator: ' ~ data.medic }}</div>
-<table id="table_rapoarte">
+<table class="table_rapoarte">
     <tr>
-        <td style="height: 80px;"><b>Data</b></td>
-        <td style="height: 80px;"><b>Nume pacient</b></td>
-        <td style="height: 80px;"><b>Prenume pacient</b></td>
-        <td style="height: 80px;"><b>CNP pacient</b></td>
-        <td style="height: 80px;"><b>Serviciul</b></td>
-        <td style="height: 80px;"><b>Suma incasata</b></td>
-        <td style="height: 80px;"><b>Procentaj colaborator</b></td>
-        <td style="height: 80px;"><b>Suma de plata RON</b></td>
+        <td class="twig-style-078"><b>Data</b></td>
+        <td class="twig-style-078"><b>Nume pacient</b></td>
+        <td class="twig-style-078"><b>Prenume pacient</b></td>
+        <td class="twig-style-078"><b>CNP pacient</b></td>
+        <td class="twig-style-078"><b>Serviciul</b></td>
+        <td class="twig-style-078"><b>Suma incasata</b></td>
+        <td class="twig-style-078"><b>Procentaj colaborator</b></td>
+        <td class="twig-style-078"><b>Suma de plata RON</b></td>
     </tr>
     {% for consultatie in data.consultatii %}
         <tr>
-            <td style="height: 80px;">{{ consultatie.dataConsultatie }}</td>
-            <td style="height: 80px;">{{ consultatie.numePacient }}</td>
-            <td style="height: 80px;">{{ consultatie.prenumePacient }}</td>
-            <td style="height: 80px;">{{ consultatie.cnpPacient }}</td>
-            <td style="height: 80px;">{{ consultatie.serviciu }}</td>
-            <td style="height: 80px;">{{ consultatie.sumaIncasata }}</td>
-            <td style="height: 80px;">{{ consultatie.procentajColaborator }}</td>
-            <td style="height: 80px;">{{ consultatie.sumaDePlata }}</td>
+            <td class="twig-style-078">{{ consultatie.dataConsultatie }}</td>
+            <td class="twig-style-078">{{ consultatie.numePacient }}</td>
+            <td class="twig-style-078">{{ consultatie.prenumePacient }}</td>
+            <td class="twig-style-078">{{ consultatie.cnpPacient }}</td>
+            <td class="twig-style-078">{{ consultatie.serviciu }}</td>
+            <td class="twig-style-078">{{ consultatie.sumaIncasata }}</td>
+            <td class="twig-style-078">{{ consultatie.procentajColaborator }}</td>
+            <td class="twig-style-078">{{ consultatie.sumaDePlata }}</td>
         </tr>
     {% endfor %}
 </table>
-<div style="margin-top: 20px;"><b>Total de plata: {{ data.totalDePlata }} RON</b></div>
+<div class="twig-style-079"><b>Total de plata: {{ data.totalDePlata }} RON</b></div>
 <div><b>Stare: {{ data.stare }}</b></div>
 </body>
 </html>

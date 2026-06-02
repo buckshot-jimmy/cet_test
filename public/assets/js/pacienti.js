@@ -94,10 +94,10 @@ let pacienti = function () {
 
     let initAdaugaConsultatieInvestigatie = function () {
         $("body").on("click", ".add_consultatie_investigatie", function () {
-            $("select[multiple]").css('overflow-x', 'auto');
+            $("select[multiple]").addClass('js-overflow-x-auto');
 
             let pacient = this.getAttribute('pacient');
-            $(".titlu_cons_inv_modal").css('font-weight', 'bold')
+            $(".titlu_cons_inv_modal").addClass('js-font-bold')
                 .text('Pacient ' + pacient + ' - Adauga consultatie / investigatie');
 
             let id = this.closest('tr').id;
@@ -382,23 +382,23 @@ let pacienti = function () {
 
                         if ($("#rol_user").val() === ROL_ADMIN) {
                             actiuni += '<a href="#" class="btn btn-danger btn-circle btn-sm sterge_pacient"' +
-                                ' title="Sterge" style="margin-right: 3px;"><i class="fas fa-trash"></i></a>';
+                                ' title="Sterge"><i class="fas fa-trash"></i></a>';
                         }
 
 
                         actiuni += '<a href="#" class="btn btn-info btn-circle btn-sm editeaza_pacient" ' +
-                            'title="Editeaza" style="margin-right: 3px;"><i class="fas fa-edit"></i></a>';
+                            'title="Editeaza"><i class="fas fa-edit"></i></a>';
 
                         if ($("#rol_user").val() === ROL_ADMIN || $("#rol_user").val() === ROL_RECEPTIE) {
                             if (row.areConsultatiiDeschise) {
                                 actiuni += '<a href="#" class="btn btn-light btn-circle btn-sm inchide_toate" ' +
-                                    'title="Inchideti toate consultatiile" style="margin-right: 3px;">' +
+                                    'title="Inchideti toate consultatiile">' +
                                     '<i class="fas fa-lock"></i></a>';
                             }
                         }
 
                         actiuni += '<a href="#" class="btn btn-success btn-sm add_consultatie_investigatie"'+
-                            ' title="Adauga serviciu" style="margin-right: 3px;" pacient="' + row.nume + " "
+                            ' title="Adauga serviciu" pacient="' + row.nume + " "
                             + row.prenume + '"><i class="fas fa-cart-plus"></i></a>';
 
                         return actiuni;
@@ -543,8 +543,8 @@ let pacienti = function () {
 
                             buttons += '<a title="Click pentru consultatii in desfasurare" data-toggle="tooltip" ' +
                                 'data-placement="right" class="btn tooltipHover ' + culoareConsultatie +
-                                ' btn-circle btn-sm" style="margin-right: 3px; color: white;">' +
-                                '<i class="fas fa-user-md"></i></a>';
+                                ' btn-circle btn-sm">' +
+                                '<i class="fas fa-user-md tooltipHover"></i></a>';
                         }
 
                         if (row.areConsultatiiNeplatite === true && row.areConsultatiiDeschise === false) {
@@ -553,8 +553,8 @@ let pacienti = function () {
                             }
 
                             buttons += '<a class="btn ' + culoareIncasare + ' btn-circle btn-sm incaseaza" ' +
-                                'title="Incaseaza" style="margin-right: 3px; color: white;" pacient="' +
-                                row.nume + " " + row.prenume + '"><i class="fas fa-money-bill"></i></a>';
+                                'title="Incaseaza" pacient="' + row.nume + " " + row.prenume
+                                + '"><i class="fas fa-money-bill tooltipHover"></i></a>';
                         }
 
                         return buttons;
@@ -625,7 +625,7 @@ let pacienti = function () {
     let initIncasare = function () {
         $("body").on("click", ".incaseaza", function () {
             let pacient = this.getAttribute('pacient');
-            $(".titlu_incasare_modal").css('font-weight', 'bold').text('Pacient ' + pacient + ' - Plata');
+            $(".titlu_incasare_modal").addClass('js-font-bold').text('Pacient ' + pacient + ' - Plata');
 
             let id = this.closest('tr').id;
             $("#cnp_factura").val(tablePacientiInCabinet.row($(this).closest('tr')).data().cnp);
@@ -735,36 +735,34 @@ let pacienti = function () {
                 let index = 1;
                 let tableServicii = $("#table_servicii");
 
-                let header = '<tr><td style="color: #78261f; font-weight: bold;">Medic</td>' +
-                    '<td style="color: #78261f; font-weight: bold;">Serviciu</td>' +
-                    '<td style="color: #78261f; font-weight: bold;">Tarif - lei</td>' +
-                    '<td style="color: #78261f; font-weight: bold;">Firma</td>' +
+                let header = '<tr><td class="js-payment-header-cell">Medic</td>' +
+                    '<td class="js-payment-header-cell">Serviciu</td>' +
+                    '<td class="js-payment-header-cell">Tarif - lei</td>' +
+                    '<td class="js-payment-header-cell">Firma</td>' +
                     '<td></td></tr>';
 
                 tableServicii.append(header);
 
                 $.each(response.serviciiPacient, function (id, serviciu) {
-                    let border = "style='border-left: black solid 1px; border-right: black solid 1px; height: 40px; '";
+                    let border = "class='js-service-row-middle'";
 
                     if (index === 1) {
-                        border = "style='border-top: black solid 1px; border-left: black solid 1px; " +
-                            "border-right: black solid 1px; height: 40px;'" ;
+                        border = "class='js-service-row-first'" ;
                     }
 
                     if (index === response.serviciiPacient.length) {
-                        border = "style='border-bottom: black solid 1px; border-left: black solid 1px; border-right: " +
-                            "black solid 1px; height: 40px;'" ;
+                        border = "class='js-service-row-last'" ;
                     }
 
                     if (response.serviciiPacient.length === 1) {
-                        border = "style='border: black solid 1px; height: 40px;'" ;
+                        border = "class='js-service-row-single'" ;
                     }
 
                     let trServicii = "<tr " + border + "><td>" + serviciu.numeMedic + "</td>" +
                         "<td>" + serviciu.denumireServiciu + "</td>" +
                         "<td class='pret_serviciu'>" + serviciu.pretServiciu + "</td>" +
                         "<td class='owner_serviciu'>" + serviciu.denumireOwner + "</td>" +
-                        "<td><input type='checkbox' style='" + checkBoxStyle() + "' owner='" + serviciu.ownerId
+                        "<td><input type='checkbox' class='styled-checkbox' owner='" + serviciu.ownerId
                         + "' consultatie='" + serviciu.consultatieId + "' name='plata_checkbox[]' /></td></tr>";
 
                     total += serviciu.pretServiciu;
@@ -774,8 +772,8 @@ let pacienti = function () {
                     index++;
                 });
 
-                let totalRow = "<tr><td style='font-weight: bold; color: #78261f;'>Total general</td><td></td>" +
-                    "<td style='font-weight: bold; color: #78261f;'>" + total + "</td></tr>";
+                let totalRow = "<tr><td class='js-payment-total-cell'>Total general</td><td></td>" +
+                    "<td class='js-payment-total-cell'>" + total + "</td></tr>";
 
                 tableServicii.append(totalRow);
             },
@@ -801,9 +799,9 @@ let pacienti = function () {
             let pacientIcon = this;
 
             if ($(pacientIcon).hasClass('btn-danger')) {
-                $('.tooltip-inner').css('background-color','#d52a1a')
+                $('.tooltip-inner').removeClass('js-tooltip-success').addClass('js-tooltip-danger')
             } else {
-                $('.tooltip-inner').css('background-color','#169b6b')
+                $('.tooltip-inner').removeClass('js-tooltip-danger').addClass('js-tooltip-success')
             }
         });
 

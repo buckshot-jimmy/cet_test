@@ -1,0 +1,695 @@
+/* Extracted from templates/*.html.twig inline style attributes. */
+
+.twig-style-001 {
+    height: 150px;
+    margin-bottom: 50px;
+}
+
+.twig-style-002 {
+    color: black;
+}
+
+.twig-style-004 {
+    height: 100vh;
+    width: 100vw;
+    background: indianred;
+    align-content: center;
+}
+
+.twig-style-005 {
+    margin-top: 150px;
+    margin-left: 150px;
+    font-size: 80px;
+    font-weight: bolder;
+    font-family: 'Ink Free',serif;
+    color: whitesmoke;
+}
+
+.twig-style-006 {
+    height: 100px;
+}
+
+.twig-style-007 {
+    width: 100%;
+    border-collapse: collapse;
+    border: none;
+}
+
+.twig-style-008 {
+    height: 630px;
+}
+
+.twig-style-009 {
+    margin-top: 10px;
+}
+
+.twig-style-010 {
+    width: 85.58px;
+}
+
+.twig-style-011 {
+    margin-right: 25px;
+}
+
+.twig-style-012 {
+    display: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.twig-style-013 {
+    text-align: right;
+    color: #AA3333;
+    font-weight: bold;
+}
+
+.twig-style-014 {
+    width: 55px;
+    border: 1px solid #AA3333;
+    border-radius: 5px;
+    text-align: right;
+    font-weight: bold;
+    color: black;
+}
+
+.twig-style-015 {
+    color: black;
+    margin-right: 10px;
+    margin-left: 5px;
+    border: none;
+}
+
+.twig-style-016 {
+    height: 610px;
+}
+
+.twig-style-017 {
+    height: 110px;
+}
+
+.twig-style-018 {
+    color: #AA3333;
+    font-weight: bold;
+    text-align: right;
+}
+
+.twig-style-019 {
+    width: 55px;
+    border: 1px solid #AA3333;
+    border-radius: 5px;
+    text-align: right;
+    font-weight: bold;
+}
+
+.twig-style-020 {
+    display: inline-block;
+}
+
+.twig-style-021 {
+    width: 400px;
+    border: none;
+}
+
+.twig-style-022 {
+    font-size: 16px;
+}
+
+.twig-style-023 {
+    border: none;
+}
+
+.twig-style-024 {
+    margin-left: 140px;
+    width: 250px;
+    height: 120px;
+    border: none;
+}
+
+.twig-style-025 {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+    color: #0f6674;
+    margin-top: 60px;
+    margin-bottom: 40px;
+}
+
+.twig-style-026 {
+    font-size: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+.twig-style-026 td {
+    border: 1px solid black;
+    border-spacing: 0;
+}
+
+.twig-style-027 {
+    color: #0f6674;
+    font-size: 20px;
+}
+
+.twig-style-028 {
+    border: 1px solid black;
+    font-size: 20px;
+    width: 100%;
+}
+
+.twig-style-029 {
+    border-right: white;
+    border-bottom: white;
+}
+
+.twig-style-030 {
+    border-right: white;
+    border-bottom: white;
+    border-left: white;
+}
+
+.twig-style-031 {
+    border-bottom: white;
+    border-left: white;
+}
+
+.twig-style-032 {
+    border-right: white;
+    border-top: white;
+}
+
+.twig-style-033 {
+    border-right: white;
+    border-top: white;
+    border-left: white;
+}
+
+.twig-style-034 {
+    border-left: white;
+    border-top: white;
+}
+
+.twig-style-035 {
+    width: 100%;
+    font-size: 16px;
+    margin-top: 60px;
+    color: #0f6674;
+}
+
+.twig-style-036 {
+    border: none;
+    text-align: right;
+}
+
+.twig-style-037 {
+    height: 50px;
+}
+
+.twig-style-038 {
+    width: 300px;
+    height: 200px;
+    margin-bottom: 30px;
+}
+
+.twig-style-039 {
+    font-size: small;
+    margin-bottom: 0;
+}
+
+.twig-style-040 {
+    width: 20%;
+    vertical-align: top;
+    text-align: left;
+}
+
+.twig-style-041 {
+    width: 40%;
+    vertical-align: top;
+    text-align: left;
+}
+
+.twig-style-042 {
+    width: 15%;
+    vertical-align: top;
+}
+
+.twig-style-043 {
+    width: 25%;
+    vertical-align: top;
+    text-align: center;
+}
+
+.twig-style-044 {
+    height: 60px;
+    text-align: center;
+}
+
+.twig-style-045 {
+    font-size: 13px;
+}
+
+.twig-style-046 {
+    border-collapse: collapse;
+    border: 1px solid white;
+    width: 100%;
+}
+
+.twig-style-047 {
+    text-align: right;
+    margin-bottom: 5px;
+}
+
+.twig-style-048 {
+    text-align: right;
+}
+
+.twig-style-049 {
+    border: 1px solid black;
+    text-align: center;
+}
+
+.twig-style-050 {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+.twig-style-051 {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.twig-style-052 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.twig-style-053 {
+    font-weight: bold;
+    color: black;
+    margin-top: 0;
+}
+
+.twig-style-054 {
+    text-align: center;
+}
+
+.twig-style-055 {
+    font-size: 10px;
+}
+
+.twig-style-056 {
+    border-right: 1px solid black !important;
+}
+
+.twig-style-057 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.twig-style-058 {
+    margin-bottom: 10px;
+}
+
+.twig-style-059 {
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 18px;
+}
+
+.twig-style-060 {
+    font-size: 24px;
+}
+
+.twig-style-061 {
+    text-align: center;
+    border: 1px solid black;
+    width: 25px;
+}
+
+.twig-style-062 {
+    text-align: center;
+    border: 1px solid black;
+    width: 50px;
+}
+
+.twig-style-063 {
+    text-align: center;
+    border: 1px solid black;
+    text-rotate: 90;
+    width: 25px;
+}
+
+.twig-style-064 {
+    text-align: center;
+    border: 1px solid black;
+    width: 400px;
+}
+
+.twig-style-065 {
+    text-align: center;
+    border: 1px solid black;
+    width: 150px;
+}
+
+.twig-style-066 {
+    text-align: center;
+    border: 1px solid black;
+    width: 60px;
+}
+
+.twig-style-067 {
+    border: 1px solid black;
+    height: 80px;
+}
+
+.twig-style-068 {
+    border: 1px solid black;
+    height: 270px;
+}
+
+.twig-style-069 {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+    color: #0f6674;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-family: Arial,sans-serif;
+}
+
+.twig-style-070 {
+    font-size: 16px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.twig-style-070 td {
+    border: 1px solid black;
+}
+
+.twig-style-071 {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    font-size: 16px;
+}
+
+.twig-style-071 td {
+    border: 1px solid black;
+}
+
+.twig-style-072 {
+    width: 66%;
+    min-height: 30px;
+}
+
+.twig-style-073 {
+    border: 1px solid black;
+    font-size: 26px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.twig-style-073 td {
+    width: 300px;
+    font-family: Arial,sans-serif;
+}
+
+.twig-style-074 {
+    width: 210px;
+    height: 100px;
+}
+
+.twig-style-075 {
+    width: 150px;
+}
+
+.twig-style-076 {
+    width: 600px;
+}
+
+.twig-style-077 {
+    width: 100%;
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+}
+
+.twig-style-078 {
+    height: 80px;
+}
+
+.twig-style-079 {
+    margin-top: 20px;
+}
+
+.twig-style-080 {
+    text-align: center;
+    font-family: Arial,sans-serif;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.twig-style-081 {
+    font-family: Arial,sans-serif;
+}
+
+.twig-style-082 {
+    font-family: Arial,sans-serif;
+    margin-top: 10px;
+}
+
+.twig-style-083 {
+    font-style: italic;
+}
+
+.twig-style-084 {
+    width: 100%;
+    font-size: 16px;
+    margin-top: 40px;
+}
+
+.twig-style-085 {
+    border-bottom: none;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    text-align: center;
+}
+
+.twig-style-086 {
+    margin-top: 140px;
+    color: grey;
+    font-size: 10px;
+    font-family: Arial,sans-serif;
+}
+
+.twig-style-087 {
+    margin-top: 5px;
+}
+
+.twig-style-088 {
+    border-bottom: none;
+}
+
+.twig-style-089 {
+    border-top: none;
+    border-bottom: none;
+    height: 30px;
+}
+
+.twig-style-090 {
+    text-align: center;
+    border-top: none;
+    border-bottom: none;
+    font-weight: bold;
+    height: 50px;
+    font-size: 20px;
+}
+
+.twig-style-091 {
+    border-top: none;
+    border-bottom: none;
+    font-size: 16px;
+}
+
+.twig-style-092 {
+    border-top: none;
+    border-bottom: none;
+    height: 20px;
+}
+
+.twig-style-093 {
+    border-top: none;
+    border-bottom: none;
+    height: 10px;
+}
+
+.twig-style-094 {
+    width: 175px;
+}
+
+.twig-style-095 {
+    text-align: center;
+    border-top: none;
+    border-bottom: none;
+}
+
+.twig-style-096 {
+    width: 100%;
+    font-size: 16px;
+}
+
+.twig-style-097 {
+    font-size: 16px;
+    width: 200px;
+    border: none;
+}
+
+.twig-style-098 {
+    font-size: 16px;
+    border: none;
+}
+
+.twig-style-099 {
+    border-top: none;
+    border-bottom: none;
+    height: 60px;
+}
+
+.twig-style-100 {
+    border-top: none;
+    border-bottom: none;
+}
+
+.twig-style-101 {
+    font-size: 12px;
+}
+
+.twig-style-102 {
+    border-top: none;
+    height: 30px;
+    margin-top: 30px;
+}
+
+.twig-style-103 {
+    display: block;
+    width: 1037px;
+    height: 320px;
+}
+
+.twig-style-104 {
+    height: 75px;
+}
+
+.twig-style-105 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.twig-style-106 {
+    height: 466px;
+}
+
+.twig-style-107 {
+    font-weight: bolder;
+}
+
+.twig-style-108 {
+    margin-top: 30px;
+}
+
+.twig-style-109 {
+    text-align: left;
+}
+
+.twig-style-110 {
+    display: inline-block;
+    margin-left: 50px;
+    margin-right: 10px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.twig-style-111 {
+    display: inline-block;
+    width: 200px;
+}
+
+.twig-style-112 {
+    font-weight: bold;
+}
+
+.twig-style-113 {
+    height: 350px;
+}
+
+.twig-style-114 {
+    background-color: lightblue;
+    color: black;
+    font-weight: bold;
+}
+
+.twig-style-115 {
+    margin-top: 20px;
+    color: #78261f;
+    font-weight: bold;
+}
+
+.twig-style-116 {
+    font-size: small;
+    color: darkgreen;
+    margin-top: 10px;
+}
+
+.twig-style-117 {
+    margin-top: 45px;
+}
+
+.twig-style-118 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.twig-style-119 {
+    color: #1cc88a;
+}
+
+.twig-style-120 {
+    text-align: center;
+    margin: 0 16px 12px;
+}
+
+.twig-style-121 {
+    font-weight: bold;
+    color: white;
+}
+
+.twig-style-122 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.twig-style-123 {
+    background-color: darkblue;
+    width: 100%;
+    max-width: 400px;
+}
+
+.twig-style-124 {
+    margin-top: 10px;
+    gap: 10px;
+}
+
+.twig-style-125 {
+    height: 100px;
+    margin-top: 40px;
+}

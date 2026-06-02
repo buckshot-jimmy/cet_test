@@ -54,45 +54,45 @@ let consultatiiCurenteCabinet = function () {
 
                         if (stare === STARE_DESCHISA) {
                             actiuni += '<a href="#" class="btn btn-info btn-circle btn-sm edit_from_cabinet"' +
-                                ' title="Editeaza ' + denumireServiciu + '" style="margin-right: 3px;">' +
+                                ' title="Editeaza ' + denumireServiciu + '">' +
                                 '<i class="fas fa-edit"></i></a>';
 
                             actiuni += '<a href="#" class="btn btn-light btn-circle btn-sm inchide_cons_inv" ' +
-                                'title="Inchideti ' + denumireServiciu + '" style="margin-right: 3px;" stare="'+ stare
+                                'title="Inchideti ' + denumireServiciu + '" stare="'+ stare
                                 + '" tip="' + row.tipServiciu + '"><i class="fas fa-lock"></i></a>';
                         }
 
                         if (stare === STARE_INCHISA && incasata === NEINCASATA) {
                             actiuni += '<a href="#" class="btn btn-light btn-circle btn-sm deschide_cons_inv" ' +
-                                'title="Deschide ' + denumireServiciu + '" style="margin-right: 3px;" stare="'+ stare
+                                'title="Deschide ' + denumireServiciu + '" stare="'+ stare
                                 + '" tip="' + row.tipServiciu + '"><i class="fas fa-lock-open"></i></a>';
                         }
 
                         if (row.tipServiciu === TIP_CONSULTATIE) {
                             actiuni += '<a href="javascript:tiparesteScrisoareMedicala(' + row.id + ')" ' +
                                 'class="btn btn-outline-danger btn-circle btn-sm tipareste_documente" title="' +
-                                titluDocument + '" style="margin-right: 3px;"><i class="fas fa-file-pdf"></i></a>';
+                                titluDocument + '"><i class="fas fa-file-pdf"></i></a>';
                         } else if (row.tipServiciu === TIP_INVESTIGATIE) {
                             actiuni += '<a href="javascript:tiparesteBuletinInvestigatie(' + row.id + ')" ' +
                                 'class="btn btn-outline-danger btn-circle btn-sm tipareste_documente" title="' +
-                                titluDocument + '" style="margin-right: 3px;"><i class="fas fa-file-pdf"></i></a>';
+                                titluDocument + '"><i class="fas fa-file-pdf"></i></a>';
                         }
                         if (row.tipServiciu === TIP_CONSULTATIE) {
                             actiuni += '<a href="javascript:tiparesteFisaConsultatii(' + row.id + ')" ' +
                                 'class="btn btn-outline-warning btn-circle btn-sm pdf_fisa_consultatii" ' +
-                            'title="Fisa consultatii" style="margin-right: 3px;"><i class="fas fa-file-pdf"></i></a>';
+                            'title="Fisa consultatii"><i class="fas fa-file-pdf"></i></a>';
                         }
 
                         if (row.tipServiciu === TIP_PSIHODIAGNOSTIC) {
                             actiuni += '<a href="javascript:tiparesteFisaPsihodiagnostic(' + row.id + ')" ' +
                                 'class="btn btn-outline-success btn-circle btn-sm fisa_psiho" title="' +
-                                titluDocument + '" style="margin-right: 3px;"><i class="fas fa-file-pdf"></i></a>';
+                                titluDocument + '"><i class="fas fa-file-pdf"></i></a>';
                         }
 
                         if (row.tipServiciu === TIP_CONSULTATIE) {
                             actiuni += '<a href="javascript:tiparesteReferatMedical(' + row.id + ')" ' +
                                 'class="btn btn-outline-success btn-circle btn-sm referat_medical" ' +
-                                'title="Referat medical" ' + 'style="margin-right: 3px;">' +
+                                'title="Referat medical">' +
                                 '<i class="fas fa-file-medical-alt"></i></a>';
                         }
 

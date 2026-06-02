@@ -5,10 +5,11 @@
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" type="text/css">
+<link href="{{ asset('assets/css/twig-extracted.css') }}" rel="stylesheet" type="text/css">
 
 <body class="bg-gradient-primary" id="page-top">
 <div class="container-fluid d-flex justify-content-center align-items-center vh-100">
-    <div class="text-center p-4 rounded" style="background-color: darkblue; width: 100%; max-width: 400px;">
+    <div class="text-center p-4 rounded twig-style-123">
         <form id="trimite_cod"
               action="{{ path('2fa_login_check') }}"
               method="post">
@@ -28,7 +29,7 @@
                 </div>
             {% endif %}
 
-            <div class="mb-3" style="font-weight: bold; color: white;">
+            <div class="mb-3 twig-style-121">
                 Introdu codul primit pe email
             </div>
 
@@ -41,7 +42,7 @@
                 <button type="submit" class="btn btn-light">Login</button>
             </div>
         </form>
-        <div class="d-flex justify-content-center" style="margin-top: 10px; gap: 10px;">
+        <div class="d-flex justify-content-center twig-style-124">
             <form action="{{ path('2fa_resend') }}" method="post">
                 <input type="hidden" name="_token" value="{{ csrf_token('2fa_resend') }}">
                 <button type="submit" class="btn btn-info">Retrimite cod</button>

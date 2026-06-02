@@ -1,61 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        div.dotted_div {
-            border-bottom: 2px dotted #000;
-        }
-    </style>
-    <title></title>
+    <link href="{{ asset('assets/css/twig-extracted.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/twig-templates-extracted.css') }}" rel="stylesheet" type="text/css">
+<title></title>
 </head>
-<body>
-<table style="width: 100%;">
+<body class="tpl-formulare-referat_medical">
+<table class="twig-style-007">
     <tr>
-        <td style="width: 400px; border-bottom: none; border-top: none; border-right: none; border-left: none;">
+        <td class="twig-style-021">
             <br />
-            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{ data.owner.denumire }}</b></div>
-            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>CUI: {{ data.owner.cui }}</b></div>
-            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Dr. {{ data.medic.nume ~ " " ~ data.medic.prenume }}</b></div>
-            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contract/conventie nr. ...............................</div>
-            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CAS ............................................................</div>
+            <div class="twig-style-022">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{ data.owner.denumire }}</b></div>
+            <div class="twig-style-022">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>CUI: {{ data.owner.cui }}</b></div>
+            <div class="twig-style-022">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Dr. {{ data.medic.nume ~ " " ~ data.medic.prenume }}</b></div>
+            <div class="twig-style-022">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contract/conventie nr. ...............................</div>
+            <div class="twig-style-022">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CAS ............................................................</div>
             <br />
         </td>
-        <td style="border-bottom: none; border-top: none; border-right: none; border-left: none;">
-            <img style="margin-left:140px; width: 250px; height: 120px;" src="{{ asset('assets/sigla_pdf.png') }}" alt="MIND RESET">
+        <td class="twig-style-023">
+            <img src="{{ asset('assets/sigla_pdf.png') }}" alt="MIND RESET" class="twig-style-024">
         </td>
     </tr>
 </table>
-<div style="text-align: center; font-family: Arial,sans-serif; margin-bottom: 20px; margin-top: 20px;">
+<div class="twig-style-080">
     <h2><b>REFERAT MEDICAL</b></h2>
 </div>
-<div style="font-family: Arial,sans-serif">
+<div class="twig-style-081">
     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Privind pe dl/dna <b>{{ data.pacient.nume ~ " " ~ data.pacient.prenume }}</b>, nascut la data de {{ data.pacient.dataNasterii }}, CNP <b>{{ data.pacient.cnp }}</b>,
     cu domiciuliul in {{ data.pacient.adresa }}, localitatea {{ data.pacient.localitate }}, judetul/sectorul {{ data.pacient.judet }}, a fost evaluat in
     serviciul nostru la data de <b>{{ data.dataConsultatie }}</b>, nr. registru de consultatii <b>{{ data.nrInreg }}</b>
 </div>
-<div class="dotted_div" style="font-family: Arial,sans-serif; margin-top: 10px;">
+<div class="dotted_div twig-style-082">
     <b>Diagnostic clinic:</b><br>
-
     {% for line in data.diagnostic %}
         {{ line }}<br/>
     {% endfor %}
 </div>
 <div class="dotted_div">&nbsp;</div>
 <div class="dotted_div">&nbsp;</div>
-<div class="dotted_div" style="font-family: Arial,sans-serif; margin-top: 10px;">
+<div class="dotted_div twig-style-082">
     <b>Anamneza *):</b><br>
-    <span style="font-style: italic;">AHC:</span><br/>
+    <span class="twig-style-083">AHC:</span><br/>
     {% for line in data.ahc %}
         &nbsp;&nbsp;&nbsp;{{ line }}<br/>
     {% endfor %}
-    <span style="font-style: italic;">APP:</span><br />
+    <span class="twig-style-083">APP:</span><br />
     {% for line in data.app %}
         &nbsp;&nbsp;&nbsp;{{ line }}<br/>
     {% endfor %}
 </div>
 <div class="dotted_div">&nbsp;</div>
 <div class="dotted_div">&nbsp;</div>
-<div style="font-family: Arial,sans-serif; margin-top: 10px;">
+<div class="twig-style-082">
     <b>Examen obiectiv detaliat *):</b> Î=________ cm, G=________ kg, TA=________ mmHg, AV=________ b/min
     {% for line in data.consultatie %}
         {{ line }}<br/>
@@ -63,7 +59,7 @@
 </div>
 <div class="dotted_div">&nbsp;</div>
 <div class="dotted_div">&nbsp;</div>
-<div class="dotted_div" style="font-family: Arial,sans-serif; margin-top: 10px;">
+<div class="dotted_div twig-style-082">
     <b>Investigatii clinice, paraclinice *):</b><br>
     {% for line in data.investigatiiUrmate %}
         {{ line }}<br/>
@@ -71,7 +67,7 @@
 </div>
 <div class="dotted_div">&nbsp;</div>
 <div class="dotted_div">&nbsp;</div>
-<div class="dotted_div" style="font-family: Arial,sans-serif; margin-top: 10px;">
+<div class="dotted_div twig-style-082">
     <b>Tratamente urmate *):</b><br>
     {% for line in data.tratamenteUrmate %}
         {{ line }}<br/>
@@ -80,7 +76,7 @@
 <div class="dotted_div">&nbsp;</div>
 <div class="dotted_div">&nbsp;</div>
 <div>
-    <div class="dotted_div" style="font-family: Arial,sans-serif; margin-top: 10px;">
+    <div class="dotted_div twig-style-082">
         <b>Observatii:</b><br>
         {% for line in data.observatii %}
             {{ line }}<br/>
@@ -88,12 +84,12 @@
     </div>
     <div class="dotted_div">&nbsp;</div>
     <div class="dotted_div">&nbsp;</div>
-    <table style="width: 100%; font-size: 16px; margin-top: 40px;">
+    <table class="twig-style-084">
         <tr>
-            <td style="width: 400px; border-bottom: none; border-top: none; border-right: none; border-left: none;">
+            <td class="twig-style-021">
                 <b>Data {{ data.dataConsultatie }}</b><br/><br/><br/><br/><br/><br/>
             </td>
-            <td style="border-bottom: none; border-top: none; border-right: none; border-left: none; text-align: center;">
+            <td class="twig-style-085">
                 <b>Semnatura si parafa medicului,</b><br>
                 Dr. {{ data.medic.nume ~ " " ~ data.medic.prenume }}<br>
                 {{ data.medic.denumireTitulatura ~ " " ~ data.medic.denumireSpecialitate}}<br>
@@ -101,10 +97,10 @@
             </td>
         </tr>
     </table>
-    <div style="margin-top: 140px; color: grey; font-size: 10px; font-family: Arial,sans-serif;">
+    <div class="twig-style-086">
         *) Datele înscrise trebuie sa sustina diagnosticul clinic, stadiul evolutiv al afectiunilor prezentate.
         Pentru bolnavi netransportabili, referatul medical trebuie sa contina date care sa justifice, din punct de vedere
-        medical, imposibilitatea deplasarii.</div><hr style="margin-top: 5px;">
+        medical, imposibilitatea deplasarii.</div><hr class="twig-style-087">
 </div>
 </body>
 </html>

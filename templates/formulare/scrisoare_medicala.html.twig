@@ -1,74 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        #table_scrisoare {
-            border-collapse: collapse;
-            width: 100%;
-        }
-        #table_scrisoare td {
-            border:2px solid grey;
-            width: 100%;
-            font-family: Arial,sans-serif;
-        }
-    </style>
+    <link href="{{ asset('assets/css/twig-extracted.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/twig-templates-extracted.css') }}" rel="stylesheet" type="text/css">
     <title></title>
 </head>
 <body>
-<table id="table_scrisoare">
+<table class="table_scrisoare">
     <tr>
-        <td style="border-bottom: none;">
-            <table style="width: 100%;">
+        <td class="twig-style-088">
+            <table class="twig-style-007">
                 <tr>
-                    <td style="width: 400px; border-bottom: none; border-top: none; border-right: none; border-left: none;">
+                    <td class="twig-style-021">
                         <br />
-                        <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{ data.owner }}</b></div>
-                        <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>CUI: {{ data.ownerCui }}</b></div>
-                        <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Dr. {{ data.medic }}</b></div>
-                        <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contract/conventie nr. ...............................</div>
-                        <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CAS ............................................................</div>
+                        <div class="twig-style-022">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>{{ data.owner }}</b></div>
+                        <div class="twig-style-022">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>CUI: {{ data.ownerCui }}</b></div>
+                        <div class="twig-style-022">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Dr. {{ data.medic }}</b></div>
+                        <div class="twig-style-022">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Contract/conventie nr. ...............................</div>
+                        <div class="twig-style-022">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CAS ............................................................</div>
                         <br />
                     </td>
-                    <td style="border-bottom: none; border-top: none; border-right: none; border-left: none;">
-                        <img style="margin-left:140px; width: 250px; height: 120px;" src="{{ asset('assets/sigla_pdf.png') }}" alt="MIND RESET">
+                    <td class="twig-style-023">
+                        <img src="{{ asset('assets/sigla_pdf.png') }}" alt="MIND RESET" class="twig-style-024">
                     </td>
                 </tr>
             </table>
         </td>
     </tr>
-    <tr><td style="border-top: none; border-bottom: none; height: 30px;"></td></tr>
+    <tr><td class="twig-style-089"></td></tr>
     <tr>
-        <td style="text-align: center; border-top: none; border-bottom: none; font-weight: bold; height: 50px; font-size: 20px;">SCRISOARE MEDICALA*)</td>
+        <td class="twig-style-090">SCRISOARE MEDICALA*)</td>
     </tr>
-    <tr><td style="border-top: none; border-bottom: none; height: 30px;"></td></tr>
+    <tr><td class="twig-style-089"></td></tr>
     <tr>
-        <td style="border-top: none; border-bottom: none; font-size: 16px;">
+        <td class="twig-style-091">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stimate(a) coleg(a), va informam ca
             <b>{{ data.pacient.nume ~ " " ~ data.pacient.prenume }}</b>, nascut la data de {{ data.pacient.dataNasterii }},
             CNP: <b>{{ data.pacient.cnp }}</b> a fost consultat in serviciul nostru la data de
             <b>{{ data.dataConsultatie }}</b>, nr. registru de consultatii <b>{{ data.nrInreg }}</b><br/>
         </td>
     </tr>
-    <tr><td style="border-top: none; border-bottom: none; height: 20px;"></td></tr>
+    <tr><td class="twig-style-092"></td></tr>
     <tr>
-        <td style="border-top: none; border-bottom: none; font-size: 16px;">
+        <td class="twig-style-091">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Motivele prezentarii:</b><br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.....................................................................................................................................................................<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.....................................................................................................................................................................<br/>
         </td>
     </tr>
-    <tr><td style="border-top: none; border-bottom: none; height: 20px;"></td></tr>
+    <tr><td class="twig-style-092"></td></tr>
     <tr>
-        <td style="border-top: none; border-bottom: none; font-size: 16px;">
+        <td class="twig-style-091">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Diagnosticul:</b><br/>
             {% for line in data.diagnostic %}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ line }}<br/>
             {% endfor %}
         </td>
     </tr>
-    <tr><td style="border-top: none; border-bottom: none; height: 20px;"></td></tr>
+    <tr><td class="twig-style-092"></td></tr>
     <tr>
-        <td style="border-top: none; border-bottom: none; font-size: 16px;">
+        <td class="twig-style-091">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Anamneza:</b><br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>AHC:</b><br/>
             {% for line in data.ahc %}
@@ -82,18 +73,18 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.....................................................................................................................................................................<br/>
         </td>
     </tr>
-    <tr><td style="border-top: none; border-bottom: none; height: 20px;"></td></tr>
+    <tr><td class="twig-style-092"></td></tr>
     <tr>
-        <td style="border-top: none; border-bottom: none; font-size: 16px;">
+        <td class="twig-style-091">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Examen clinic:</b><br/>
             {% for line in data.consultatie %}
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ line }}<br/>
             {% endfor %}
         </td>
     </tr>
-    <tr><td style="border-top: none; border-bottom: none; height: 20px;"></td></tr>
+    <tr><td class="twig-style-092"></td></tr>
     <tr>
-        <td style="border-top: none; border-bottom: none; font-size: 16px;">
+        <td class="twig-style-091">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Examene de laborator:</b><br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- cu valori normale<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.....................................................................................................................................................................<br/>
@@ -101,95 +92,95 @@
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.....................................................................................................................................................................<br/>
         </td>
     </tr>
-    <tr><td style="border-top: none; border-bottom: none; height: 20px;"></td></tr>
+    <tr><td class="twig-style-092"></td></tr>
     <tr>
-        <td style="border-top: none; border-bottom: none; font-size: 16px;">
+        <td class="twig-style-091">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Examene paraclinice:</b><br/>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-style: italic;">EKG:</span><br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="twig-style-083">EKG:</span><br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.....................................................................................................................................................................<br/>
 
         </td>
     <tr>
-        <td style="border-top: none; border-bottom: none; font-size: 16px;">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-style: italic;">RX:</span><br/>
+        <td class="twig-style-091">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="twig-style-083">RX:</span><br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.....................................................................................................................................................................<br/>
         </td>
     <tr>
-        <td style="border-top: none; border-bottom: none; font-size: 16px;">
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-style: italic;">Altele:</span><br/>
+        <td class="twig-style-091">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="twig-style-083">Altele:</span><br/>
             {% for line in data.investigatiiUrmate %}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ line }}<br/>
             {% endfor %}
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.....................................................................................................................................................................<br/>
         </td>
     </tr>
-    <tr><td style="border-top: none; border-bottom: none; height: 20px;"></td></tr>
+    <tr><td class="twig-style-092"></td></tr>
     <tr>
-        <td style="border-top: none; border-bottom: none; font-size: 16px;">
+        <td class="twig-style-091">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Tratament efectuat:</b><br/>
             {% for line in data.tratamenteUrmate %}
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ line }}<br/>
             {% endfor %}
         </td>
     </tr>
-    <tr><td style="border-top: none; border-bottom: none; height: 20px;"></td></tr>
+    <tr><td class="twig-style-092"></td></tr>
     <tr>
-        <td style="border-top: none; border-bottom: none; font-size: 16px;">
+        <td class="twig-style-091">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Alte informatii referitoare la starea de sanatate a asiguratului:</b><br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.....................................................................................................................................................................<br/>
         </td>
     </tr>
     <tr>
-        <td style="border-top: none; border-bottom: none; font-size: 16px;">
+        <td class="twig-style-091">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>Recomandari</b>:<br/>
             {% for line in data.tratament %}
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ line }}<br/>
             {% endfor %}
         </td>
     </tr>
-    <tr><td style="border-top: none; border-bottom: none; height: 20px;"></td></tr>
+    <tr><td class="twig-style-092"></td></tr>
     <tr>
-        <td style="border-top: none; border-bottom: none; font-size: 16px;">
+        <td class="twig-style-091">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Indicatie de revenire pentru internare:<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input type="checkbox" /> da, revine internare in termen de ...............................<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input type="checkbox" checked="checked"/> nu, nu este necesara revenirea pentru internare<br/>
         </td>
     </tr>
     <tr>
-        <td style="border-top: none; border-bottom: none; font-size: 16px;">
+        <td class="twig-style-091">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se completează obligatoriu una din cele trei informaţii:<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input type="checkbox" /> S-a eliberat prescripţie medicală, caz în care se va înscrie seria şi numărul acesteia<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input type="checkbox" checked="checked"/> Nu s-a eliberat prescripţie medicală<br/>
         </td>
     </tr>
     <tr>
-        <td style="border-top: none; border-bottom: none; font-size: 16px;">
+        <td class="twig-style-091">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se completează obligatoriu una din cele trei informaţii:<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input type="checkbox" /> S-a eliberat concediu medical la externare / consultaţia din ambulatoriu, caz în care se va înscrie seria şi numărul acestuia<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input type="checkbox" checked="checked"/> Nu s-a eliberat concediu medical la externare<br/>
         </td>
     </tr>
     <tr>
-        <td style="border-top: none; border-bottom: none; font-size: 16px;">
+        <td class="twig-style-091">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Se completează obligatoriu una din cele două informaţii:<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input type="checkbox" /> S-a eliberat recomandare pentru îngrijiri medicale la domiciliu/paliative la domiciliu<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input type="checkbox" checked="checked"/> Nu s-a eliberat recomandare pentru îngrijiri medicale la domiciliu/paliative la domiciliu, deoarece nu a fost necesar<br/>
         </td>
     </tr>
     <tr>
-        <td style="border-top: none; border-bottom: none; font-size: 16px;">
+        <td class="twig-style-091">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Se completează obligatoriu una din cele două informaţii:<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input type="checkbox" /> S-a eliberat prescripţie medicală pentru dispozitive medicale în ambulatoriu<br/>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input type="checkbox" checked="checked"/> Nu s-a eliberat prescripţie medicală pentru dispozitive medicale în ambulatoriu deoarece nu a fost necesar<br/>
             <br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(cu viza Unităţii judeţene de implementare a programului pentru diabet)<br/>
         </td>
     </tr>
-    <tr><td style="border-top: none; border-bottom: none; height: 10px;"></td></tr>
+    <tr><td class="twig-style-093"></td></tr>
     <tr>
-        <td style="border-top: none; border-bottom: none; font-size: 16px;">
-            <table style="border-collapse: collapse; width: 100%; font-size: 16px;">
+        <td class="twig-style-091">
+            <table class="twig-style-071">
                 <tr>
-                    <td style="width: 175px;">Unitate judeţeană de diabet zaharat:</td>
+                    <td class="twig-style-094">Unitate judeţeană de diabet zaharat:</td>
                     <td></td>
                 </tr>
                 <tr>
@@ -199,15 +190,15 @@
             </table>
         </td>
     </tr>
-    <tr><td style="border-top: none; border-bottom: none; height: 10px;"></td></tr>
+    <tr><td class="twig-style-093"></td></tr>
     <tr>
-        <td style="text-align: center; border-top: none; border-bottom: none;">
-            <table style="width: 100%; font-size: 16px;">
+        <td class="twig-style-095">
+            <table class="twig-style-096">
                 <tr>
-                    <td style="font-size:16px; width: 200px; border-bottom: none; border-top: none; border-right: none; border-left: none;">
+                    <td class="twig-style-097">
                         <b>Data {{ data.dataConsultatie }}</b><br/><br/><br/><br/><br/><br/>
                     </td>
-                    <td style="font-size: 16px; border-bottom: none; border-top: none; border-right: none; border-left: none;">
+                    <td class="twig-style-098">
                         <b>Semnatura si parafa medicului</b><br/>
                         Dr. {{ data.medic }}<br/>
                         {{ data.titulatura }} {{ data.specialitate }}<br/>
@@ -217,14 +208,14 @@
             </table>
         </td>
     </tr>
-    <tr><td style="border-top: none; border-bottom: none; height: 60px;"></td></tr>
+    <tr><td class="twig-style-099"></td></tr>
     <tr>
-        <td style="border-top: none; border-bottom: none;">
-            <div style="font-size: 16px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calea de transmitere:<br/>
+        <td class="twig-style-100">
+            <div class="twig-style-022">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calea de transmitere:<br/>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input type="checkbox" checked="checked"/>prin asigurat<br/>
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- <input type="checkbox"/>prin posta<br/><br/>
             </div>
-            <div style="font-size: 12px;">
+            <div class="twig-style-101">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;*) Scrisoarea medicală se întocmeşte în două exemplare, din care un exemplar
                 rămâne la medicul care a efectuat consultaţia/serviciul în ambulatoriul de specialitate, iar un exemplar
                 este transmis medicului de familie/medicului de specialitate din ambulatoriul de specialitate.<br/>
@@ -234,7 +225,7 @@
             </div>
         </td>
     </tr>
-    <tr><td style="border-top: none; height: 30px; margin-top: 30px;"></td></tr>
+    <tr><td class="twig-style-102"></td></tr>
 </table>
 </body>
 </html>

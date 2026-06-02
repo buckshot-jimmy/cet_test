@@ -37,10 +37,9 @@ services:
 
     App\EventListener\ConsultatieListener:
         tags:
-            -
-                name: 'doctrine.orm.entity_listener'
-                event: 'postUpdate'
-                entity: 'App\Entity\Consultatie'
+            - name: 'doctrine.orm.entity_listener'
+              event: 'postUpdate'
+              entity: 'App\Entity\Consultatie'
 
     App\EventListener\RaportColaboratorListener:
         tags:

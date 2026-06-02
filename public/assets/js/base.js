@@ -122,7 +122,7 @@ $(document).ready(function () {
             .removeClass('rezultat_operatiune_info').hide();
     });
 
-    $('.modal').on('show.bs.modal', function () {
+    $('.modal').on('shown.bs.modal', function () {
         $(".spinner").hide();
     });
 
@@ -453,9 +453,4 @@ function calculeazaVarsta(cnp, dataNasteriiPacient) {
     let dataConsultatiei = moment(new Date());
 
     return [dataConsultatiei.diff(nastere, 'years'), dataNasteriiView, sex];
-}
-
-function checkBoxStyle() {
-    return 'position: relative; width: 20px; height: 20px; border: 2px solid #d1d5db; border-radius: 6px;' +
-        'margin-right: 12px; padding-bottom: 15px;';
 }

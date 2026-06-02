@@ -4,11 +4,11 @@
         <span>&times;</span>
     </button>
 </div>
-<div class="modal-body inv" style="height: 610px;">
+<div class="modal-body inv twig-style-016">
     {% set TIP_INVESTIGATIE = 1 %}
     <div class="row">
         <div class="col-sm-1" id="istoric_pacient_inv"><b>ISTORIC</b>
-            <div class="btn-group istoric_btn" style="margin-top: 10px;">
+            <div class="btn-group istoric_btn twig-style-009">
                 <a class="btn btn-sm btn-success istoric_a">Consultatii</a>
                 <button type="button" class="istoric_consultatii_inv btn btn-sm btn-success dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
                 <div class="dropdown-menu dropdown_consultatii_inv"></div>
@@ -19,7 +19,7 @@
                 <div class="dropdown-menu dropdown_investigatii_inv"></div>
             </div>
             <div class="btn-group istoric_btn">
-                <a class="btn btn-sm btn-secondary istoric_a" style="width: 85.58px;">Toate</a>
+                <a class="btn btn-sm btn-secondary istoric_a twig-style-010">Toate</a>
                 <button type="button" class="istoric_toate_inv btn btn-sm btn-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown"></button>
                 <div class="dropdown-menu dropdown_toate_inv"></div>
             </div>
@@ -103,13 +103,13 @@
                 <div class="form-group row">
                     <div class="col-sm-12 mb-3 mb-sm-0">
                         <label for="investigatie_rezultat">Rezultat investigatie *</label>
-                        <textarea style="height: 110px;" class="form-control" id="investigatie_rezultat" name="investigatie_rezultat">{{ data.consultatie ?? '' }}</textarea>
+                        <textarea class="form-control twig-style-017" id="investigatie_rezultat" name="investigatie_rezultat">{{ data.consultatie ?? '' }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-sm-12 mb-3 mb-sm-0">
                         <label for="investigatie_concluzie">Concluzie *</label>
-                        <textarea style="height: 110px;" class="form-control" id="investigatie_concluzie" name="investigatie_concluzie">{{ data.tratament ?? '' }}</textarea>
+                        <textarea class="form-control twig-style-017" id="investigatie_concluzie" name="investigatie_concluzie">{{ data.tratament ?? '' }}</textarea>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -144,13 +144,13 @@
         </div>
     </div>
 </div>
-<div class="modal-footer" style="margin-right: 25px;">
-    <p class="modal-body rezultat_operatiune" style="display: none; margin-top: 10px; margin-bottom: 10px; font-weight: bold;"></p>
-    <label style="color: #AA3333; font-weight: bold; text-align: right;" for="tarif_investigatie">Tarif investigatie</label>
-    <input style="width: 55px; border: 1px solid #AA3333; border-radius:5px; text-align: right; font-weight: bold;" id="tarif_investigatie" name="tarif_investigatie" class="input_tarif" value="{{ data.tarif ?? '0' }}" />
-    <p style="color: black; margin-right: 10px; margin-left: 5px; border: none;"><b>RON</b></p>
+<div class="modal-footer twig-style-011">
+    <p class="modal-body rezultat_operatiune twig-style-012"></p>
+    <label for="tarif_investigatie" class="twig-style-018">Tarif investigatie</label>
+    <input id="tarif_investigatie" name="tarif_investigatie" class="input_tarif twig-style-019" value="{{ data.tarif ?? '0' }}" />
+    <p class="twig-style-015"><b>RON</b></p>
     <button type="button" class="btn btn-primary confirma_investigatie btn_confirma confirma_inv_from_pacient">Salveaza
-        <span class="spinner-border spinner-border-sm spinner"style="display: none;" ></span>
+        <span class="spinner-border spinner-border-sm spinner" ></span>
     </button>
     <button type="button" class="btn btn-secondary" data-dismiss="modal">Anuleaza</button>
 </div>

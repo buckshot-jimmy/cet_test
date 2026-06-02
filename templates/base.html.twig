@@ -20,6 +20,8 @@
         <link href="{{ asset('assets/css/bootstrap_timepicker.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('assets/css/select2.min.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/twig-extracted.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/css/js-extracted.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('assets/css/bootstrap_toogle.css') }}" rel="stylesheet" type="text/css">
     {% endblock %}
 </head>
@@ -41,7 +43,7 @@
             <hr class="sidebar-divider">
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <div style="height: 150px; margin-bottom: 50px;">
+                <div class="twig-style-001">
                     <a href="{{ path('admin') }}">
                         <img id="sigla" class="sigla_mare" src="{{ asset('assets/sigla.png') }}" alt="MIND RESET">
                     </a>
@@ -55,11 +57,11 @@
                 <div id="collapseReceptie" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a class="no_padding_link collapse-item" href="{{ path('pacienti') }}">
-                            <i class="fas fa-fw fa-wheelchair" style="color: black;"></i>
+                            <i class="fas fa-fw fa-wheelchair twig-style-002"></i>
                             <span>Pacienti</span>
                         </a>
                         <a class="no_padding_link collapse-item" href="{{ path('servicii_preturi') }}">
-                            <i class="fas fa-fw fa-euro-sign" style="color: black;"></i>
+                            <i class="fas fa-fw fa-euro-sign twig-style-002"></i>
                             <span>Servicii si tarife</span>
                         </a>
                     </div>
@@ -74,19 +76,19 @@
                     <div id="collapseFacturare" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                         <div class="bg-white py-2 collapse-inner rounded">
                             <a class="no_padding_link collapse-item" href="{{ path('facturi') }}">
-                                <i class="fas fa-fw fa-file-invoice" style="color: black;"></i>
+                                <i class="fas fa-fw fa-file-invoice twig-style-002"></i>
                                 <span>Facturi</span>
                             </a>
                             <a class="no_padding_link collapse-item" href="{{ path('clienti_pj') }}">
-                                <i class="fas fa-fw fa-store" style="color: black;"></i>
+                                <i class="fas fa-fw fa-store twig-style-002"></i>
                                 <span>Clienti Persoane Juridice</span>
                             </a>
                             <a class="no_padding_link collapse-item" href="{{ path('owners') }}">
-                                <i class="fas fa-fw fa-address-card" style="color: black;"></i>
+                                <i class="fas fa-fw fa-address-card twig-style-002"></i>
                                 <span>Firme (Owners)</span>
                             </a>
                             <a class="no_padding_link collapse-item" href="{{ path('consultatii_nefacturate') }}">
-                                <i class="fas fa-fw fa-euro-sign" style="color: black;"></i>
+                                <i class="fas fa-fw fa-euro-sign twig-style-002"></i>
                                 <span>Consultatii nefacturate</span>
                             </a>
                         </div>
@@ -236,7 +238,7 @@
                             <div class="modal-body">Apasa pentru a iesi din aplicatie.</div>
                             <div class="modal-footer">
                                 <a class="btn btn-primary" id="iesire" href="{{ path('app_logout') }}">Iesire
-                                    <span class="spinner-border spinner-border-sm spinner" style="display: none;"></span>
+                                    <span class="spinner-border spinner-border-sm spinner"></span>
                                 </a>
                                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Anuleaza</button>
                             </div>

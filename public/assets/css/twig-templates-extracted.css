@@ -1,0 +1,127 @@
+/* templates/formulare/factura.html.twig */
+.tpl-formulare-factura {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    color: #000;
+}
+
+.tpl-formulare-factura h1 {
+    text-align: center;
+}
+
+.tpl-formulare-factura .row {
+    margin-bottom: 30px;
+}
+
+.servicii-factura {
+    border-collapse: collapse;
+    border: 1px solid #000;
+}
+.servicii-factura th, .servicii-factura td {
+    padding: 10px;
+    font-size: 14px;
+    text-align: center;
+    border: 1px solid #000;
+}
+.footer-table th, .footer-table td {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #000;
+}
+
+.fact-box {
+    float:left;
+    width:33%;
+    font-size: 14px;
+}
+.fact-box-right {
+    text-align: right;
+}
+.factura-title {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.fact-footer {
+    margin-top: 30px;
+    font-size: 14px;
+    position: fixed;
+    bottom: 30px;
+    width: 100%;
+    border-collapse: collapse;
+}
+.invoice-info {
+    border: 1px solid #000;
+    margin-top: 30px;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+.fact-footer {
+    position: fixed;
+    bottom: 30px;
+}
+
+.footer-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.footer-table  td {
+    padding: 10px;
+}
+
+/* templates/formulare/fisa_consultatii.html.twig */
+.dotted_underline {
+    border-bottom: 1px dotted #000;
+}
+
+.tpl-formulare-fisa_consultatii table, .tpl-formulare-fisa_consultatii div, .tpl-formulare-fisa_consultatii b, .tpl-formulare-fisa_consultatii p {
+    font-family: Arial,sans-serif;
+    border: none;
+}
+
+/* templates/formulare/fisa_psihodiagnostic.html.twig */
+.tpl-formulare-fisa_psihodiagnostic table {
+    border-collapse: collapse;
+}
+
+.tpl-formulare-fisa_psihodiagnostic td {
+    border:1px solid black;
+    width: 300px;
+    font-family: Arial,sans-serif;
+}
+
+.tpl-formulare-fisa_psihodiagnostic div, .tpl-formulare-fisa_psihodiagnostic b {
+    font-family: Arial,sans-serif;
+}
+
+/* templates/formulare/plata_colaborator.html.twig */
+.table_rapoarte {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+.table_rapoarte td {
+    border:1px solid black;
+    width: 300px;
+    font-size: 40px;
+}
+
+/* templates/formulare/referat_medical.html.twig */
+div.dotted_div {
+    border-bottom: 2px dotted #000;
+}
+
+/* templates/formulare/scrisoare_medicala.html.twig */
+.table_scrisoare {
+    width: 100%;
+    border: 3px solid gray;
+}
+
+.table_scrisoare td {
+    font-family: Arial,sans-serif;
+}
+.schimbari td {
+    border-bottom: 1px solid black;
+}
