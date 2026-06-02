@@ -6,7 +6,7 @@ return array (
 //    'APP_ENV' => 'dev',
 //    'APP_DEBUG' => 1,
     'APP_ENV' => 'local',
-    'APP_DEBUG' => 0,
+    'APP_DEBUG' => 1,
     'APP_LOCALE' => 'en',
     'APP_SECRET' => '0b32f1faf6c804fad11c175aa5d8f65d',
     'DATABASE_URL' => 'mysql://root:root@127.0.0.1:3306/cet_test?serverVersion=8.0.44',

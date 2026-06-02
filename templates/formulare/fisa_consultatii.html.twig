@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>Fisa consultatie</title>
     <link href="{{ asset('assets/css/twig-extracted.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ asset('assets/css/twig-templates-extracted.css') }}" rel="stylesheet" type="text/css">
-    <title>Fisa consultatie</title>
 </head>
 <body class="tpl-formulare-fisa_consultatii">
-<table class="twig-style-007">
+<table class="twig-style-023">
     <tr>
         <td class="twig-style-021">
             <br />
@@ -14,7 +14,7 @@
             <div>Localitatea: <b class="dotted_underline">{{ dateFirma.localitate }}</b></div>
             <div class="twig-style-045">Unitatea sanitara: <b class="dotted_underline">{{ data.consultatii[0].denumireOwner }}</b><br></div>
             <div class="twig-style-045">CUI: <b class="dotted_underline">{{ data.consultatii[0].cuiOwner }}</b><br></div>
-            <div class="twig-style-045">Medic: <b>{{ "Dr. " ~ data.medic.nume ~ " " ~ data.medic.prenume }}</b></div>
+            <div class="twig-style-045">Medic: <b class="dotted_underline">{{ "Dr. " ~ data.medic.nume ~ " " ~ data.medic.prenume }}</b></div>
             <br />
         </td>
         <td class="twig-style-036">
@@ -23,9 +23,9 @@
     </tr>
 </table>
 <table class="twig-style-046">
-    <tr><td class="twig-style-047">Nr.<b class="dotted_underline"> {{ data.consultatii[0].nrInreg }} </b> / <b class="dotted_underline">{{ data.consultatii[0].dataConsultatie|date("d-m-Y") }}&nbsp;&nbsp;</b></td></tr>
+    <tr><td class="twig-style-047 twig-style-023">Nr.<b class="dotted_underline"> {{ data.consultatii[0].nrInreg }} </b> / <b class="dotted_underline">{{ data.consultatii[0].dataConsultatie|date("d-m-Y") }}&nbsp;&nbsp;</b></td></tr>
     <tr>
-        <td class="twig-style-048">Cod numeric personal&nbsp;</td>
+        <td class="twig-style-048 twig-style-023">Cod numeric personal&nbsp;</td>
         {% set cnp = data.pacient.cnp %}
         {% set cifre = cnp|split('') %}
         {% for cifra in cifre %}
@@ -40,7 +40,7 @@ Data nasterii: anul ..... {{ data.pacient.dataNasterii|date('Y') }} ..... luna .
 <p class="twig-style-052">Ocupatia: {{ data.pacient.ocupatie}}, Locul de munca: {{ data.pacient.locMunca }}</p>
 <hr class="twig-style-053">
 <div class="twig-style-054">Schimbari de:</div>
-<table id="schimbari" class="twig-style-007">
+<table class="schimbari">
     <tr>
         <td class="twig-style-054">
             <p><u>domiciliu:</u></p>

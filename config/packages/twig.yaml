@@ -1,6 +1,8 @@
 twig:
     debug: '%kernel.debug%'
     strict_variables: true
+    auto_reload: true
+
     globals:
         fos_csrf_provider: "@security.csrf.token_manager"
     paths:

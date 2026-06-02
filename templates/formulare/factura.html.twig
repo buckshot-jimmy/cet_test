@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link href="{{ asset('assets/css/twig-extracted.css') }}" rel="stylesheet" type="text/css">
-<link href="{{ asset('assets/css/twig-templates-extracted.css') }}" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
     <title>Factura</title>
+    <link href="{{ asset('assets/css/twig-extracted.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/twig-templates-extracted.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body class="tpl-formulare-factura">
 <div class="container">
     <div class="row">
-        <div class="box">
+        <div class="fact-box">
             <div class="twig-style-037"></div>
             <strong>Furnizor:</strong><br>
             {{ data.furnizor.denumire }}<br>
@@ -20,15 +20,15 @@
             IBAN: {{ data.furnizor.contBancar }}<br>
             Banca: {{ data.furnizor.banca }}
         </div>
-        <div class="box">
+        <div class="fact-box">
             <img src="{{ asset('assets/sigla_pdf.png') }}" alt="MIND RESET" class="twig-style-038">
-            <h1>Factura</h1>
+            <h1 class="factura-title">Factura</h1>
             <div class="invoice-info">
                 Nr. factura: {{ data.nrFactura }}<br>
                 Data: {{ data.dataFactura }}
             </div>
         </div>
-        <div class="box right">
+        <div class="fact-box fact-box-right">
             <div class="twig-style-037"></div>
             <strong>Cumparator:</strong><br>
             {{ data.cumparator.nume is defined ? data.cumparator.nume ~ ' ' ~ data.cumparator.prenume : data.cumparator.denumire }} <br>
@@ -37,7 +37,7 @@
         </div>
     </div>
     <p class="twig-style-039">Cota TVA: „Scutit de TVA conform art. 292 Cod Fiscal”</p>
-    <table>
+    <table class="servicii-factura">
         <tr>
             <th>Nr. crt.</th>
             <th>Denumirea serviciilor</th>
@@ -61,7 +61,7 @@
         <p class="row">Storno la factura {{ data.stornata }}</p>
     {% endif %}
 </div>
-<div class="footer">
+<div class="fact-footer">
     <table class="footer-table">
         <tr>
             <td rowspan="2" class="twig-style-040">

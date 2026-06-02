@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        {{ include('@public/assets/css/twig-extracted.css') }}
-        {{ include('@public/assets/css/twig-templates-extracted.css') }}
-    </style>
 <title></title>
+    <link href="{{ asset('assets/css/twig-extracted.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ asset('assets/css/twig-templates-extracted.css') }}" rel="stylesheet" type="text/css">
 </head>
-<body class="tpl-formulare-buletin_investigatie">
+<body>
 <table class="twig-style-007">
     <tr>
         <td class="twig-style-021">
@@ -55,12 +53,12 @@
     </tr>
 </table>
 <br>
-<table>
+<table class="twig-style-026">
     <tr>
         <td class="twig-style-027"><b>Rezultat:</b></td>
     </tr>
     <tr>
-        <td class="twig-style-026">
+        <td class="twig-style-027">
             {% for line in data.consultatie %}
                 {{ line }}<br/>
             {% endfor %}
@@ -68,12 +66,12 @@
     </tr>
 </table>
 <br>
-<table>
+<table class="twig-style-026">
     <tr>
         <td class="twig-style-027"><b>Concluzii:</b></td>
     </tr>
     <tr>
-        <td class="twig-style-026">
+        <td class="twig-style-027">
             {% for line in data.tratament %}
                 {{ line }}<br/>
             {% endfor %}

@@ -31,6 +31,8 @@
 
 .twig-style-007 {
     width: 100%;
+    border-collapse: collapse;
+    border: none;
 }
 
 .twig-style-008 {
@@ -121,6 +123,7 @@
     margin-left: 140px;
     width: 250px;
     height: 120px;
+    border: none;
 }
 
 .twig-style-025 {
@@ -134,18 +137,24 @@
 }
 
 .twig-style-026 {
-    font-size: 22px;
+    font-size: 20px;
+    width: 100%;
+    border-collapse: collapse;
+}
+.twig-style-026 td {
+    border: 1px solid black;
+    border-spacing: 0;
 }
 
 .twig-style-027 {
     color: #0f6674;
-    width: 1300px;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 .twig-style-028 {
     border: 1px solid black;
-    font-size: 22px;
+    font-size: 20px;
+    width: 100%;
 }
 
 .twig-style-029 {
@@ -227,10 +236,12 @@
 .twig-style-043 {
     width: 25%;
     vertical-align: top;
+    text-align: center;
 }
 
 .twig-style-044 {
     height: 60px;
+    text-align: center;
 }
 
 .twig-style-045 {
@@ -290,7 +301,7 @@
 }
 
 .twig-style-056 {
-    border-right: 1px solid black;
+    border-right: 1px solid black !important;
 }
 
 .twig-style-057 {
@@ -371,13 +382,25 @@
 }
 
 .twig-style-070 {
-    font-size: 26px;
+    font-size: 16px;
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.twig-style-070 td {
+    border: 1px solid black;
 }
 
 .twig-style-071 {
+    border: 1px solid black;
     border-collapse: collapse;
     width: 100%;
     font-size: 16px;
+}
+
+.twig-style-071 td {
+    border: 1px solid black;
 }
 
 .twig-style-072 {
@@ -388,6 +411,13 @@
 .twig-style-073 {
     border: 1px solid black;
     font-size: 26px;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.twig-style-073 td {
+    width: 300px;
+    font-family: Arial,sans-serif;
 }
 
 .twig-style-074 {
