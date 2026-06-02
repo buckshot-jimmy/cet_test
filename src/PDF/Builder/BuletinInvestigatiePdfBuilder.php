@@ -25,7 +25,7 @@ class BuletinInvestigatiePdfBuilder implements PdfDocumentBuilderInterface
 
         $pacient = $this->em->getRepository(Pacient::class)->getPacient($serviciu->getPacient());
         $varsta = UtilService::calculeazaDatePacient($pacient['cnp'])['varsta'];
-        $pacient['varsta'] = $varsta['ani'] . ' ani ';
+        $pacient['varsta'] = $varsta . ' ani ';
 
         $data = [
             'nrInreg' => $serviciu->getNrInreg(),
