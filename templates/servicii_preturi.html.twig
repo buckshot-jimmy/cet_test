@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% set nonceScript = csp_nonce('script') %}
 {% set user = app.user %}
 {% set ROL_ADMIN = 'ROLE_Administrator' %}
 {% block title %}MIND RESET - Servicii si tarife{% endblock %}
@@ -28,5 +29,5 @@
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('assets/js/servicii_preturi.js') }}"></script>
+    <script src="{{ asset('assets/js/servicii_preturi.js') }}" nonce="{{ nonceScript }}"></script>
 {% endblock %}

@@ -122,7 +122,7 @@ $(document).ready(function () {
             .removeClass('rezultat_operatiune_info').hide();
     });
 
-    $('.modal').on('shown.bs.modal', function () {
+    $('.modal').on('show.bs.modal', function () {
         $(".spinner").hide();
     });
 

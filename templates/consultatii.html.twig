@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% set nonceScript = csp_nonce('script') %}
 {% block title %}MIND RESET - Consultatii{% endblock %}
 {% block tableTitle %}Consultatii, investigatii si documente pacienti{% endblock %}
 {% block classAddBtn %}{{ 'no_show' }}{% endblock %}
@@ -17,6 +18,6 @@
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('assets/js/consultatii.js') }}"></script>
-    <script src="{{ asset('assets/js/pacienti.js') }}"></script>
+    <script src="{{ asset('assets/js/consultatii.js') }}" nonce="{{ nonceScript }}"></script>
+    <script src="{{ asset('assets/js/pacienti.js') }}" nonce="{{ nonceScript }}"></script>
 {% endblock %}

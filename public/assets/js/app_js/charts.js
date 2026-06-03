@@ -68,6 +68,9 @@ if (document.getElementById("show_chart_medic").getAttribute('value') === SHOW_C
 }
 
 let ctx = document.getElementById("incasariPeLuni");
+
+Chart.platform.disableCSSInjection = true;
+
 let myLineChart = new Chart(ctx, {
     type: 'line',
     data: {

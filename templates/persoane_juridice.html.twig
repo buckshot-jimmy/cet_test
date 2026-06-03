@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% set nonceScript = csp_nonce('script') %}
 {% set user = app.user %}
 {% set ROL_ADMIN = 'ROLE_Administrator' %}
 {% block title %}MIND RESET - Clienti persoane juridice{% endblock %}
@@ -27,5 +28,5 @@
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('assets/js/persoane_juridice.js') }}"></script>
+    <script src="{{ asset('assets/js/persoane_juridice.js') }}" nonce="{{ nonceScript }}"></script>
 {% endblock %}

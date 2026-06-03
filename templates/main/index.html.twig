@@ -204,6 +204,6 @@
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('assets/js/app_js/charts_min.js') }}"></script>
-    <script src="{{ asset('assets/js/app_js/charts.js') }}"></script>
+    <script src="{{ asset('assets/js/app_js/charts_min.js') }}" nonce="{{ csp_nonce('script') }}"></script>
+    <script src="{{ asset('assets/js/app_js/charts.js') }}" nonce="{{ csp_nonce('script') }}"></script>
 {% endblock %}

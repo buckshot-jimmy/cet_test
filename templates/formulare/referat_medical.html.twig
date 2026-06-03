@@ -1,8 +1,9 @@
+{% set nonceStyle = csp_nonce('style') %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="{{ asset('assets/css/twig-extracted.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('assets/css/twig-templates-extracted.css') }}" rel="stylesheet" type="text/css">
+    <link nonce="{{ nonceStyle }}" href="{{ asset('assets/css/twig-extracted.css') }}" rel="stylesheet" type="text/css">
+    <link nonce="{{ nonceStyle }}" href="{{ asset('assets/css/twig-templates-extracted.css') }}" rel="stylesheet" type="text/css">
 <title></title>
 </head>
 <body class="tpl-formulare-referat_medical">

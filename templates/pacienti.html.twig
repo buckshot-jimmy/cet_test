@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% set nonceScript = csp_nonce('script') %}
 {% block title %}MIND RESET - Pacienti{% endblock %}
 {% block tableTitle %}Lista pacienti{% endblock %}
 {% block addBtnText %}{{ 'button.add'|trans }}{% endblock %}
@@ -41,6 +42,6 @@
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('assets/js/facturi.js') }}"></script>
-    <script src="{{ asset('assets/js/pacienti.js') }}"></script>
+    <script src="{{ asset('assets/js/facturi.js') }}" nonce="{{ nonceScript }}"></script>
+    <script src="{{ asset('assets/js/pacienti.js') }}" nonce="{{ nonceScript }}"></script>
 {% endblock %}

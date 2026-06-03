@@ -1,6 +1,8 @@
 {% set specialitati = app.session.get('specialitati') %}
 {% set titulaturi = app.session.get('titulaturi') %}
 {% set roluri = app.session.get('roluri') %}
+{% set nonceScript = csp_nonce('script') %}
+{% set nonceStyle = csp_nonce('style') %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,20 +11,20 @@
     <title >{% block title %}MIND RESET{% endblock %}</title>
 
     {% block stylesheets %}
-        <link href="{{ asset('assets/sigla.ico') }}" rel="icon" type="image/icon" />
-        <link href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('assets/css/google_fonts.css') }}" rel="stylesheet">
-        <link href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet" type="text/css" />
-        <link href="{{ asset('assets/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('assets/css/dual_listbox.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('assets/css/dual_listbox.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('assets/css/bootstrap_datepicker.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('assets/css/bootstrap_timepicker.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('assets/css/select2.min.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('assets/css/twig-extracted.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('assets/css/js-extracted.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('assets/css/bootstrap_toogle.css') }}" rel="stylesheet" type="text/css">
+        <link nonce="{{ nonceStyle }}" href="{{ asset('assets/sigla.ico') }}" rel="icon" type="image/icon" />
+        <link nonce="{{ nonceStyle }}" href="{{ asset('assets/css/all.min.css') }}" rel="stylesheet" type="text/css">
+        <link nonce="{{ nonceStyle }}" href="{{ asset('assets/css/google_fonts.css') }}" rel="stylesheet">
+        <link nonce="{{ nonceStyle }}" href="{{ asset('assets/css/sb-admin-2.min.css') }}" rel="stylesheet" type="text/css" />
+        <link nonce="{{ nonceStyle }}" href="{{ asset('assets/css/dataTables.bootstrap4.min.css') }}" rel="stylesheet" type="text/css">
+        <link nonce="{{ nonceStyle }}" href="{{ asset('assets/css/dual_listbox.css') }}" rel="stylesheet" type="text/css">
+        <link nonce="{{ nonceStyle }}" href="{{ asset('assets/css/dual_listbox.css') }}" rel="stylesheet" type="text/css">
+        <link nonce="{{ nonceStyle }}" href="{{ asset('assets/css/bootstrap_datepicker.css') }}" rel="stylesheet" type="text/css">
+        <link nonce="{{ nonceStyle }}" href="{{ asset('assets/css/bootstrap_timepicker.css') }}" rel="stylesheet" type="text/css">
+        <link nonce="{{ nonceStyle }}" href="{{ asset('assets/css/select2.min.css') }}" rel="stylesheet" type="text/css">
+        <link nonce="{{ nonceStyle }}" href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" type="text/css">
+        <link nonce="{{ nonceStyle }}" href="{{ asset('assets/css/twig-extracted.css') }}" rel="stylesheet" type="text/css">
+        <link nonce="{{ nonceStyle }}" href="{{ asset('assets/css/js-extracted.css') }}" rel="stylesheet" type="text/css">
+        <link nonce="{{ nonceStyle }}" href="{{ asset('assets/css/bootstrap_toogle.css') }}" rel="stylesheet" type="text/css">
     {% endblock %}
 </head>
 <body class="bg-gradient-primary" id="page-top">
@@ -258,23 +260,23 @@
 {% block addModal %}
 {% endblock %}
 {% block javascripts %}
-    <script src="{{ asset('assets/js/app_js/jquery.min.js') }}"></script>
-    <script src="{{ asset('assets/js/app_js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('assets/js/app_js/bootstrap_datepicker.js') }}"></script>
-    <script src="{{ asset('assets/js/app_js/bootstrap_datepicker.ro.min.js') }}"></script>
-    <script src="{{ asset('assets/js/app_js/bootstrap_timepicker.js') }}"></script>
-    <script src="{{ asset('assets/js/app_js/jquery.easing.js') }}"></script>
-    <script src="{{ asset('assets/js/app_js/sb-admin-2.min.js') }}"></script>
-    <script src="{{ asset('assets/js/app_js/select2.min.js') }}"></script>
-    <script src="{{ asset('assets/js/app_js/jquery.validate.js') }}"></script>
-    <script src="{{ asset('assets/js/app_js/jquery_extend.js') }}"></script>
-    <script src="{{ asset('assets/js/app_js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/js/app_js/dataTables.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('assets/js/app_js/moment.js') }}"></script>
-    <script src="{{ asset('assets/js/app_js/dual_listbox.js') }}"></script>
-    <script src="{{ asset('assets/js/app_js/bootstrap_toggle.js') }}"></script>
-    <script src="{{ asset('assets/js/base.js') }}"></script>
-    <script src="{{ asset('assets/js/mesaj.js') }}"></script>
+    <script src="{{ asset('assets/js/app_js/jquery.min.js') }}" nonce="{{ nonceScript }}"></script>
+    <script src="{{ asset('assets/js/app_js/bootstrap.bundle.min.js') }}" nonce="{{ nonceScript }}"></script>
+    <script src="{{ asset('assets/js/app_js/bootstrap_datepicker.js') }}" nonce="{{ nonceScript }}"></script>
+    <script src="{{ asset('assets/js/app_js/bootstrap_datepicker.ro.min.js') }}" nonce="{{ nonceScript }}"></script>
+    <script src="{{ asset('assets/js/app_js/bootstrap_timepicker.js') }}" nonce="{{ nonceScript }}"></script>
+    <script src="{{ asset('assets/js/app_js/jquery.easing.js') }}" nonce="{{ nonceScript }}"></script>
+    <script src="{{ asset('assets/js/app_js/sb-admin-2.min.js') }}" nonce="{{ nonceScript }}"></script>
+    <script src="{{ asset('assets/js/app_js/select2.min.js') }}" nonce="{{ nonceScript }}"></script>
+    <script src="{{ asset('assets/js/app_js/jquery.validate.js') }}" nonce="{{ nonceScript }}"></script>
+    <script src="{{ asset('assets/js/app_js/jquery_extend.js') }}" nonce="{{ nonceScript }}"></script>
+    <script src="{{ asset('assets/js/app_js/jquery.dataTables.min.js') }}" nonce="{{ nonceScript }}"></script>
+    <script src="{{ asset('assets/js/app_js/dataTables.bootstrap4.min.js') }}" nonce="{{ nonceScript }}"></script>
+    <script src="{{ asset('assets/js/app_js/moment.js') }}" nonce="{{ nonceScript }}"></script>
+    <script src="{{ asset('assets/js/app_js/dual_listbox.js') }}" nonce="{{ nonceScript }}"></script>
+    <script src="{{ asset('assets/js/app_js/bootstrap_toggle.js') }}" nonce="{{ nonceScript }}"></script>
+    <script src="{{ asset('assets/js/base.js') }}" nonce="{{ nonceScript }}"></script>
+    <script src="{{ asset('assets/js/mesaj.js') }}" nonce="{{ nonceScript }}"></script>
 {% endblock %}
 <div id="global-alert-container"></div>
 </body>

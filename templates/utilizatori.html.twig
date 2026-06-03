@@ -1,4 +1,5 @@
 {% extends 'base.html.twig' %}
+{% set nonceScript = csp_nonce('script') %}
 {% block title %}MIND RESET - Utilizatori{% endblock %}
 {% block tableTitle %}Utilizatori{% endblock %}
 {% if app.user.getRole() != 'ROLE_Administrator' %}
@@ -15,5 +16,5 @@
 {% endblock %}
 {% block javascripts %}
     {{ parent() }}
-    <script src="{{ asset('assets/js/utilizatori.js') }}"></script>
+    <script src="{{ asset('assets/js/utilizatori.js') }}" nonce="{{ nonceScript }}"></script>
 {% endblock %}

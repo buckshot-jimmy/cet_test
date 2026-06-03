@@ -20,22 +20,58 @@ nelmio_security:
             - 'no-referrer'
             - 'strict-origin-when-cross-origin'
 
-#    csp:
-#        enforce:
-#            default-src: [ "'self'" ]
-#            script-src:
-#                - "'self'"
-#                - "'nonce-%s'"
-#            style-src:
-#                - 'self'
-#                - 'https://fonts.googleapis.com'
-#            font-src:
-#                - 'self'
-#                - 'https://fonts.gstatic.com'
-#                - 'data:'
-#            img-src:
-#                - 'self'
-#                - 'data:'
+    csp:
+        enforce:
+            # Block everything unless explicitly allowed
+            default-src:
+                - 'self'
+
+            # Strict script policy: only self + nonce
+            level1_fallback: false
+            script-src:
+                - 'self'
+                - 'nonce'
+                - 'strict-dynamic'
+
+            # Styles: allow Google Fonts, no inline styles
+            style-src:
+                - 'self'
+                - 'nonce'
+                - 'https://fonts.googleapis.com'
+
+            # Fonts: only trusted sources
+            font-src:
+                - 'self'
+                - 'https://fonts.gstatic.com'
+                - 'data:'
+
+            # Images: self + data URIs
+            img-src:
+                - 'self'
+                - 'data:'
+
+            # No plugins, no Flash, no PDFs
+            object-src:
+                - 'none'
+
+            # Prevent clickjacking
+            frame-ancestors:
+                - 'none'
+
+            # Prevent loading insecure HTTP content
+            block-all-mixed-content: true
+
+            # Prevent form submissions to external sites
+            form-action:
+                - 'self'
+
+            # Prevent external workers unless allowed
+            worker-src:
+                - 'self'
+
+            # Prevent external connections unless allowed
+            connect-src:
+                - 'self'
 
     cross_origin_isolation:
         enabled: true
