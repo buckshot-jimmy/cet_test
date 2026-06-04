@@ -1,16 +1,17 @@
 
 ###> symfony/framework-bundle ###
-.env.local
-.env.local.php
+.env.local.*
 .env.*.local
-.env.*
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
 /vendor/
+.junie/
+.idea
 /tmp/
 /config/secrets/test/test.decrypt.private.php
 /config/secrets/dev/dev.decrypt.private.php
+/config/secrets/local/
 styles-php-script-css.php
 ###< symfony/framework-bundle ###
 
