@@ -5,7 +5,7 @@ services:
     build:
       context: .
     container_name: cet_app
-    user: "${UID}:${GID}"
+    user: www-data:www-data
     restart: unless-stopped
     ports:
       - "8089:80"
