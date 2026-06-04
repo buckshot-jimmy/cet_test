@@ -5,10 +5,6 @@ nelmio_security:
             '^/.*': DENY
             '^/local/': SAMEORIGIN
 
-    xss_protection:
-        enabled: true
-        mode_block: true
-
     permissions_policy:
         policies:
             camera: [ ]

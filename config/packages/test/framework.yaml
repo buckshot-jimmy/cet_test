@@ -3,8 +3,11 @@ framework:
         enabled: true
         collect: true
     test: true
+    http_method_override: false
+    handle_all_throwables: false
     validation:
-        enable_annotations: true
+        enable_attributes: true
+        email_validation_mode: html5
     session:
         enabled: true
         storage_factory_id: session.storage.factory.mock_file

@@ -15,7 +15,7 @@ class UserConstraintsValidator extends ConstraintValidator
     const ROLE_ADMIN = 'ROLE_Administrator';
     public function __construct(private EntityManagerInterface $em, private UserPasswordHasherInterface $hasher) {}
 
-    public function validate($value, Constraint $constraint)
+    public function validate($value, Constraint $constraint): void
     {
         $this->checkNewPasswordSameOld($value, $constraint);
         $this->checkRoleChangeNotAdmin($value, $constraint);

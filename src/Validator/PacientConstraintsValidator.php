@@ -13,7 +13,7 @@ class PacientConstraintsValidator extends ConstraintValidator
 {
     public function __construct(private EntityManagerInterface $em) {}
 
-    public function validate($pacient, Constraint $constraint)
+    public function validate($pacient, Constraint $constraint): void
     {
         foreach ($pacient as $property => $value) {
             switch ($property) {

@@ -11,7 +11,7 @@ class PreturiFixtures extends AbstractFixture implements DependentFixtureInterfa
 {
     public function __construct(private FixturesEntityFactory $entityFactory) {}
 
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
         $this->entityFactory->ensureEntity(
             $manager, 'App\Entity\Pret',

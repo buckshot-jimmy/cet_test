@@ -13,7 +13,7 @@ class FirmeConstraintsValidator extends ConstraintValidator
 {
     public function __construct(private EntityManagerInterface $em) {}
 
-    public function validate($owner, Constraint $constraint)
+    public function validate($owner, Constraint $constraint): void
     {
         foreach ($owner as $property => $value) {
             switch ($property) {

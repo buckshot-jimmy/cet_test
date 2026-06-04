@@ -11,7 +11,7 @@ class FacturaConstraintsValidator extends ConstraintValidator
 {
     public function __construct(private EntityManagerInterface $em) {}
 
-    public function validate(mixed $value, Constraint $constraint)
+    public function validate(mixed $value, Constraint $constraint): void
     {
         $this->facturaUnica($value, $constraint);
         $this->noClient($value, $constraint);

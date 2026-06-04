@@ -11,7 +11,7 @@ class ProgramareConstraintsValidator extends ConstraintValidator
 {
     public function __construct(private EntityManagerInterface $em) {}
 
-    public function validate(mixed $value, Constraint $constraint)
+    public function validate(mixed $value, Constraint $constraint): void
     {
         $this->checkAvailability($value, $constraint);
         $this->checkPastTime($value, $constraint);

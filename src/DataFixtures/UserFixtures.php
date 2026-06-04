@@ -16,7 +16,7 @@ class UserFixtures extends AbstractFixture implements DependentFixtureInterface
         private FixturesEntityFactory $entityFactory
     ) {}
 
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
         $user = new User();
 

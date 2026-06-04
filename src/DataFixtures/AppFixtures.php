@@ -10,7 +10,7 @@ class AppFixtures extends AbstractFixture
 {
     public function __construct(private FixturesEntityFactory $entityFactory) {}
 
-    public function load(ObjectManager $manager)
+    public function load(ObjectManager $manager): void
     {
         $entity = $this->entityFactory->ensureEntity(
             $manager, 'App\Entity\Role',

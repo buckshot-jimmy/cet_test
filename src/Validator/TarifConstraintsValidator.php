@@ -13,7 +13,7 @@ class TarifConstraintsValidator extends ConstraintValidator
 {
     public function __construct(private EntityManagerInterface $em) {}
 
-    public function validate($tarif, Constraint $constraint)
+    public function validate($tarif, Constraint $constraint): void
     {
         $this->medicServiciuOwnerUnic($tarif, $constraint);
         $this->tarifNegativ($tarif, $constraint);

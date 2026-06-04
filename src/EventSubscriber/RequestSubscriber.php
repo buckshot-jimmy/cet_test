@@ -38,7 +38,7 @@ class RequestSubscriber implements EventSubscriberInterface
         $this->saveTargetPath($this->session, 'main', $request->getUri());
     }
 
-    public static function getSubscribedEvents()
+    public static function getSubscribedEvents(): array
     {
         return [
             KernelEvents::REQUEST => ['onKernelRequest']
