@@ -5,6 +5,25 @@ nelmio_security:
             '^/.*': DENY
             '^/local/': SAMEORIGIN
 
+    xss_protection:
+        enabled: true
+        mode_block: true
+
+    permissions_policy:
+        policies:
+            camera: [ ]
+            microphone: [ ]
+            geolocation: [ ]
+            payment: [ ]
+            usb: [ ]
+            interest_cohort: [ ]
+
+#    forced_ssl:
+#        enabled: true
+#        hsts_max_age: 31536000
+#        hsts_subdomains: true
+#        hsts_preload: true
+
     # disables content type sniffing for script resources
     content_type:
         nosniff: true
