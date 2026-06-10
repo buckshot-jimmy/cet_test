@@ -2,7 +2,7 @@
 {% set nonceScript = csp_nonce('script') %}
 {% block tableTitle %}Rapoarte plati medici colaboratori{% endblock %}
 {% block table %}
-    <table class="table table-bordered rounded dataTable display nowrap twig-style-007" id="rapoarte_colaboratori" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info"></table>
+    <table class="table table-bordered rounded dataTable display nowrap" id="rapoarte_colaboratori" width="100%" cellspacing="0" role="grid" aria-describedby="dataTable_info"></table>
 {% endblock %}
 {% if app.user.getRole() != 'ROLE_Administrator' %}
     {% set class = 'no_show' %}
