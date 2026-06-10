@@ -29,9 +29,8 @@ class FacturaVoter extends Voter
         }
 
         switch ($attribute) {
-            case 'VIEW':
-                return $rol === 'ROLE_Administrator';
             case 'ADD':
+            case 'VIEW':
                 return in_array($rol, ['ROLE_Administrator', 'ROLE_Medic', 'ROLE_Psiholog', 'ROLE_Receptioner']);
         }
 
