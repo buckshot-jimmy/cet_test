@@ -36,6 +36,10 @@ nelmio_security:
             - 'strict-origin-when-cross-origin'
 
     csp:
+        enabled: true
+
+        # TODO - solve the problem of JS "onclick" to be protected by nonce mechanism
+
         enforce:
             # Block everything unless explicitly allowed
             default-src:

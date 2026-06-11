@@ -810,6 +810,7 @@ function getServiciiPacient(id) {
                         '<button class="js-service-button-hidden"></td>';
                 }
 
+                // TODO - solve the nonce to "onclick" function everywhere in JS
                 if (serviciu.tipServiciu === TIP_CONSULTATIE) {
                     row += '<td class="js-service-cell">' +
                         '<button class="js-doc-button btn btn-danger scrisoare_from_pacient" ' +
