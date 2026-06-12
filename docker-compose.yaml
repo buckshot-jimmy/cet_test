@@ -5,7 +5,7 @@ services:
     build:
       context: .
     container_name: cet_app
-    user: 1001:1001
+    user: "1001:1001"
     restart: unless-stopped
     ports:
       - "8089:80"
