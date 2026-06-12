@@ -11,7 +11,6 @@
 /tmp/
 /config/secrets/test/test.decrypt.private.php
 /config/secrets/dev/dev.decrypt.private.php
-/config/secrets/prod/prod.decrypt.private.php
 /config/secrets/local/
 styles-php-script-css.php
 ###< symfony/framework-bundle ###
