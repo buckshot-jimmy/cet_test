@@ -40,6 +40,8 @@ class AuthService implements AuthCodeMailerInterface
                 'code' => $user->getEmailAuthCode(),
             ]));
 
+        print_r($email);
+
         $this->mailer->send($email);
     }
 
