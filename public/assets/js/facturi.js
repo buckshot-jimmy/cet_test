@@ -33,18 +33,14 @@ let facturi = function() {
                     render: function (data, type, row) {
                         let actiuni = '';
 
-                        if ($("#rol_user").val() !== ROL_ADMIN) {
-                            actiuni += "<a href='#' onclick='pdfFactura(" + row.id + "); return false;' "
-                                + "class='btn btn-outline-danger btn-circle btn-sm pdf_factura' " +
-                                'title="Factura PDF"><i class="fas fa-file-pdf"></i></a>';
+                        actiuni += "<a href='#' onclick='pdfFactura(" + row.id + "); return false;' "
+                            + "class='btn btn-outline-danger btn-circle btn-sm pdf_factura' " +
+                            'title="Factura PDF"><i class="fas fa-file-pdf"></i></a>';
 
-                            actiuni += '<a href="#" class="btn btn-outline-dark btn-circle btn-sm ' +
-                                'email_trimite_factura" ' + 'title="Trimite email"><i class="fas fa-envelope"></i></a>';
+                        actiuni += '<a href="#" class="btn btn-outline-dark btn-circle btn-sm ' +
+                            'email_trimite_factura" ' + 'title="Trimite email"><i class="fas fa-envelope"></i></a>';
 
-                            return actiuni;
-                        }
-
-                        if (row.tip === FACTURA && !row.storno) {
+                        if (row.tip === FACTURA && !row.storno && $("#rol_user").val() === ROL_ADMIN) {
                             actiuni += '<a href="#" class="btn btn-outline-warning btn-circle btn-sm' +
                                 ' storneaza_factura" ' + 'title="Storneaza"><i class="fas fa-undo"></i></a>';
                         }
