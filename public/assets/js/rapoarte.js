@@ -26,9 +26,10 @@ let rapoarte = function () {
                     title: "Actiuni",
                     width: 50,
                     render: function (data, type, row) {
-                        let actiuni = "<a href='#' onclick='pdfPlataColaborator(" + row.id + "); return false;' "
-                            + "class='btn btn-outline-danger btn-circle btn-sm pdf_raport_colaborator' " +
-                            'title="Descarca raport"><i class="fas fa-file-pdf"></i></a>';
+                        let actiuni = "<a href='#' "
+                            + "data-id='" + row.id + "' "
+                            + "class='btn btn-outline-danger btn-circle btn-sm pdf_raport_colaborator' "
+                            + 'title="Descarca raport"><i class="fas fa-file-pdf"></i></a>';
 
                         if (row.stare === 'neplatita' && $("#rol_user").val() === 'ROLE_Administrator') {
                             actiuni += '<a href="#" class="btn btn-info btn-circle btn-sm plateste_colaborator_grid" ' +
@@ -315,6 +316,14 @@ let rapoarte = function () {
         }
     }
 }();
+
+$(document).on('click', '.pdf_raport_colaborator', function (e) {
+    e.preventDefault();
+
+    const id = $(this).data('id');
+
+    pdfPlataColaborator(id);
+});
 
 function pdfPlataColaborator(raportId) {
     let input = "<input type='hidden' id='id' name='id' value='" + raportId + "'>";

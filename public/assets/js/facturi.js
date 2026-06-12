@@ -33,9 +33,9 @@ let facturi = function() {
                     render: function (data, type, row) {
                         let actiuni = '';
 
-                        actiuni += "<a href='#' onclick='pdfFactura(" + row.id + "); return false;' "
-                            + "class='btn btn-outline-danger btn-circle btn-sm pdf_factura' " +
-                            'title="Factura PDF"><i class="fas fa-file-pdf"></i></a>';
+                        actiuni += "<a href='#' data-id='" + row.id + "' "
+                            + "class='btn btn-outline-danger btn-circle btn-sm pdf_factura' "
+                            + 'title="Factura PDF"><i class="fas fa-file-pdf"></i></a>';
 
                         actiuni += '<a href="#" class="btn btn-outline-dark btn-circle btn-sm ' +
                             'email_trimite_factura" ' + 'title="Trimite email"><i class="fas fa-envelope"></i></a>';
@@ -164,6 +164,13 @@ function trimiteEmailFactura(facturaId, email) {
         }
     });
 }
+
+$(document).on('click', '.pdf_factura', function (e) {
+    e.preventDefault();
+
+    const id = $(this).data('id');
+    pdfFactura(id);
+});
 
 function pdfFactura(facturaId) {
     let input = "<input type='hidden' id='factura_id' name='factura_id' value='" + facturaId + "'>";

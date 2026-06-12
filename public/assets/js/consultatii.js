@@ -438,9 +438,10 @@ let consultatii = function () {
                 let istoricPacient = "";
                 $.each(response.istoric, function (id, istoricServiciu) {
                     if (istoricServiciu.id !== consInvEvalId) {
-                        istoricPacient = "<a class='dropdown-item " + color + "' href='#' " +
-                            "onclick='getServiciuIstoric(" + istoricServiciu.id + ", " + TIP_SERVICIU + "); " +
-                            "return false;'>" + istoricServiciu.denumire + ' | ' + istoricServiciu.data + ' | '
+                        istoricPacient = "<a class='dropdown-item istoric-serviciu-link " + color + "' href='#' "
+                            + "data-serviciu-id='" + istoricServiciu.id + "' "
+                            + "data-tip-serviciu='" + TIP_SERVICIU + "'>"
+                            + istoricServiciu.denumire + ' | ' + istoricServiciu.data + ' | '
                             + istoricServiciu.nume + ' ' + istoricServiciu.prenume + "</a>";
 
                         parentDiv.append(istoricPacient);
@@ -465,6 +466,15 @@ let consultatii = function () {
         }
     }
 }();
+
+$(document).on('click', '.istoric-serviciu-link', function (e) {
+    e.preventDefault();
+
+    const serviciuId = $(this).data('serviciu-id');
+    const tipServiciu = $(this).data('tip-serviciu');
+
+    getServiciuIstoric(serviciuId, tipServiciu);
+});
 
 function validateForms() {
     $("#consultatie_form").validate({
@@ -810,32 +820,27 @@ function getServiciiPacient(id) {
                         '<button class="js-service-button-hidden"></td>';
                 }
 
-                // TODO - solve the nonce to "onclick" function everywhere in JS
                 if (serviciu.tipServiciu === TIP_CONSULTATIE) {
                     row += '<td class="js-service-cell">' +
                         '<button class="js-doc-button btn btn-danger scrisoare_from_pacient" ' +
-                        ' onclick="tiparesteScrisoareMedicala(' +
-                        serviciu.consultatieId + ')">' +
+                        'data-consultatie-id="' + serviciu.consultatieId + '">' +
                         numeDocument + '</button></td>';
                 } else if (serviciu.tipServiciu === TIP_INVESTIGATIE) {
                     row += '<td class="js-service-cell">' +
                         '<button class="js-doc-button btn btn-danger buletin_from_pacient" ' +
-                        'onclick="tiparesteBuletinInvestigatie(' +
-                        serviciu.consultatieId + ')">' +
+                        'data-consultatie-id="' + serviciu.consultatieId + '">' +
                         numeDocument + '</button></td>';
                 } else if (serviciu.tipServiciu === TIP_EVAL_PSIHO) {
                     row += '<td class="js-service-cell">' +
                         '<button class="js-doc-button btn btn-success eval_psiho_from_pacient" ' +
-                        'onclick="tiparesteFisaPsihodiagnostic(' +
-                        serviciu.consultatieId + ')">' +
+                        'data-consultatie-id="' + serviciu.consultatieId + '">' +
                         'Fisa psihodiag.</button></td>';
                 }
 
                 if (serviciu.tipServiciu === TIP_CONSULTATIE) {
                     row += '<td class="js-service-cell">' +
                         '<button class="js-doc-button btn btn-success referat_from_pacient" ' +
-                        'onclick="tiparesteReferatMedical(' +
-                        serviciu.consultatieId + ')">' +
+                        'data-consultatie-id="' + serviciu.consultatieId + '">' +
                         'Referat medical</button></td>';
                 } else {
                     row += emptyButton;
@@ -844,8 +849,7 @@ function getServiciiPacient(id) {
                 if (serviciu.tipServiciu === TIP_CONSULTATIE) {
                     row += '<td class="js-service-cell">' +
                         '<button class="js-doc-button btn btn-warning fisa_consultatie_from_pacient" ' +
-                        'onclick="tiparesteFisaConsultatii(' +
-                        serviciu.consultatieId + ')">' +
+                        'data-consultatie-id="' + serviciu.consultatieId + '">' +
                         'Fisa de consultatii</button></td>';
                 } else {
                     row += emptyButton;
@@ -863,6 +867,46 @@ function getServiciiPacient(id) {
         }
     });
 }
+
+$(document).on('click', '.scrisoare_from_pacient', function (e) {
+    e.preventDefault();
+
+    const consultatieId = $(this).data('consultatie-id');
+
+    tiparesteScrisoareMedicala(consultatieId);
+});
+
+$(document).on('click', '.buletin_from_pacient', function (e) {
+    e.preventDefault();
+
+    const consultatieId = $(this).data('consultatie-id');
+
+    tiparesteBuletinInvestigatie(consultatieId);
+});
+
+$(document).on('click', '.fisa_consultatie_from_pacient', function (e) {
+    e.preventDefault();
+
+    const consultatieId = $(this).data('consultatie-id');
+
+    tiparesteFisaConsultatii(consultatieId);
+});
+
+$(document).on('click', '.referat_from_pacient', function (e) {
+    e.preventDefault();
+
+    const consultatieId = $(this).data('consultatie-id');
+
+    tiparesteReferatMedical(consultatieId);
+});
+
+$(document).on('click', '.eval_psiho_from_pacient', function (e) {
+    e.preventDefault();
+
+    const consultatieId = $(this).data('consultatie-id');
+
+    tiparesteFisaPsihodiagnostic(consultatieId);
+});
 
 function transformUrlParamsToJson(tip, urlParams)
 {
