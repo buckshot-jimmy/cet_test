@@ -16,6 +16,7 @@ services:
     environment:
       APP_ENV: prod
       DATABASE_URL: "mysql://symfony:symfony@db:3306/cet_test?serverVersion=8.0"
+      MAILER_DSN: ${MAILER_DSN}
     working_dir: /var/www/html
 
   db:
