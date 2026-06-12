@@ -48,8 +48,6 @@ COPY --from=composer:2 /usr/bin/composer /usr/bin/composer
 
 COPY . /var/www/html
 
-RUN chown -R www-data:www-data /var/www/html
-
 WORKDIR /var/www/html
 
 RUN mkdir -p var/cache var/log var/sessions \
