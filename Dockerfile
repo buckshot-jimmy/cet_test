@@ -52,8 +52,9 @@ RUN chown -R www-data:www-data /var/www/html
 
 WORKDIR /var/www/html
 
-RUN chown -R www-data:www-data /var/www/html/var
-RUN usermod -u 1000 www-data
+RUN mkdir -p var/cache var/log var/sessions \
+ && chown -R www-data:www-data /var/www/html \
+
 USER www-data
 
 EXPOSE 80
