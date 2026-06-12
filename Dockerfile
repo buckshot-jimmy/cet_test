@@ -51,7 +51,7 @@ COPY . /var/www/html
 WORKDIR /var/www/html
 
 RUN mkdir -p var/cache var/log var/sessions
-RUN chown -R www-data:www-data /var/www/html
+RUN chown -R www-data:www-data /var/www/html || true
 
 USER www-data
 
