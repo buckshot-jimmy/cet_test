@@ -32,7 +32,7 @@ COPY apache-symfony.conf /etc/apache2/sites-available/000-default.conf
 RUn cp "$PHP_INI_DIR/php.ini-production" "$PHP_INI_DIR/php.ini"
 
 # Do not show PHP version in the response headers for security reasons
-RUN sed -i 's/^expose_php\s*=.*/expose_php = Off/' /usr/local/etc/php/php.ini
+RUN echo "expose_php=Off" > /usr/local/etc/php/conf.d/security.ini
 
 RUN sed -ri -e 's!/var/www/html!${APACHE_DOCUMENT_ROOT}!g' \
     /etc/apache2/sites-available/*.conf \
