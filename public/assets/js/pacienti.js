@@ -251,9 +251,11 @@ let pacienti = function () {
 
         $("body").on("change", "#tara", function () {
             $("#judet").val("").prop('disabled', true).trigger('change.select2');
+            $("#varsta").val("").removeAttr('readonly');
 
             if ($(this).val() === "Romania") {
                 $("#judet").val("Alba").prop('disabled', false).trigger('change.select2');
+                $("#varsta").val("").attr("readonly", "readonly");
             }
 
             $('#tara').valid();
