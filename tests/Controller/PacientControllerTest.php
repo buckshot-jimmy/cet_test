@@ -3,7 +3,6 @@
 namespace App\Tests\Controller;
 
 use App\Controller\PacientController;
-use App\DTO\PacientDTO;
 use App\Entity\Consultatie;
 use App\Entity\Owner;
 use App\Entity\Pacient;
@@ -16,21 +15,19 @@ use App\Repository\PacientRepository;
 use App\Repository\PretRepository;
 use App\Repository\ServiciuRepository;
 use App\Repository\UserRepository;
-use App\Services\AdminService;
 use App\Services\NomenclatoareService;
 use App\Services\PushNotificationService;
-use App\Validator\PacientConstraints;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
+use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
+use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\Form\Forms;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
-use Symfony\Component\Validator\ConstraintViolation;
-use Symfony\Component\Validator\ConstraintViolationList;
-use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 class PacientControllerTest extends WebTestCase
@@ -40,16 +37,16 @@ class PacientControllerTest extends WebTestCase
         $this->client = static::createClient();
         $this->em = $this->createMock(EntityManagerInterface::class);
         $this->translator = $this->createMock(TranslatorInterface::class);
-        $this->validator = $this->createMock(ValidatorInterface::class);
-        $this->constraint = $this->createMock(PacientConstraints::class);
         $this->authorizationChecker = $this->createMock(AuthorizationCheckerInterface::class);
+        $this->formFactory = Forms::createFormFactoryBuilder()
+            ->addExtension(new ValidatorExtension(static::getContainer()->get('validator')))
+            ->getFormFactory();
 
         $this->controller = new PacientController(
             $this->em,
-            $this->validator,
-            $this->constraint,
             $this->translator,
-            $this->authorizationChecker
+            $this->authorizationChecker,
+            $this->formFactory
         );
 
         $this->testUser = static::getContainer()
@@ -63,14 +60,8 @@ class PacientControllerTest extends WebTestCase
             ->get(UserRepository::class)
             ->findOneByEmail('damian.popescu@mindreset.ro');
 
-        $this->dto = new PacientDTO(1, 'n', 'p', '1790630060774', '0745545689' ,
-            '', 'ciprianmarta.cm@gmail.com', 'a', 'Alba', 'Baciu', 'Romania',
-            'XB', 'City', 'l', 'o', '2026-01-01', false,
-            'o', 1, $this->testMedic->getId(), [], []);
-
         $this->controllerMock = $this->getMockBuilder(PacientController::class)
-            ->setConstructorArgs([$this->em, $this->validator, $this->constraint, $this->translator,
-                $this->authorizationChecker])
+            ->setConstructorArgs([$this->em, $this->translator, $this->authorizationChecker, $this->formFactory])
             ->onlyMethods(['getUser'])
             ->getMock();
 
@@ -123,10 +114,9 @@ class PacientControllerTest extends WebTestCase
     {
         $controller = new PacientController(
             $this->em,
-            $this->validator,
-            $this->constraint,
             $this->translator,
-            $this->authorizationChecker
+            $this->authorizationChecker,
+            $this->formFactory
         );
 
         $this->assertInstanceOf(PacientController::class, $controller);
@@ -262,7 +252,7 @@ class PacientControllerTest extends WebTestCase
 
         $this->client->loginUser($this->testUser, 'main');
 
-        $this->controller->salveazaPacient($this->createMock(AdminService::class), $this->dto);
+        $this->controller->salveazaPacient(new Request(), $this->createMock(NomenclatoareService::class));
 
         $this->assertResponseStatusCodeSame(403);
     }
@@ -350,41 +340,23 @@ class PacientControllerTest extends WebTestCase
             ->with('ADD_EDIT', $this->isInstanceOf(Pacient::class))
             ->willReturn(true);
 
-        $violation = new ConstraintViolation(
-            'Some validation error',
-            null,
-            [],
-            '',
-            'name',
-            null
-        );
-
-        $violations = new ConstraintViolationList([$violation]);
-
-        $this->validator->expects($this->once())
-            ->method('validate')
-            ->willReturn($violations);
-
         $this->translator->method('trans')
-            ->with('Failed operation')
-            ->willReturn('Failed operation.');
-
-        $admin = $this->createMock(AdminService::class);
-        $admin->expects($this->once())
-            ->method('buildValidationErrors')
-            ->with($violations)
-            ->willReturn('Some validation error');
+            ->willReturnCallback(fn ($message) => 'Failed operation' === $message ? 'Failed operation.' : $message);
 
         $this->client->loginUser($this->testMedic, 'main');
 
-        $response = $this->controller->salveazaPacient($admin, $this->dto);
+        $response = $this->controller->salveazaPacient(
+            new Request([], $this->getValidPacientFormData(['nume' => ''])),
+            $this->getNomenclatoareService()
+        );
 
         $this->assertInstanceOf(JsonResponse::class, $response);
         $this->assertSame(Response::HTTP_BAD_REQUEST, $response->getStatusCode());
 
         $data = json_decode($response->getContent(), true);
         $this->assertSame(Response::HTTP_BAD_REQUEST, $data['status']);
-        $this->assertSame('Failed operation. Some validation error', $data['message']);
+        $this->assertStringContainsString('Failed operation.', $data['message']);
+        $this->assertStringContainsString('This value should not be blank.', $data['message']);
     }
 
     /**
@@ -409,10 +381,25 @@ class PacientControllerTest extends WebTestCase
 
         $this->controllerMock->method('getUser')->willReturn($this->testMedic);
 
-        $this->pacientiRepo->method('savePacient')->with($this->dto, $this->testMedic);
+        $this->pacientiRepo->method('find')
+            ->with($this->pacient->getId())
+            ->willReturn($this->pacient);
+
+        $this->pacientiRepo->expects($this->once())
+            ->method('savePacient')
+            ->with(
+                $this->callback(fn (Pacient $pacient) => 'NOU' === $pacient->getNume()),
+                $this->testMedic
+            );
 
         $response = $this->controllerMock->salveazaPacient(
-            $this->createMock(AdminService::class), $this->dto);
+            new Request([], $this->getValidPacientFormData([
+                'pacient_id' => $this->pacient->getId(),
+                'nume' => 'NOU',
+                'cnp' => $this->pacient->getCnp(),
+            ])),
+            $this->getNomenclatoareService()
+        );
 
         $this->assertInstanceOf(Response::class, $response);
         $this->assertSame(Response::HTTP_OK, $response->getStatusCode());
@@ -713,5 +700,39 @@ class PacientControllerTest extends WebTestCase
         $data = json_decode($response->getContent(), true);
 
         $this->assertEquals($this->pacient->getId(), $data['pacienti'][0]['id']);
+    }
+
+    private function getNomenclatoareService(): NomenclatoareService
+    {
+        $service = $this->createMock(NomenclatoareService::class);
+        $service->method('getTari')->willReturn(['Romania', 'Albania']);
+        $service->method('getJudete')->willReturn(['Alba', 'Cluj']);
+        $service->method('getStariCivile')->willReturn([0 => 'Necasatorit', 1 => 'Casatorit']);
+
+        return $service;
+    }
+
+    private function getValidPacientFormData(array $overrides = []): array
+    {
+        return array_merge([
+            'nume' => 'TEST',
+            'prenume' => 'PACIENT',
+            'tara' => 'Albania',
+            'cnp' => 'ABC123',
+            'ci' => 'XB',
+            'ciEliberat' => 'City',
+            'varsta' => '',
+            'judet' => '',
+            'localitate' => 'Localitate',
+            'adresa' => 'Adresa',
+            'telefon' => '0711111111',
+            'telefon2' => '',
+            'email' => '',
+            'ocupatie' => '',
+            'locMunca' => '',
+            'stareCivila' => '0',
+            'observatii' => '',
+            'pacient_id' => '',
+        ], $overrides);
     }
 }

@@ -15,6 +15,13 @@ class PacientConstraintsValidator extends ConstraintValidator
 
     public function validate($pacient, Constraint $constraint): void
     {
+        if ($pacient instanceof Pacient) {
+            $this->cnpIdUnic($pacient->getCnp(), $constraint, $pacient->getId());
+            $this->cnp($pacient->getCnp(), $constraint, $pacient->getTara());
+
+            return;
+        }
+
         foreach ($pacient as $property => $value) {
             switch ($property) {
                 case "cnp":

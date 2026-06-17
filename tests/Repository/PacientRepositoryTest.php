@@ -2,7 +2,6 @@
 
 namespace App\Tests\Repository;
 
-use App\DTO\PacientDTO;
 use App\Entity\Consultatie;
 use App\Entity\Pacient;
 use App\Entity\Pret;
@@ -16,7 +15,6 @@ use Doctrine\ORM\Query\Expr;
 use Doctrine\ORM\QueryBuilder;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 class PacientRepositoryTest extends KernelTestCase
 {
@@ -65,11 +63,6 @@ class PacientRepositoryTest extends KernelTestCase
         $this->testMedic = static::getContainer()
             ->get(UserRepository::class)
             ->findOneByEmail('damian.popescu@mindreset.ro');
-
-        $this->dto = new PacientDTO(1, 'n', 'p', '1790630060774', '0745545689' ,
-            '', 'ciprianmarta.cm@gmail.com', 'a', 'Alba', 'Baciu', 'Romania',
-            'XB', 'City', 'l', 'o', '2026-01-01', false,
-            'o', 1, $this->testMedic->getId(), [], []);
 
         $this->em->flush();
         $this->em->clear();
@@ -260,13 +253,14 @@ class PacientRepositoryTest extends KernelTestCase
     /**
      * @covers \App\Repository\PacientRepository::savePacient
      */
-    public function testSanSavePacientWithMissingIdException()
+    public function testCanSaveNewPacient()
     {
-        $this->expectException(BadRequestHttpException::class);
-        $this->expectExceptionMessage('Missing ID');
+        $adaugatDe = $this->em->getRepository(User::class)->findAll()[0];
+        $pacient = $this->getPacientEntity('1990101223347');
 
-        $this->dto->id = -10;
-        $this->repo->savePacient($this->dto, $this->testMedic);
+        $result = $this->repo->savePacient($pacient, $adaugatDe);
+
+        $this->assertNotNull($result);
     }
 
     /**
@@ -276,9 +270,11 @@ class PacientRepositoryTest extends KernelTestCase
     {
         $this->expectException(\Exception::class);
         $this->expectExceptionMessage('Failed operation');
-        $this->dto->id = $this->pacient->getId();
 
-        $this->repo->savePacient($this->dto, $this->testMedic);
+        $this->emMock->method('persist')
+            ->willThrowException(new \Exception('Failed operation'));
+
+        $this->repoMock->savePacient($this->getPacientEntity('1990101223347'), $this->testMedic);
     }
 
     /**
@@ -287,11 +283,12 @@ class PacientRepositoryTest extends KernelTestCase
     public function testSanSavePacientWithSuccess()
     {
         $adaugatDe = $this->em->getRepository(User::class)->findAll()[0];
-        $this->dto->id = $this->pacient->getId();
+        $pacient = $this->em->getRepository(Pacient::class)->find($this->pacient->getId());
+        $pacient->setNume('Pacient_Editat');
 
-        $result = $this->repo->savePacient($this->dto, $adaugatDe);
+        $result = $this->repo->savePacient($pacient, $adaugatDe);
 
-        $this->assertSame($this->dto->id, $result);
+        $this->assertSame($this->pacient->getId(), $result);
     }
 
     /**
@@ -406,5 +403,23 @@ class PacientRepositoryTest extends KernelTestCase
         yield ['value' => '', 'col' => '10'];
         yield ['value' => '', 'col' => '12'];
         yield ['value' => 'Pacient_Test', 'col' => '6'];
+    }
+
+    private function getPacientEntity(string $cnp): Pacient
+    {
+        $pacient = new Pacient();
+        $pacient->setNume('Pacient_Test');
+        $pacient->setPrenume('Prenume_Test');
+        $pacient->setCnp($cnp);
+        $pacient->setTelefon('0711111111');
+        $pacient->setAdresa('Addr');
+        $pacient->setTara('Romania');
+        $pacient->setCi('XB');
+        $pacient->setCiEliberat('City');
+        $pacient->setJudet('Alba');
+        $pacient->setLocalitate('Localitate');
+        $pacient->setStareCivila(0);
+
+        return $pacient;
     }
 }

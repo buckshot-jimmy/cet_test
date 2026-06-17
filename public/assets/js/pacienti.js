@@ -226,8 +226,7 @@ let pacienti = function () {
             $.ajax({
                 url: "pacienti/add_edit_pacient",
                 type: "POST",
-                data:
-                    $("#add_edit_pacient_form").serialize().replace("pacient_", ""),
+                data: $("#add_edit_pacient_form").serialize(),
                 success: function (response) {
                     addRezultatOperatiuneSuccess(response, '.add_edit_pacient_modal');
 
