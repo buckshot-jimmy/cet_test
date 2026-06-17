@@ -8,13 +8,11 @@ use App\Entity\Pacient;
 use App\Entity\Pret;
 use App\Entity\Serviciu;
 use App\Entity\User;
-use App\Form\PacientFormType;
 use App\Services\NomenclatoareService;
+use App\Services\PacientService;
 use App\Services\PushNotificationService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Form\FormErrorIterator;
-use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -32,7 +30,7 @@ class PacientController extends AbstractController
         private EntityManagerInterface $em,
         private TranslatorInterface $translator,
         private AuthorizationCheckerInterface $authorizationChecker,
-        private FormFactoryInterface $formFactory
+        private PacientService $pacientService
     ) {}
 
     #[Route('/pacienti', name: 'pacienti', methods: ['GET'])]
@@ -134,8 +132,8 @@ class PacientController extends AbstractController
             throw new AccessDeniedException();
         }
 
-        $pacient = $this->getPacientForRequest($request);
-        $form = $this->createPacientForm($pacient, $service);
+        $pacient = $this->pacientService->getPacientForRequest($request);
+        $form = $this->pacientService->createPacientForm($pacient, $service);
         $form->handleRequest($request);
 
         if (!$form->isSubmitted() || !$form->isValid()) {
@@ -143,7 +141,7 @@ class PacientController extends AbstractController
                 [
                     'status'  => Response::HTTP_BAD_REQUEST,
                     'message' => $this->translator->trans("Failed operation") . ' ' .
-                        $this->buildFormValidationErrors($form->getErrors(true)),
+                        $this->pacientService->buildFormValidationErrors($form->getErrors(true)),
                 ],
                 Response::HTTP_BAD_REQUEST
             );
@@ -161,8 +159,9 @@ class PacientController extends AbstractController
     public function getPacient(Request $request, NomenclatoareService $service) : Response
     {
         $data = $this->em->getRepository(Pacient::class)->getPacient($request->query->get('id'));
-        $pacient = $this->getPacientForData($data);
-        $form = $this->createPacientForm($pacient, $service, $data['varsta'] ?? '', $data['id'] ?? '');
+        $pacient = $this->pacientService->getPacientForData($data);
+        $form = $this->pacientService
+            ->createPacientForm($pacient, $service, $data['varsta'] ?? '', $data['id'] ?? '');
 
         $servicii = $this->em->getRepository(Serviciu::class)->getAllServicii();
         $medici = $this->em->getRepository(User::class)->getAllMedici();
@@ -305,91 +304,5 @@ class PacientController extends AbstractController
             'status' => Response::HTTP_OK,
             'message' => $this->translator->trans("Successful operation")
         ]);
-    }
-
-    private function getPacientForRequest(Request $request): Pacient
-    {
-        $pacientId = $request->request->get('pacient_id') ?: $request->request->get('id');
-
-        if (!$pacientId) {
-            return $this->getInitializedPacient();
-        }
-
-        $pacient = $this->em->getRepository(Pacient::class)->find($pacientId);
-
-        if (!$pacient instanceof Pacient) {
-            throw new BadRequestHttpException('Missing ID');
-        }
-
-        return $pacient;
-    }
-
-    private function getPacientForData(array $data): Pacient
-    {
-        $pacient = $this->getInitializedPacient();
-
-        if (!$data) {
-            return $pacient;
-        }
-
-        $pacient->setNume($data['nume']);
-        $pacient->setPrenume($data['prenume']);
-        $pacient->setCnp($data['cnp']);
-        $pacient->setTelefon($data['telefon']);
-        $pacient->setAdresa($data['adresa']);
-        $pacient->setTara($data['tara']);
-        $pacient->setCi($data['ci'] ?? null);
-        $pacient->setCiEliberat($data['ciEliberat'] ?? null);
-        $pacient->setJudet($data['judet'] ?? null);
-        $pacient->setLocalitate($data['localitate'] ?? null);
-        $pacient->setTelefon2($data['telefon2'] ?? null);
-        $pacient->setEmail($data['email'] ?? null);
-        $pacient->setOcupatie($data['ocupatie'] ?? null);
-        $pacient->setLocMunca($data['locMunca'] ?? null);
-        $pacient->setStareCivila($data['stareCivila'] ?? 0);
-        $pacient->setObservatii($data['observatii'] ?? null);
-
-        return $pacient;
-    }
-
-    private function getInitializedPacient(): Pacient
-    {
-        $pacient = new Pacient();
-        $pacient->setNume('');
-        $pacient->setPrenume('');
-        $pacient->setCnp('');
-        $pacient->setTelefon('');
-        $pacient->setAdresa('');
-        $pacient->setTara('Romania');
-        $pacient->setLocalitate('');
-        $pacient->setStareCivila(0);
-
-        return $pacient;
-    }
-
-    private function createPacientForm(
-        Pacient $pacient,
-        NomenclatoareService $service,
-        string|int|null $varsta = '',
-        string|int|null $pacientId = null
-    ) {
-        return $this->formFactory->createNamed('', PacientFormType::class, $pacient, [
-            'tari' => $service->getTari(),
-            'judete' => $service->getJudete(),
-            'stariCivile' => $service->getStariCivile(),
-            'varsta' => $varsta,
-            'pacient_id' => $pacientId ?? $pacient->getId(),
-        ]);
-    }
-
-    private function buildFormValidationErrors(FormErrorIterator $errors): string
-    {
-        $messages = '';
-
-        foreach ($errors as $error) {
-            $messages .= ' ' . $this->translator->trans($error->getMessage());
-        }
-
-        return $messages;
     }
 }
