@@ -64,17 +64,14 @@ let programari = function () {
                             }
 
                             if (row.stare !== NEONORATA) {
-                                actiuni += '<a href="javascript:trimiteEmailProgramare(' + row.id + ')"' +
-                                    ' class="btn btn-outline-dark btn-circle btn-sm trimite_email" ' +
-                                    'title="Trimite email"><i class="fas fa-envelope"></i></a>';
+                                actiuni += `<a href="#" class="btn btn-outline-dark btn-circle btn-sm trimite_email"
+                                    title="Trimite email" data-id="${row.id}"><i class="fas fa-envelope"></i></a>`;
                             }
 
-
-                            actiuni += '<a href="javascript:deschideConsultatie(' + row.id + ','
-                                + row.pacientId + ', \'' + row.numePacient + '\')" ' +
-                                'class="btn btn-primary btn-circle btn-sm deschide_consultatie" ' +
-                                'title="Deschide consultatie">' +
-                                '<i class="fas fa-book-medical"></i></a>';
+                            actiuni += `<a href="#" class="btn btn-primary btn-circle btn-sm deschide_consultatie"
+                                title="Deschide consultatie" data-id="${row.id}" data-pacient-id="${row.pacientId}"
+                                data-nume="${encodeURIComponent(row.numePacient)}"><i class="fas fa-book-medical"></i>
+                                </a>`;
                         }
 
                         if (row.anulata || row.stare === ONORATA) {
@@ -391,7 +388,7 @@ let programari = function () {
         });
 
         $(".add_consultatie_investigatie_modal").on('hidden.bs.modal', function (e) {
-           tableProgramari.ajax.reload();
+            tableProgramari.ajax.reload();
         });
     };
 
@@ -469,6 +466,21 @@ function deschideConsultatie(programareId, pacientId, numePacient) {
 
     $(".add_consultatie_investigatie_modal").modal("show");
 }
+
+$(document).on('click', '.trimite_email', function (e) {
+    e.preventDefault();
+    trimiteEmailProgramare($(this).data('id'));
+});
+
+$(document).on('click', '.deschide_consultatie', function (e) {
+    e.preventDefault();
+
+    const id = $(this).data('id');
+    const pacientId = $(this).data('pacient-id');
+    const numePacient = decodeURIComponent($(this).data('nume'));
+
+    deschideConsultatie(id, pacientId, numePacient);
+});
 
 $(document).ready(function () {
     programari.init();
