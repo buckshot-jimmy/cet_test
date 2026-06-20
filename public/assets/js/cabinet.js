@@ -69,31 +69,26 @@ let consultatiiCurenteCabinet = function () {
                         }
 
                         if (row.tipServiciu === TIP_CONSULTATIE) {
-                            actiuni += '<a href="javascript:tiparesteScrisoareMedicala(' + row.id + ')" ' +
-                                'class="btn btn-outline-danger btn-circle btn-sm tipareste_documente" title="' +
-                                titluDocument + '"><i class="fas fa-file-pdf"></i></a>';
+                            actiuni += actiuni += `<a href="#" class="btn btn-outline-danger btn-circle
+                                btn-sm tipareste_documente" title="${titluDocument}" data-id="${row.id}">
+                                <i class="fas fa-file-pdf"></i></a>`;
                         } else if (row.tipServiciu === TIP_INVESTIGATIE) {
-                            actiuni += '<a href="javascript:tiparesteBuletinInvestigatie(' + row.id + ')" ' +
-                                'class="btn btn-outline-danger btn-circle btn-sm tipareste_documente" title="' +
-                                titluDocument + '"><i class="fas fa-file-pdf"></i></a>';
+                            actiuni += `<a href="#" class="btn btn-outline-danger btn-circle btn-sm tipareste_documente"
+                                title="${titluDocument}" data-id="${row.id}"> <i class="fas fa-file-pdf"></i></a>`;
                         }
                         if (row.tipServiciu === TIP_CONSULTATIE) {
-                            actiuni += '<a href="javascript:tiparesteFisaConsultatii(' + row.id + ')" ' +
-                                'class="btn btn-outline-warning btn-circle btn-sm pdf_fisa_consultatii" ' +
-                            'title="Fisa consultatii"><i class="fas fa-file-pdf"></i></a>';
+                            actiuni += `<a href="#" class="btn btn-outline-warning btn-circle btn-sm pdf_fisa_consultatii"
+                                title="Fisa consultatii" data-id="${row.id}"><i class="fas fa-file-pdf"></i></a>`;
                         }
 
                         if (row.tipServiciu === TIP_PSIHODIAGNOSTIC) {
-                            actiuni += '<a href="javascript:tiparesteFisaPsihodiagnostic(' + row.id + ')" ' +
-                                'class="btn btn-outline-success btn-circle btn-sm fisa_psiho" title="' +
-                                titluDocument + '"><i class="fas fa-file-pdf"></i></a>';
+                            actiuni += `<a href="#" class="btn btn-outline-success btn-circle btn-sm fisa_psiho" 
+                                title="${titluDocument}" data-id="${row.id}"><i class="fas fa-file-pdf"></i></a>`;
                         }
 
                         if (row.tipServiciu === TIP_CONSULTATIE) {
-                            actiuni += '<a href="javascript:tiparesteReferatMedical(' + row.id + ')" ' +
-                                'class="btn btn-outline-success btn-circle btn-sm referat_medical" ' +
-                                'title="Referat medical">' +
-                                '<i class="fas fa-file-medical-alt"></i></a>';
+                            actiuni += `<a href="#" class="btn btn-outline-success btn-circle btn-sm referat_medical"
+                                title="Referat medical" data-id="${row.id}"><i class="fas fa-file-medical-alt"></i></a>`;
                         }
 
                         return actiuni;
@@ -199,7 +194,7 @@ let consultatiiCurenteCabinet = function () {
         $(".view_consultatie_modal, .view_investigatie_modal, .view_eval_psiho_modal, .short_modal")
             .on('hide.bs.modal', function(){
                 removeBlur();
-        });
+            });
     }
 
     let initPushNotification = function () {
@@ -243,6 +238,41 @@ function inchideDeschide(consInvId, tableToRefresh) {
         }
     });
 }
+
+$(document).on('click', '.tipareste_documente', function (e) {
+    e.preventDefault();
+
+    const id = $(this).data('id');
+    tiparesteScrisoareMedicala(id);
+});
+
+$(document).on('click', '.tipareste_documente', function (e) {
+    e.preventDefault();
+
+    const id = $(this).data('id');
+    tiparesteBuletinInvestigatie(id);
+});
+
+$(document).on('click', '.pdf_fisa_consultatii', function (e) {
+    e.preventDefault();
+
+    const id = $(this).data('id');
+    tiparesteFisaConsultatii(id);
+});
+
+$(document).on('click', '.fisa_psiho', function (e) {
+    e.preventDefault();
+
+    const id = $(this).data('id');
+    tiparesteFisaPsihodiagnostic(id);
+});
+
+$(document).on('click', '.referat_medical', function (e) {
+    e.preventDefault();
+
+    const id = $(this).data('id');
+    tiparesteReferatMedical(id);
+});
 
 $(document).ready(function () {
     consultatiiCurenteCabinet.init();
