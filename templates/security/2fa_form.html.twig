@@ -1,4 +1,5 @@
 {% set nonceStyle = csp_nonce('style') %}
+{% set nonceScript = csp_nonce('script') %}
 <!DOCTYPE html>
 <html lang="en">
 <link nonce="{{ nonceStyle }}" href="{{ asset('assets/sigla.ico') }}" rel="icon" type="image/icon" />
@@ -55,13 +56,13 @@
         </div>
     </div>
 </div>
-<script src="{{ asset('assets/js/app_js/jquery.min.js') }}"></script>
-<script src="{{ asset('assets/js/app_js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ asset('assets/js/app_js/jquery.easing.js') }}"></script>
-<script src="{{ asset('assets/js/app_js/sb-admin-2.min.js') }}"></script>
-<script src="{{ asset('assets/js/app_js/jquery.validate.js') }}"></script>
-<script src="{{ asset('assets/js/app_js/jquery_extend.js') }}"></script>
-<script src="{{ asset('assets/js/forgot_password.js') }}"></script>
+<script src="{{ asset('assets/js/app_js/jquery.min.js') }}" nonce={{ nonceScript }}></script>
+<script src="{{ asset('assets/js/app_js/bootstrap.bundle.min.js') }}" nonce={{ nonceScript }}></script>
+<script src="{{ asset('assets/js/app_js/jquery.easing.js') }}" nonce={{ nonceScript }}></script>
+<script src="{{ asset('assets/js/app_js/sb-admin-2.min.js') }}" nonce={{ nonceScript }}></script>
+<script src="{{ asset('assets/js/app_js/jquery.validate.js') }}" nonce={{ nonceScript }}></script>
+<script src="{{ asset('assets/js/app_js/jquery_extend.js') }}" nonce={{ nonceScript }}></script>
+<script src="{{ asset('assets/js/forgot_password.js') }}" nonce={{ nonceScript }}></script>
 <div id="global-alert-container"></div>
 </body>
 </html>
