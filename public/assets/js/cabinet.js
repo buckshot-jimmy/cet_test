@@ -69,11 +69,11 @@ let consultatiiCurenteCabinet = function () {
                         }
 
                         if (row.tipServiciu === TIP_CONSULTATIE) {
-                            actiuni += actiuni += `<a href="#" class="btn btn-outline-danger btn-circle
-                                btn-sm tipareste_documente" title="${titluDocument}" data-id="${row.id}">
+                            actiuni += `<a href="#" class="btn btn-outline-danger btn-circle
+                                btn-sm tipareste_scrisoare" title="${titluDocument}" data-id="${row.id}">
                                 <i class="fas fa-file-pdf"></i></a>`;
                         } else if (row.tipServiciu === TIP_INVESTIGATIE) {
-                            actiuni += `<a href="#" class="btn btn-outline-danger btn-circle btn-sm tipareste_documente"
+                            actiuni += `<a href="#" class="btn btn-outline-danger btn-circle btn-sm tipareste_buletin"
                                 title="${titluDocument}" data-id="${row.id}"> <i class="fas fa-file-pdf"></i></a>`;
                         }
                         if (row.tipServiciu === TIP_CONSULTATIE) {
@@ -239,14 +239,14 @@ function inchideDeschide(consInvId, tableToRefresh) {
     });
 }
 
-$(document).on('click', '.tipareste_documente', function (e) {
+$(document).on('click', '.tipareste_scrisoare', function (e) {
     e.preventDefault();
 
     const id = $(this).data('id');
     tiparesteScrisoareMedicala(id);
 });
 
-$(document).on('click', '.tipareste_documente', function (e) {
+$(document).on('click', '.tipareste_buletin', function (e) {
     e.preventDefault();
 
     const id = $(this).data('id');
