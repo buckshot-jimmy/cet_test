@@ -454,8 +454,6 @@ function trimiteEmailProgramare(programareId) {
 }
 
 function deschideConsultatie(programareId, pacientId, numePacient) {
-    $("select[multiple]").addClass('js-overflow-x-auto');
-
     $(".titlu_cons_inv_modal").addClass('js-font-bold')
         .text('Pacient ' + numePacient + ' - Adauga consultatie / investigatie');
 
@@ -465,6 +463,7 @@ function deschideConsultatie(programareId, pacientId, numePacient) {
     cautaPreturi();
 
     $(".add_consultatie_investigatie_modal").modal("show");
+    $("select[multiple]").addClass('js-overflow-x-auto');
 }
 
 $(document).on('click', '.trimite_email', function (e) {

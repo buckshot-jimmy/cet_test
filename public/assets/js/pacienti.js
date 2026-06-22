@@ -94,8 +94,6 @@ let pacienti = function () {
 
     let initAdaugaConsultatieInvestigatie = function () {
         $("body").on("click", ".add_consultatie_investigatie", function () {
-            $("select[multiple]").addClass('js-overflow-x-auto');
-
             let pacient = this.getAttribute('pacient');
             $(".titlu_cons_inv_modal").addClass('js-font-bold')
                 .text('Pacient ' + pacient + ' - Adauga consultatie / investigatie');
@@ -106,6 +104,7 @@ let pacienti = function () {
             cautaPreturi();
 
             $(".add_consultatie_investigatie_modal").modal("show");
+            $("select[multiple]").addClass('js-overflow-x-auto');
         });
 
         $(".confirma_adauga_consultatie_investigatie").on("click", function () {

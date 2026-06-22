@@ -19,6 +19,10 @@
     font-size: 10px;
 }
 
+.clear1, .clear2 {
+    float:right!important;
+}
+
 .bootstrap-duallistbox-container .box1.filtered .clear1,
 .bootstrap-duallistbox-container .box2.filtered .clear2 {
     display: inline-block;
