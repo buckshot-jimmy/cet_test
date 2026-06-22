@@ -388,7 +388,7 @@ let programari = function () {
         });
 
         $(".add_consultatie_investigatie_modal").on('hidden.bs.modal', function (e) {
-           tableProgramari.ajax.reload();
+            tableProgramari.ajax.reload();
         });
     };
 

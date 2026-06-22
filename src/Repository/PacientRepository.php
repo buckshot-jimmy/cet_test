@@ -8,7 +8,6 @@ use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\ORM\AbstractQuery;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Persistence\ManagerRegistry;
-use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 
 /**
  * @method Pacient|null find($id, $lockMode = null, $lockVersion = null)
@@ -129,36 +128,11 @@ class PacientRepository extends ServiceEntityRepository
         ];
     }
 
-    public function savePacient($dto, $adaugatDe)
+    public function savePacient(Pacient $pacient, $adaugatDe)
     {
-        $pacient = new Pacient();
-
-        if (isset($dto->id) && !empty($dto->id)) {
-            $pacient = $this->find($dto->id);
-        }
-
-        if (!$pacient instanceof Pacient) {
-            throw new BadRequestHttpException('Missing ID');
-        }
-
-        $pacient->setNume($dto->nume);
-        $pacient->setPrenume($dto->prenume);
-        $pacient->setCnp($dto->cnp);
-        $pacient->setTelefon($dto->telefon);
-        $pacient->setAdresa($dto->adresa);
-        $pacient->setJudet(isset($dto->judet) ? $dto->judet : '---');
-        $pacient->setTara($dto->tara);
-        $pacient->setCi($dto->ci);
         $pacient->setDataInreg(new \DateTime());
         $pacient->setSters(false);
-        $pacient->setTelefon2($dto->telefon2);
-        $pacient->setEmail($dto->email);
-        $pacient->setObservatii($dto->observatii);
-        $pacient->setLocalitate($dto->localitate);
-        $pacient->setLocMunca($dto->locMunca);
-        $pacient->setOcupatie($dto->ocupatie);
-        $pacient->setStareCivila($dto->stareCivila);
-        $pacient->setCiEliberat($dto->ciEliberat);
+        $pacient->setJudet($pacient->getJudet() ?: '---');
         $pacient->setAdaugatDe($adaugatDe);
 
         try {
