@@ -39,7 +39,6 @@ class ResetPasswordRequestFormType extends AbstractType
                 'attr' => [
                     'id' => 'retrimite_email_btn',
                     'class' => 'btn btn-info',
-                    'style' => 'margin-top: 10px;'
                 ]
             ]);
     }

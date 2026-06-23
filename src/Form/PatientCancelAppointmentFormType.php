@@ -16,8 +16,7 @@ class PatientCancelAppointmentFormType extends AbstractType
                 'label' => 'Anuleaza programarea',
                 'attr' => [
                     'id' => 'anuleaza_programare_btn',
-                    'class' => 'btn btn-info',
-                    'style' => 'margin-top: 10px;'
+                    'class' => 'btn btn-info'
                 ]
             ]);
     }

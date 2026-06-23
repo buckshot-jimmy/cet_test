@@ -106,7 +106,7 @@ class PacientFormType extends AbstractType
             ->add('observatii', TextareaType::class, [
                 'label' => 'Observatii',
                 'required' => false,
-                'attr' => ['class' => 'form-control twig-style-104', 'placeholder' => 'Observatii'],
+                'attr' => ['class' => 'form-control', 'placeholder' => 'Observatii'],
             ])
             ->add('pacient_id', HiddenType::class, [
                 'mapped' => false,
