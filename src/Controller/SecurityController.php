@@ -171,11 +171,6 @@ class SecurityController extends AbstractController
         $form = $this->createForm(ResetPasswordRequestFormType::class);
         $form->handleRequest($request);
 
-        $formData = $request->request->all('reset_password_request_form');
-        if (isset($formData['retrimite_email_btn'])) {
-            $authService->removeResetToken($formData['email_forgot_password']);
-        }
-
         if ($form->isSubmitted()) {
             if (!$form->isValid()) {
                 $this->addFlash('danger', $this->translator->trans($form->getErrors(true)[0]->getMessage()));
@@ -190,6 +185,11 @@ class SecurityController extends AbstractController
                 $this->addFlash('danger', $this->translator->trans('User not found'));
 
                 return $this->redirectToRoute('forgot_password_email');
+            }
+
+            $formData = $request->request->all('reset_password_request_form');
+            if (isset($formData['retrimite_email_btn'])) {
+                $authService->removeResetToken($formData['email_forgot_password']);
             }
 
             $resetToken = $authService->generateResetToken($user);
