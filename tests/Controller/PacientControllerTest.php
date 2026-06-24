@@ -16,11 +16,12 @@ use App\Repository\PretRepository;
 use App\Repository\ServiciuRepository;
 use App\Repository\UserRepository;
 use App\Services\NomenclatoareService;
+use App\Services\PacientService;
 use App\Services\PushNotificationService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\Form\Extension\Validator\ValidatorExtension;
-use Symfony\Component\Form\FormFactoryInterface;
+use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Form\Forms;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -38,15 +39,17 @@ class PacientControllerTest extends WebTestCase
         $this->em = $this->createMock(EntityManagerInterface::class);
         $this->translator = $this->createMock(TranslatorInterface::class);
         $this->authorizationChecker = $this->createMock(AuthorizationCheckerInterface::class);
+        $this->pacientService = $this->createMock(PacientService::class);
         $this->formFactory = Forms::createFormFactoryBuilder()
             ->addExtension(new ValidatorExtension(static::getContainer()->get('validator')))
             ->getFormFactory();
+        $this->formMock = $this->createMock(FormInterface::class);
 
         $this->controller = new PacientController(
             $this->em,
             $this->translator,
             $this->authorizationChecker,
-            $this->formFactory
+            $this->pacientService
         );
 
         $this->testUser = static::getContainer()
@@ -61,7 +64,7 @@ class PacientControllerTest extends WebTestCase
             ->findOneByEmail('damian.popescu@mindreset.ro');
 
         $this->controllerMock = $this->getMockBuilder(PacientController::class)
-            ->setConstructorArgs([$this->em, $this->translator, $this->authorizationChecker, $this->formFactory])
+            ->setConstructorArgs([$this->em, $this->translator, $this->authorizationChecker, $this->pacientService])
             ->onlyMethods(['getUser'])
             ->getMock();
 
@@ -116,7 +119,7 @@ class PacientControllerTest extends WebTestCase
             $this->em,
             $this->translator,
             $this->authorizationChecker,
-            $this->formFactory
+            $this->pacientService
         );
 
         $this->assertInstanceOf(PacientController::class, $controller);
@@ -345,6 +348,14 @@ class PacientControllerTest extends WebTestCase
 
         $this->client->loginUser($this->testMedic, 'main');
 
+        $this->pacientService->expects($this->once())->method('getPacientForRequest')
+            ->willReturn($this->pacient);
+        $this->pacientService->expects($this->once())->method('createPacientForm')
+            ->willReturn($this->formMock);
+        $this->formMock->expects($this->once())->method('handleRequest')->willReturnSelf();
+        $this->formMock->expects($this->once())->method('isSubmitted')->willReturn(true);
+        $this->formMock->expects($this->once())->method('isValid')->willReturn(false);
+
         $response = $this->controller->salveazaPacient(
             new Request([], $this->getValidPacientFormData(['nume' => ''])),
             $this->getNomenclatoareService()
@@ -356,7 +367,6 @@ class PacientControllerTest extends WebTestCase
         $data = json_decode($response->getContent(), true);
         $this->assertSame(Response::HTTP_BAD_REQUEST, $data['status']);
         $this->assertStringContainsString('Failed operation.', $data['message']);
-        $this->assertStringContainsString('This value should not be blank.', $data['message']);
     }
 
     /**
@@ -381,14 +391,18 @@ class PacientControllerTest extends WebTestCase
 
         $this->controllerMock->method('getUser')->willReturn($this->testMedic);
 
-        $this->pacientiRepo->method('find')
-            ->with($this->pacient->getId())
+        $this->pacientService->expects($this->once())->method('getPacientForRequest')
             ->willReturn($this->pacient);
+        $this->pacientService->expects($this->once())->method('createPacientForm')
+            ->willReturn($this->formMock);
+        $this->formMock->expects($this->once())->method('handleRequest')->willReturnSelf();
+        $this->formMock->expects($this->once())->method('isSubmitted')->willReturn(true);
+        $this->formMock->expects($this->once())->method('isValid')->willReturn(true);
 
         $this->pacientiRepo->expects($this->once())
             ->method('savePacient')
             ->with(
-                $this->callback(fn (Pacient $pacient) => 'NOU' === $pacient->getNume()),
+                $this->pacient,
                 $this->testMedic
             );
 
