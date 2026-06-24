@@ -30,7 +30,7 @@ class PacientService
         $pacient = $this->em->getRepository(Pacient::class)->find($pacientId);
 
         if (!$pacient instanceof Pacient) {
-            throw new BadRequestHttpException('Missing ID');
+            throw new BadRequestHttpException($this->translator->trans('Missing ID'));
         }
 
         return $pacient;
@@ -64,21 +64,6 @@ class PacientService
         return $pacient;
     }
 
-    public function getInitializedPacient(): Pacient
-    {
-        $pacient = new Pacient();
-        $pacient->setNume('');
-        $pacient->setPrenume('');
-        $pacient->setCnp('');
-        $pacient->setTelefon('');
-        $pacient->setAdresa('');
-        $pacient->setTara('Romania');
-        $pacient->setLocalitate('');
-        $pacient->setStareCivila(0);
-
-        return $pacient;
-    }
-
     public function createPacientForm(
         Pacient $pacient,
         NomenclatoareService $service,
@@ -103,5 +88,20 @@ class PacientService
         }
 
         return $messages;
+    }
+
+    private function getInitializedPacient(): Pacient
+    {
+        $pacient = new Pacient();
+        $pacient->setNume('');
+        $pacient->setPrenume('');
+        $pacient->setCnp('');
+        $pacient->setTelefon('');
+        $pacient->setAdresa('');
+        $pacient->setTara('Romania');
+        $pacient->setLocalitate('');
+        $pacient->setStareCivila(0);
+
+        return $pacient;
     }
 }

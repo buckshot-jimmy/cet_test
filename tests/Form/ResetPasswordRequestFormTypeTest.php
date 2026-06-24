@@ -17,7 +17,7 @@ class ResetPasswordRequestFormTypeTest extends TypeTestCase
     {
         $validator = Validation::createValidator();
 
-        $type = new ChangePasswordFormType();
+        $type = new ResetPasswordRequestFormType();
 
         return [
             new PreloadedExtension([$type], []),

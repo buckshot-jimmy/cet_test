@@ -283,12 +283,12 @@ class AdminServiceTest extends KernelTestCase
         $violation1 = new ConstraintViolation(
             'Data collection error', null, [], '', '', null);
         $violation2 = new ConstraintViolation(
-            'Successful operation', null, [], '', '', null);
+            'Failed operation', null, [], '', '', null);
 
         $violationsList = new ConstraintViolationList([$violation1, $violation2]);
 
         $result = $this->service->buildValidationErrors($violationsList);
 
-        $this->assertSame(' ' . 'Eroare la preluarea datelor. Operatiune reusita.', $result);
+        $this->assertSame(' ' . 'Eroare la preluarea datelor. Operatiune esuata.', $result);
     }
 }
